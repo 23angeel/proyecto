@@ -5,11 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú</title>
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="./estilos.css">
 </head>
 <body>
-    
-    <nav class="nav">
+     <nav class="nav">
 
         <div class="nav__container">
 
@@ -27,9 +26,25 @@
 
                 <li class="dropdown__list">
                     <a href="#" class="dropdown__link">
-                        <span class="dropdown__span">Usuario</span>
+                        
+                        <span class="dropdown__span">Usario</span>
+                        <img src="./assets/down.svg" class="dropdown__arrow">
+
+                        <input type="checkbox" class="dropdown__check">
                     </a>
-                </li>
+
+                    <div class="dropdown__content">
+
+                        <ul class="dropdown__sub">
+
+                            <li class="dropdown__li">
+                                <a href="Crearusuario.php" class="dropdown__anchor">Resgitrar</a>
+                            </li>
+                            <li class="dropdown__li">
+                                <a href="catalogousuarios.php" class="dropdown__anchor">Consultar</a>
+                            </li>
+
+                        </ul>
 
                 <li class="dropdown__list">
                     <a href="#" class="dropdown__link">
@@ -69,7 +84,7 @@
                         <ul class="dropdown__sub">
 
                             <li class="dropdown__li">
-                                <a href="#" class="dropdown__anchor">Resgitrar</a>
+                                <a href="Crearestudiante.php" class="dropdown__anchor">Resgitrar</a>
                             </li>
                             <li class="dropdown__li">
                                 <a href="#" class="dropdown__anchor">Consultar</a>
@@ -92,7 +107,5 @@
         </div>
 
     </nav>
-
-
 </body>
 </html>
