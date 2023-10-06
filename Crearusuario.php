@@ -47,11 +47,11 @@
 			include 'conexion_bd.php';
 
 			$usuario = $_POST['name'];
-			$contraseña = $_POST['password'];
+			$contrasena = $_POST['password'];
 			$clase = $_POST['tipo'];
 
-			$query = "INSERT INTO usuario(usuario, contrasena, id_rol)
-					  VALUES('$usuario', '$contraseña', '$clase')";
+			$query = "INSERT INTO usuarios(usuario, contrasena, id_rol)
+					  VALUES('$usuario', '$contrasena', '$clase')";
 
 			$ejecutar = mysqli_query($conexion, $query);
 
