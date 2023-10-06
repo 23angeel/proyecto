@@ -13,7 +13,7 @@
 </section>
 
 <form method="post" action="Menu.php">
-   <h1>Inicio de Sesión</h1>
+   <h1>Inicio de Sesion</h1>
    <div> 
       <label for="nickname">Usuario</label>
       <input class="usuario" id="nickname" type="text" name="usuario" placeholder="usuario"> 
@@ -22,7 +22,7 @@
       <label for="password">Contraseña</label>
       <input id="password" type="password" name="con" class="password" placeholder="********"> 
    </div>
-   <button type="submit">iniciar sesión</button>
+   <button type="submit">iniciar sesion</button>
 </form>
 </body>
 </html>
