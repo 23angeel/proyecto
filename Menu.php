@@ -8,18 +8,6 @@
     <link rel="stylesheet" href="./estilos.css">
 </head>
 <body>
-    <?php
-    $usuario = $_POST['usuario'];
-
-    $arch=fopen("Usuarios.txt", "r+")
-        or die("ERROR AL ABRIL EL ARCHIVO");
-    while(!feof($arch))
-        {   
-            $linea=fgets($arch);
-            $v=explode(";", $linea);
-                if($v[0]==true && $v[1]==$usuario){
-            echo'
-
      <nav class="nav">
 
         <div class="nav__container">
@@ -37,14 +25,6 @@
             <ul class="dropdown" id="menu">
 
                 <li class="dropdown__list">
-                    <a href="#" class="dropdown__link">
-                        
-                        <span class="dropdown__span">Usario</span>
-                        <img src="./assets/down.svg" class="dropdown__arrow">
-
-                        <input type="checkbox" class="dropdown__check">
-                    </a>
-
                     <div class="dropdown__content">
 
                         <ul class="dropdown__sub">
@@ -119,9 +99,5 @@
         </div>
 
     </nav>
-    ';
-   }
- }
-?>
 </body>
 </html>
