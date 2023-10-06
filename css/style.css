@@ -19,7 +19,7 @@ body {
 }
 
 section {
-    background: url(../img/wallpaperbetter.jpg);
+    background: url(Imagenes/login.jpg);
     position: absolute;
     transform: rotate(35deg) translate(0px,-50%);
     top: 0px;
