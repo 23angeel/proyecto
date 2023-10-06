@@ -43,6 +43,7 @@
 
 <?php
 		if(isset($_POST['crear'])){
+			if (strlen($_POST['name']) >= 1 && strlen($_POST['password']) >= 1) {
 
 			include 'conexion_bd.php';
 
@@ -50,25 +51,29 @@
 			$contrasena = $_POST['password'];
 			$clase = $_POST['tipo'];
 
+			//Encriptamiento de contraseña
+			$contrasena = hash('sha512', $contrasena);
+
 			$query = "INSERT INTO usuarios(usuario, contrasena, id_rol)
 					  VALUES('$usuario', '$contrasena', '$clase')";
 
 			$ejecutar = mysqli_query($conexion, $query);
 
 			if($ejecutar){
-				echo'
-					<script>
-						alert("Usuario registrado exitosamente");
-					</script>
-					';		
+				?>
+				<h3>Usuario registrados correctamente</h3>
+				<?php
 			}else{
-				echo'
-				<script>
-				alert("Error al registrar usuario");
-			</script>
-			';	
+				?>
+				<h3>Error al registrar el usuario</h3>
+				<?php
 			}
 			mysqli_close($conexion);
 
+				} else{
+					?>
+					<h3> Por favor complete los campos</h3>
+					<?php
 				}
-	?>
+			}
+?>
