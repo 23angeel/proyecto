@@ -3,46 +3,72 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/crearUsuario.css">
 	<title>ESCUELA DEL TRANSPORTE-CREAR USUARIO</title>
+	<link rel="stylesheet" type="text/css" href="style1.cs">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,100&display=swap" rel="stylesheet">
 </head>
 <body>
 	<div>
-		<h1>CREAR USUARIO</h1>
+	<section class="img-back"></section>
+	<div class="container">
+		<section class="img-intt"> </section>
 	<form method="post" action="">
-		<label>NOMBRE DE USUARIO</label><br>
-		<input type="text" name="name"><br>
-		<label>CONTRASEÑA</label><br>
-		<input type="text" name="con"><br>
+		<h1>CREAR USUARIO</h1>
+
+		<div  class="input-box">
+			<div>
+				<label>NOMBRE DE USUARIO</label><br>
+				<input type="text" name="name"><br>
+			</div>
+			<div>
+				<label>CONTRASEÑA</label><br>
+				<input type="password" name="password"><br>
+			</div>
+		
 		<label>ROL EN EL SISTEMA</label><br>
-		ADMINISTRADOR<input type="radio" name="tipo" value="admin">
-		DIRECTORA<input type="radio" name="tipo" value="dire">
-		SECRETARIA<input type="radio" name="tipo" value="secre">
+		ADMINISTRADOR<input type="radio" name="tipo" value="1">
+		USUARIO<input type="radio" name="tipo" value="2">
 
-		<br><button type="submit" name="crear"> Crear </button>
+		
+		<div class="btns">
+		<button type="submit" name="crear"> Crear </button>
 		<button type="reset"> limpiar </button>
+		</div>	 
 	</form>
-	</div>
-
-	<div>
-		<?php
-		if(isset($_POST['crear'])){
-			$codigo = rand(00,99);
-			$usuario = $_POST['name'];
-			$contraseña = $_POST['con'];
-			$clase = $_POST['tipo'];
-
-			//APERTURA DEL ARCHIVO 
-	$arch= fopen("Usuarios.txt", "a+")
-		or die ("PROBLEMAS AL CREAR EL ARCHIVO");
-		//PPROCESAMOS LA INFORMACION
-     	$cadena=$codigo.";".$usuario.";".$contraseña.";".$clase."\n";
-     	fputs($arch,$cadena);
-     	//CERRAR EL ARCHIVO
-		fclose($arch);
-
- 		echo "<a href='Menu.php'></a>";		}
-		?>
 	</div>
 </body>
 </html>
+
+<?php
+		if(isset($_POST['crear'])){
+
+			include 'conexion_bd.php';
+
+			$usuario = $_POST['name'];
+			$contraseña = $_POST['password'];
+			$clase = $_POST['tipo'];
+
+			$query = "INSERT INTO usuario(usuario, contrasena, id_rol)
+					  VALUES('$usuario', '$contraseña', '$clase')";
+
+			$ejecutar = mysqli_query($conexion, $query);
+
+			if($ejecutar){
+				echo'
+					<script>
+						alert("Usuario registrado exitosamente");
+					</script>
+					';		
+			}else{
+				echo'
+				<script>
+				alert("Error al registrar usuario");
+			</script>
+			';	
+			}
+			mysqli_close($conexion);
+
+				}
+	?>
