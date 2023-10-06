@@ -25,7 +25,27 @@
             <ul class="dropdown" id="menu">
 
                 <li class="dropdown__list">
+                    <a href="#" class="dropdown__link">
+                        
+                        <span class="dropdown__span">Usario</span>
+                        <img src="./assets/down.svg" class="dropdown__arrow">
+
+                        <input type="checkbox" class="dropdown__check">
+                    </a>
+
                     <div class="dropdown__content">
+
+                        <ul class="dropdown__sub">
+
+                            <li class="dropdown__li">
+                                <a href="Crearusuario.php" class="dropdown__anchor">Resgitrar</a>
+                            </li>
+                            <li class="dropdown__li">
+                                <a href="catalogousuarios.php" class="dropdown__anchor">Consultar</a>
+                            </li>
+
+                        </ul>
+
                 <li class="dropdown__list">
                     <a href="#" class="dropdown__link">
                         
