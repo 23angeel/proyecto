@@ -37,7 +37,7 @@
 
          $conexion = mysqli_connect("localhost", "root", "", "proyecto");
 
-         $consulta = "SELECT * FROM usuarios WHERE usuario='$usuario' AND contrasena='$contrasena'");
+         $consulta = "SELECT * FROM usuarios WHERE usuario='$usuario' AND contrasena='$contrasena'";
          $resultado = mysqli_fetch_array($conexion, $consulta);
 
          if($resultado) {
