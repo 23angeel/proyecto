@@ -12,7 +12,7 @@
    <section>
 </section>
 
-<form method="post" action="Menu.php">
+<form method="post" action="">
    <h1>Inicio de Sesion</h1>
    <div> 
       <label for="nickname">Usuario</label>
@@ -20,9 +20,48 @@
    </div>
    <div> 
       <label for="password">Contraseña</label>
-      <input id="password" type="password" name="con" class="password" placeholder="********"> 
+      <input id="password" type="password" name="password" class="password" placeholder="********"> 
    </div>
-   <button type="submit">iniciar sesion</button>
+   <button type="submit" name="inicio">iniciar sesion</button>
 </form>
 </body>
 </html>
+
+<?php
+   if (isset($_POST['inicio'])) {
+      if (strlen($_POST['usuario']) >= 1 && strlen($_POST['password']) >= 1) {
+
+
+         $usuario = $_POST['usuario'];
+         $contrasena = $_POST['password'];
+
+         $conexion = mysqli_connect("localhost", "root", "", "proyecto");
+
+         $consulta = "SELECT * FROM usuarios WHERE usuario='$usuario' AND contrasena='$contrasena'");
+         $resultado = mysqli_fetch_array($conexion, $consulta);
+
+         if($resultado) {
+            session_start();
+            $_SESSION['usuario'] = $resultado['usuario'];
+            $_SESSION['id_cargo'] = $resultado['id_cargo'];
+
+            if($_SESSION['id_cargo'] == 1) { //administrador
+               header('location: Menu_admin.php');
+            }
+            if($_SESSION['id_cargo'] == 2) { //usuario
+               header('location: Menu.php');
+            }
+         }else{
+            ?>
+            <h3>Usuario no existe</h3>
+            <?php
+         }
+         mysqli_free_result($resultado);
+         mysqli_close($conexion);
+      }else{
+         ?>
+         <h3>Completa los campos</h3>
+         <?php
+      }
+   }
+?>
