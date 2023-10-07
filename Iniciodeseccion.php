@@ -34,37 +34,22 @@
 
          $usuario = $_POST['usuario'];
          $contrasena = $_POST['password'];
+         session_start();
+         $_SESSION['usuario'] = $usuario;
 
          $conexion = mysqli_connect("localhost", "root", "", "proyecto");
-<<<<<<< HEAD
-
          $consulta = "SELECT * FROM usuarios WHERE usuario='$usuario' AND contrasena='$contrasena'";
-         $resultado = mysqli_fetch_array($conexion, $consulta);
-=======
-         $consulta = "SELECT * FROM usuarios WHERE usuario='$usuario' AND contrasena='$contrasena'";
-         $r= mysqli_query($conexion,$consulta);
-         $resultado = mysqli_fetch_array($r);
->>>>>>> 7be930c9cd7f98355e5c940b76b65805c53ef5c3
+         $resultado=mysqli_query($conexion, $consulta);
+         $filas=mysqli_fetch_array($resultado);
 
-         if($resultado) {
-            session_start();
-            $_SESSION['usuario'] = $resultado['usuario'];
-            $_SESSION['id_cargo'] = $resultado['id_cargo'];
+         if($filas['id_rol'] == 1){ //admin
 
-            if($_SESSION['id_cargo'] == 1) { //administrador
-               header('location: Menu_admin.php');
-            }
-            if($_SESSION['id_cargo'] == 2) { //usuario
-               header('location: Menu.php');
-            }
-         }else{
-            ?>
-            <h3>Usuario no existe</h3>
-            <?php
-         }
-         mysqli_free_result($resultado);
-         mysqli_close($conexion);
-      }else{
+        header('location: Menu_admin.php');
+
+        }else if($filas['id_rol'] == 2){ //usuario
+        header('location: Menu.php');;
+    }   
+    }else{
          ?>
          <h3>Completa los campos</h3>
          <?php
