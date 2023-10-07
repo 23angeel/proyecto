@@ -1,3 +1,8 @@
+<?php
+session_start();
+if($_SESSION['id_cargo'] == 2) { //usuario
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -81,7 +86,12 @@
                         <span class="dropdown__span">Control de Estudios</span>
                     </a>
                 </li>
-
+                <br><br>
+                 <li class="dropdown__list">
+                    <a href="iniciodeseccion.php" class="dropdown__link">
+                        <span class="dropdown__span">Cerrar sesión</span>
+                    </a>
+                </li>
             </ul>
 
         </div>
@@ -89,3 +99,9 @@
     </nav>
 </body>
 </html>
+
+<?php
+}else{
+    header("Location: Iniciodeseccion.php");
+}
+?>
