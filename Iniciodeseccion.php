@@ -36,9 +36,15 @@
          $contrasena = $_POST['password'];
 
          $conexion = mysqli_connect("localhost", "root", "", "proyecto");
+<<<<<<< HEAD
 
          $consulta = "SELECT * FROM usuarios WHERE usuario='$usuario' AND contrasena='$contrasena'";
          $resultado = mysqli_fetch_array($conexion, $consulta);
+=======
+         $consulta = "SELECT * FROM usuarios WHERE usuario='$usuario' AND contrasena='$contrasena'";
+         $r= mysqli_query($conexion,$consulta);
+         $resultado = mysqli_fetch_array($r);
+>>>>>>> 7be930c9cd7f98355e5c940b76b65805c53ef5c3
 
          if($resultado) {
             session_start();
