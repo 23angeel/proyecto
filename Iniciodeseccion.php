@@ -1,3 +1,7 @@
+<?php
+session_start();
+session_destroy();
+?>
 <html>
 <head> 
  <title>Login</title>
@@ -30,29 +34,37 @@
 <?php
    if (isset($_POST['inicio'])) {
       if (strlen($_POST['usuario']) >= 1 && strlen($_POST['password']) >= 1) {
-
-
          $usuario = $_POST['usuario'];
-         $contrasena = $_POST['password'];
-         session_start();
-         $_SESSION['usuario'] = $usuario;
+         $contraseña = $_POST['password'];
 
-         $conexion = mysqli_connect("localhost", "root", "", "proyecto");
-         $consulta = "SELECT * FROM usuarios WHERE usuario='$usuario' AND contrasena='$contrasena'";
-         $resultado=mysqli_query($conexion, $consulta);
-         $filas=mysqli_fetch_array($resultado);
+         include 'conexion_bd.php';
 
-         if($filas['id_rol'] == 1){ //admin
+         $consulta = mysqli_query($conexion, "SELECT * FROM usuarios WHERE usuario = '$usuario' AND contrasena = '$contraseña'");
+         $detalles = mysqli_fetch_array($consulta);
 
-        header('location: Menu_admin.php');
+         if ($detalles) {
+            session_start();
+            $_SESSION['usuario'] = $detalles['usuario'];
+            $_SESSION['cargo'] = $detalles['id_rol'];
 
-        }else if($filas['id_rol'] == 2){ //usuario
-        header('location: Menu.php');;
-    }   
-    }else{
+            if ($_SESSION['cargo'] == 1) { //admin
+               header("Location: Menu_admin.php");
+            }
+            if ($_SESSION['cargo'] == 2) { //usuario
+               header("Location: Menu.php");
+            }     
+         }
+         else{
+            ?>
+             <h3> El usuario no existe</h3>
+             <?php
+         }
+      }
+      else{
          ?>
-         <h3>Completa los campos</h3>
+         <h3> Complete los campos</h3>
          <?php
       }
    }
+
 ?>

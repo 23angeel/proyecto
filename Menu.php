@@ -1,6 +1,6 @@
 <?php
 session_start();
-if($_SESSION['id_cargo'] == 2) { //usuario
+if($_SESSION['cargo'] == 2) { //usuario
 ?>
 
 <!DOCTYPE html>

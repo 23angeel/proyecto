@@ -1,6 +1,6 @@
 <?php
 session_start();
-if($_SESSION['id_cargo'] == 1) { //administrador
+if($_SESSION['cargo'] == 1) { //administrador
 ?>
 
 <!DOCTYPE html>

@@ -51,9 +51,6 @@
 			$contrasena = $_POST['password'];
 			$clase = $_POST['tipo'];
 
-			//Encriptamiento de contraseña
-			$contrasena = hash('sha512', $contrasena);
-
 			$query = "INSERT INTO usuarios(usuario, contrasena, id_rol)
 					  VALUES('$usuario', '$contrasena', '$clase')";
 
