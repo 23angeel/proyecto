@@ -37,6 +37,8 @@ session_destroy();
          $usuario = $_POST['usuario'];
          $contraseña = $_POST['password'];
 
+         $contraseña = hash('sha512', $contraseña);
+
          include 'conexion_bd.php';
 
          $consulta = mysqli_query($conexion, "SELECT * FROM usuarios WHERE usuario = '$usuario' AND contrasena = '$contraseña'");
