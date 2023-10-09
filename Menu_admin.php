@@ -46,7 +46,7 @@ if($_SESSION['cargo'] == 1) { //administrador
                                 <a href="Crearusuario.php" class="dropdown__anchor">Resgitrar</a>
                             </li>
                             <li class="dropdown__li">
-                                <a href="catalogousuarios.php" class="dropdown__anchor">Consultar</a>
+                                <a href="Usuarios_creados.php" class="dropdown__anchor">Consultar</a>
                             </li>
 
                         </ul>
