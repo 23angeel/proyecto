@@ -59,8 +59,11 @@ if(isset($_POST['editar'])){
 
 	mysqli_query($conexion, $consulta);
 
-	?>
-	<p>El usuario editado con exito</p>
-	<?php
+	echo'
+	<script>
+		alert("Usuario editado correctamente");
+		window.location = "Usuarios_creados.php"
+	</script>
+	';
 }
 ?>
