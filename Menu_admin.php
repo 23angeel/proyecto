@@ -32,7 +32,7 @@ if($_SESSION['cargo'] == 1) { //administrador
                 <li class="dropdown__list">
                     <a href="#" class="dropdown__link">
                         
-                        <span class="dropdown__span">Usario</span>
+                        <span class="dropdown__span">Usuario</span>
                         <img src="./assets/down.svg" class="dropdown__arrow">
 
                         <input type="checkbox" class="dropdown__check">
@@ -65,7 +65,7 @@ if($_SESSION['cargo'] == 1) { //administrador
                         <ul class="dropdown__sub">
 
                             <li class="dropdown__li">
-                                <a href="#" class="dropdown__anchor">Resgitrar</a>
+                                <a href="#" class="dropdown__anchor">Registrar</a>
                             </li>
                             <li class="dropdown__li">
                                 <a href="#" class="dropdown__anchor">Consultar</a>
