@@ -34,7 +34,7 @@ session_destroy();
       <form action="recuperarClave.php" method="post">
       <div class="filed-wrap">
          <label for="">¿Haz olvidado tu contraseña?</label>
-         <a href="">Recuperar contraseña</a>
+         <a href="Recuperar_contraseña.php">Recuperar contraseña</a>
       </div>
          <br></br>
          
