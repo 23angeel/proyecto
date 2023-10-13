@@ -19,7 +19,7 @@ body {
 }
 
 section {
-    background: url(Imagenes/login.jpg);
+    background: url('../Imagenes/login.jpg');
     position: absolute;
     transform: rotate(35deg) translate(0px,-50%);
     top: 0px;
@@ -27,9 +27,9 @@ section {
     height: 100vh;
 }
 
-form{
+form {
     z-index: 10;
-    min-width:360px;
+    /* min-width:360px; */
 border: 1px #eee solid;
 padding:20px;
 margin: 0px;
@@ -49,6 +49,20 @@ border-radius: 20px;
 color: #fff;
 margin: 16px 0px;
 font-weight: 600;
+}
+
+.filed-wrap {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+
+.filed-wrap a {
+    font-size: 15px;
+    margin-left: 10px;
+    color: #3aada3;
+    text-decoration: none;
 }
 
 button:hover {
@@ -72,7 +86,16 @@ input{
 input:focus {
     border: 1px solid #3aada3;
 }
-
+input:class{
+    display: block;
+    border: 0px;
+    padding: 10px 16px;
+    background: #3aada3;
+    border-radius: 20px;
+    color: #fff;
+    margin: 16px 0px;
+    font-weight: 600;
+}
 h1{
     color: #4db8a9;
     font-weight: 600;

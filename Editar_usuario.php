@@ -12,10 +12,15 @@ $usuario = mysqli_fetch_assoc($resultado);
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="./css/style._editarUsuario.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,100&display=swap" rel="stylesheet">
 	<title>EDITAR USUARIO-ESCUELA DE TRANSPORTE </title>
 </head>
 <body>
 	<form method="post" action="">
+		<section></section>
 		<h1>EDITAR USUARIO</h1>
 
 		<label>NOMBRE DE USUARIO</label>
@@ -55,7 +60,10 @@ if(isset($_POST['editar'])){
 	$contraseña = $_POST['password'];
 	$clase = $_POST['tipo'];
 
-	$consulta="UPDATE usuarios SET usuario = '$usuario', contrasena = '$contraseña', id_rol = '$clase'  WHERE id = '$id' ";
+	//Encriptamiento de contraseña
+	$contrasena = hash('sha512', $contraseña);
+
+	$consulta="UPDATE usuarios SET usuario = '$usuario', contrasena = '$contrasena', id_rol = '$clase'  WHERE id = '$id' ";
 
 	mysqli_query($conexion, $consulta);
 

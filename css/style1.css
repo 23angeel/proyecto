@@ -19,7 +19,7 @@ body {
 }
 
 .img-back {
-    background: url(Imagenes/wallpaperbetter1.jpg);
+    background: url('../Imagenes/login.jpg');
     position: absolute;
     transform: rotate(100deg) translate(90px,50%);
     top: 0px;
@@ -36,9 +36,9 @@ body {
 }
 
 section {
-    background-image: wallpaperbetter.png;
+    background-image: url('../Imagenes/login.jpg');
     position: absolute;
-    transform: rotate(35deg) translate(0px,-50%);
+    transform: rotate(35deg) translate(0px,-15%);
     top: 0px;
     width: 150%;
     height: 100vh;
@@ -61,14 +61,6 @@ form{
     width: 50%;
 }
 
-.img-intt {
-    background:url(Imagenes/intt.jpg);
-    background-repeat: no-repeat;
-    width: 50%;
-background-position:center;  
-background-size: contain;
-background-position-x: right;  
-}
 
 button {
 background-color:#3aada3 ;
