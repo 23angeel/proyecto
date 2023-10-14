@@ -13,13 +13,35 @@ $usuario = mysqli_fetch_assoc($resultado);
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="./css/style._editarUsuario.css">
+	<link rel="stylesheet" href="./css/style3.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,100&display=swap" rel="stylesheet">
 	<title>EDITAR USUARIO-ESCUELA DE TRANSPORTE </title>
 </head>
 <body>
-	<form method="post" action="">
+<nav>
+        <ul class="cont-ul">
+            <li>INICIO</li>
+            <li class="develop">
+                CURSOS 
+                <ul class="ul-second">
+                    <li class="back">Resgistrar</li>
+                    <li>Consultar</li>
+                </ul>
+            </li>
+            <li class="develop">
+                ESTUDIANTE
+                <ul class="ul-second">
+                    <li class="back">Resgistrar</li>
+                    <li>Consultar</li>
+                </ul>
+            </li>
+            <li>CONTROL DE ESTUDIOS</li>
+        </ul>
+    </nav>
+<div class="container">
+ <form method="post" action="">
 		<section></section>
 		<h1>EDITAR USUARIO</h1>
 
@@ -47,6 +69,7 @@ $usuario = mysqli_fetch_assoc($resultado);
 
 		<button type="submit" name="editar" >Editar</button>
 	</form>
+</div>
 
 </body>
 </html>
