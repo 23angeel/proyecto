@@ -10,7 +10,9 @@ if($_SESSION['cargo'] == 2) { //usuario
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú</title>
-    <link rel="stylesheet" href="./estilos.css">
+    <link rel="stylesheet" href="./css/style0.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,100&display=swap" rel="stylesheet">
 </head>
 <body>
      <nav class="nav">
@@ -18,24 +20,36 @@ if($_SESSION['cargo'] == 2) { //usuario
         <div class="nav__container">
 
             <a href="#menu" class="nav__menu">
-                <img src="./assets/menu1.svg" class="nav__icon">
+                <img src="./Imagenes/menu (1).svg" class="nav__icon">
             </a>
 
             <a href="#" class="nav__menu nav__menu--second">
-                <img src="./assets/close.svg" class="nav__icon ">
+                <img src="./Imagenes/x.svg" class="nav__icon ">
             </a>
 
-            <img src="unetrans1.png" width="200" alt="nav__title">
+            <img src="./Imagenes/menu1 - copia.png" width="190" alt="nav__title">
 
             <ul class="dropdown" id="menu">
 
                 <li class="dropdown__list">
                     <div class="dropdown__content">
+
+                        <ul class="dropdown__sub">
+
+                            <li class="dropdown__li">
+                                <a href="Crearusuario.php" class="dropdown__anchor">Registrar</a>
+                            </li>
+                            <li class="dropdown__li">
+                                <a href="Usuarios_creados.php" class="dropdown__anchor">Consultar</a>
+                            </li>
+
+                        </ul>
+
                 <li class="dropdown__list">
                     <a href="#" class="dropdown__link">
-                        
+                        <img src="./Imagenes/curso.svg" width="65">
                         <span class="dropdown__span">Cursos</span>
-                        <img src="./assets/down.svg" class="dropdown__arrow">
+                        <img src="./Imagenes/down2.svg" width="30" class="dropdown__arrow">
 
                         <input type="checkbox" class="dropdown__check">
                     </a>
@@ -58,8 +72,9 @@ if($_SESSION['cargo'] == 2) { //usuario
 
                 <li class="dropdown__list">
                     <a href="#" class="dropdown__link">
+                        <img src="./Imagenes/estudiante.svg" width="60">
                         <span class="dropdown__span">Estudiante</span>
-                        <img src="./assets/down.svg" class="dropdown__arrow">
+                       <img src="./Imagenes/down2.svg" width="30" class="dropdown__arrow">
 
                         <input type="checkbox" class="dropdown__check">
                     </a>
@@ -83,25 +98,26 @@ if($_SESSION['cargo'] == 2) { //usuario
                 </li>
                  <li class="dropdown__list">
                     <a href="#" class="dropdown__link">
+                        <img src="./Imagenes/control.svg" width="60">
                         <span class="dropdown__span">Control de Estudios</span>
                     </a>
                 </li>
                 <br><br>
                  <li class="dropdown__list">
                     <a href="iniciodeseccion.php" class="dropdown__link">
+                        <img src="./Imagenes/cerrar.svg" width="60">
                         <span class="dropdown__span">Cerrar sesión</span>
                     </a>
                 </li>
             </ul>
-
         </div>
-
     </nav>
     <div>
         <img src="Imagenes/usuario.png" width="100"><?php echo $_SESSION['usuario']?>
     </div>
 </body>
 </html>
+
 
 <?php
 }else{
