@@ -53,8 +53,8 @@
 					<td><?php echo $fila['rol'];?></td>
 
 					<td>
-						<a href="Editar_usuario.php?id=<?php echo $fila['id']?> "><button>Editar</button></a>
-						<a href="Eliminar_usuario.php?id=<?php echo $fila['id']?>"><button onclick="return Delete()">Eliminar</button></a>
+						<a href="Editar_usuario.php?id=<?php echo $fila['id']?> "><img class="img-btn-edit" src="./Imagenes/edit.svg"></a>
+						<a href="Eliminar_usuario.php?id=<?php echo $fila['id']?>"><img class="img-btn-delete" onclick="return Delete()" src="./Imagenes/eliminar.svg"></button></a>
 					</td>
 				</tr>
 				<?php

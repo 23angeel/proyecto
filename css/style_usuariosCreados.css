@@ -75,3 +75,15 @@ th{
     margin-left: 8px;
     z-index: 1;
 }
+
+.img-btn-edit, .img-btn-delete {
+  width: 60px;
+}
+
+.img-btn-edit {
+  height: 50px;
+}
+
+.img-btn-delete {
+  height: 45px;
+}
