@@ -20,7 +20,7 @@ session_destroy();
    <h1>Inicio de Sesion</h1>
    <div> 
       <label for="nickname">Usuario</label>
-      <input class="usuario" id="nickname" type="text" name="usuario" placeholder="usuario"> 
+      <input class="usuario" id="nickname" type="text" name="usuario" placeholder="usuario" maxlength="30"> 
    </div>
    <div> 
       <label for="password">Contraseña</label>

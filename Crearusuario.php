@@ -41,7 +41,7 @@
 		<div  class="input-box">
 			<div>
 				<label>NOMBRE DE USUARIO</label><br>
-				<input required minlength="1" type="text" name="name"><br>
+				<input required minlength="1" type="text" name="name" maxlength="30"><br>
 			</div>
 			<div>
 				<label>CONTRASEÑA</label><br>
