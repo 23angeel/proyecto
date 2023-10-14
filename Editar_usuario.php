@@ -49,7 +49,7 @@ $usuario = mysqli_fetch_assoc($resultado);
 		<input type="text" name="name" value="<?php echo $usuario['usuario'];?>"required>
 
 		<label>CONTRASEÑA</label>
-		<input type="password" name="password" value="<?php echo $usuario['contrasena'];?>"required>
+		<input type="password" name="password">
 
 		<label>ROL EN EL SISTEMA</label><br>
 		ADMINISTRADOR<input type="radio" name="tipo" value="1">
