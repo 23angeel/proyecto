@@ -120,6 +120,16 @@ if($_SESSION['cargo'] == 1) { //administrador
             </ul>
         </div>
     </nav>
+    <div>
+        <img src="Imagenes/usuario.png" width="100"><?php echo $_SESSION['usuario']?>
+        <?php
+        if ($_SESSION['cargo'] == 1) {
+        ?>
+                <h4>Administrador</h4>
+                <?php
+            }
+        ?>
+    </div>
 </body>
 </html>
 
