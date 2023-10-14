@@ -9,10 +9,14 @@
 	<form method="post" action="">
 		<div>
 			<h1>Recupera tu cuenta</h1><br>
-			<labeñ>Introduce tu nombre de usuario para buscar tu cuenta en la base de datos del sistema</label><br>
+			<label>Introduce tu nombre de usuario para buscar tu cuenta en la base de datos del sistema</label><br>
 			<input type="text" name="name" placeholder="usuario"><br>
+			<label>Ingrese su nueva contraseña</label><br>
+	        <input type="password" name="password" placeholder="contraseña"><br>
+	        <label>Confirmar contraseña</label><br>
+	        <input type="password" name="password2" placeholder="contraseña"><br>
 		</div>
-	<button type="submit" name="buscar">Buscar</button></a>
+	<button type="submit" name="buscar">restablecer</button></a>
 	</form>
 	<a href="Iniciodeseccion.php"><button>Cancelar</button></a>
 </body>
@@ -23,28 +27,33 @@ if(isset($_POST['buscar'])){
 	include 'conexion_bd.php';
 	$consulta = "SELECT * FROM usuarios WHERE usuario = '$usuario'";
 	$resultado = mysqli_query($conexion, $consulta);
-	$usuario = mysqli_fetch_assoc($resultado);
-	if ($usuario) {
-		?>
-		<!DOCTYPE html>
-	   <html>
-	   <head>
-	      <meta charset="utf-8">
-	      <meta name="viewport" content="width=device-width, initial-scale=1">
-	      <title>Restablecer contraseña</title>
-	   </head>
-	   <body>
-	      <form method="post" action="Rcontraseña.php">
-	         <h1>Restablezcer contraseña</h1><br>
-	         <label>Ingrese su nueva contraseña</label>
-	         <input type="password" name="password" placeholder="contraseña"><br>
-	         <label>Confirmar contraseña</label>
-	         <input type="password" name="password2" placeholder="contraseña"><br>
-	   <button name="id" value=<?php $usuario['id']?>>Editar</button>
-	   </form>
-	   </body>
-	   </html>
-	   <?php
+	$usuarios = mysqli_fetch_assoc($resultado);
+	if ($usuarios) {
+		$contraseña = $_POST['password'];
+		$contraseña2 = $_POST['password2'];
+		if ($contraseña == $contraseña2) {
+			include 'conexion_bd.php';
+
+		   //Encriptamiento de contraseña
+		   $contrasena = hash('sha512', $contraseña);
+
+		   $consulta="UPDATE usuarios SET contrasena = '$contrasena' WHERE usuario = '$usuario' ";
+		   mysqli_query($conexion, $consulta);
+
+		   echo'
+		   <script>
+		      alert("Cambio de contraseña exito");
+		      window.location = "Iniciodeseccion.php"
+		   </script>
+		   '; 
+		}else{
+		   echo'
+		   <script>
+		      alert("No coinciden los datos");
+		      window.location = "Recuperar_contraseña.php"
+		   </script>
+		   ';
+		}
 	}else{
 	   echo'
 	   <script>
@@ -54,4 +63,4 @@ if(isset($_POST['buscar'])){
 	   ';
 	}
 }
-?>
+
