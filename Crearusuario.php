@@ -1,3 +1,7 @@
+<?php
+session_start();
+if($_SESSION['cargo'] == 1) { //administrador
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +39,7 @@
 	<div class="body">
 	<section class="img-back"></section>
 	<div class="container">
-	<form method="post" action="">
+	<form method="post" action="funciones.php">
 		<h1>CREAR USUARIO</h1>
 
 		<div  class="input-box">
@@ -51,6 +55,7 @@
 		<label>ROL EN EL SISTEMA</label><br>
 		<span>ADMINISTRADOR<input required type="radio" name="tipo" value="1"> </span>
 		<span>USUARIO<input class="input-2" required type="radio" name="tipo" value="2"></span>
+		<input type="hidden" name="accion" value="crear_usuario">
 
 		
 		<div class="btns">
@@ -66,38 +71,7 @@
 </html>
 
 <?php
-		if(isset($_POST['crear'])){
-			if (strlen($_POST['name']) >= 1 && strlen($_POST['password']) >= 1) {
-
-			include 'conexion_bd.php';
-
-			$usuario = $_POST['name'];
-			$contrasena = $_POST['password'];
-			$clase = $_POST['tipo'];
-
-			//Encriptamiento de contraseña
-			$contrasena = hash('sha512', $contrasena);
-
-			$query = "INSERT INTO usuarios(usuario, contrasena, id_rol)
-					  VALUES('$usuario', '$contrasena', '$clase')";
-
-			$ejecutar = mysqli_query($conexion, $query);
-
-			if($ejecutar){
-				?>
-				<h3 class="tooltip">Usuario registrados correctamente</h3>
-				<?php
-			}else {
-				?>
-				<h3 class="tooltip" >Error al registrar el usuario</h3>
-				<?php
-			}
-			mysqli_close($conexion);
-
-				} else{
-					?>
-					<h3 class="tooltip"> Por favor complete los campos</h3>
-					<?php
-				}
-			}
+}else{
+    header("Location: Iniciodeseccion.php");
+}
 ?>

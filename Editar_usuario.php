@@ -1,11 +1,16 @@
 <?php
+session_start();
+if($_SESSION['cargo'] == 1) {//administrador
+
+}else{
+    header("Location: Iniciodeseccion.php");
+}
 
 $id= $_GET['id'];
 include 'conexion_bd.php';
 $consulta= "SELECT * FROM usuarios WHERE id = $id";
 $resultado = mysqli_query($conexion, $consulta);
 $usuario = mysqli_fetch_assoc($resultado);
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -66,35 +71,13 @@ $usuario = mysqli_fetch_assoc($resultado);
 				<?php
 			}
 		?>
+		<input type="hidden" name="accion" value="editar_usuario">
+        <input type="hidden" name="id" value="<?php echo $id;?>">
 
 		<button type="submit" name="editar" >Editar</button>
 	</form>
+
 </div>
 
 </body>
 </html>
-
-<?php
-if(isset($_POST['editar'])){
-
-	include 'conexion_bd.php';
-
-	$usuario = $_POST['name'];
-	$contraseña = $_POST['password'];
-	$clase = $_POST['tipo'];
-
-	//Encriptamiento de contraseña
-	$contrasena = hash('sha512', $contraseña);
-
-	$consulta="UPDATE usuarios SET usuario = '$usuario', contrasena = '$contrasena', id_rol = '$clase'  WHERE id = '$id' ";
-
-	mysqli_query($conexion, $consulta);
-
-	echo'
-	<script>
-		alert("Usuario editado correctamente");
-		window.location = "Usuarios_creados.php"
-	</script>
-	';
-}
-?>

@@ -20,11 +20,12 @@ session_destroy();
    <h1>Inicio de Sesion</h1>
    <div> 
       <label for="nickname">Usuario</label>
-      <input class="usuario" id="nickname" type="text" name="usuario" placeholder="usuario" maxlength="30"> 
+      <input class="usuario" id="nickname" type="text" name="usuario" placeholder="usuario"> 
    </div>
    <div> 
       <label for="password">Contraseña</label>
-      <input id="password" type="password" name="password" class="password" placeholder="********"> 
+      <input id="password" type="password" name="password" class="password" placeholder="********">
+      <input type="hidden" name="inicio" value="acceso_user">
    </div>
    <button type="submit" name="inicio">iniciar sesion</button>
 
@@ -43,44 +44,3 @@ session_destroy();
 </body>
 
 </html>
-
-<?php
-   if (isset($_POST['inicio'])) {
-      if (strlen($_POST['usuario']) >= 1 && strlen($_POST['password']) >= 1) {
-         $usuario = $_POST['usuario'];
-         $contraseña = $_POST['password'];
-
-         $contraseña = hash('sha512', $contraseña);
-
-         include 'conexion_bd.php';
-
-         $consulta = mysqli_query($conexion, "SELECT * FROM usuarios WHERE usuario = '$usuario' AND contrasena = '$contraseña'");
-         $detalles = mysqli_fetch_array($consulta);
-
-         if ($detalles) {
-            session_start();
-            $_SESSION['usuario'] = $detalles['usuario'];
-            $_SESSION['cargo'] = $detalles['id_rol'];
-
-            if ($_SESSION['cargo'] == 1) { //admin
-               header("Location: Menu_admin.php");
-            }
-            if ($_SESSION['cargo'] == 2) { //usuario
-               header("Location: Menu.php");
-            }     
-         }
-         else{
-            ?>
-             <h3> El usuario no existe</h3>
-             <?php
-         }
-      }
-      else{
-         ?>
-         <h3> Complete los campos</h3>
-         <?php
-      }
-    
-   }
- 
-?>
