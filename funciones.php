@@ -66,11 +66,6 @@ if (isset($_POST['accion'])){
     
             break;
 
-            case 'acceso_user';
-            acceso_user();
-            break;
-
-
 	}
 
 }
