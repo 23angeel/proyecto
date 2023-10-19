@@ -84,6 +84,19 @@ function crear_usuario() {
 
         $query = "INSERT INTO usuarios(usuario, contrasena, id_rol)
                     VALUES('$usuario', '$contrasena', '$clase')";
+        
+        //Verificar que el usuario no se repita en la base de datos
+        $verificar_usuario = mysqli_query($conexion, "SELECT * FROM usuarios WHERE usuario = '$usuario'");
+        if(mysqli_num_rows($verificar_usuario) > 0){
+            ?>
+            <script>
+                alert("Ese nombre de usuario ya esta registrado, intente con otro diferente");
+                window.location = "Crearusuario.php"
+            </script>
+            <?php
+            exit();
+            mysqli_close($conexion);
+        }
 
         $ejecutar = mysqli_query($conexion, $query);
 
