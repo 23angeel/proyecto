@@ -16,7 +16,7 @@ session_destroy();
    <section>
 </section>
 
-<form method="post" action="">
+<form method="post" action="funciones.php">
    <h1>Inicio de Sesion</h1>
    <div> 
       <label for="nickname">Usuario</label>
@@ -27,7 +27,7 @@ session_destroy();
       <input id="password" type="password" name="password" class="password" placeholder="********">
       <input type="hidden" name="inicio" value="acceso_user">
    </div>
-   <button type="submit" name="inicio">iniciar sesion</button>
+   <button type="submit" name="ingresar">iniciar sesion</button>
 
    <div id="recuperarClave">
       <h1 class="text-center mb-5 recuperarPass"> </h1>
@@ -42,5 +42,4 @@ session_destroy();
       </form>
 </form>
 </body>
-
 </html>
