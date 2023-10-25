@@ -112,9 +112,6 @@ if($_SESSION['cargo'] == 2) { //usuario
             </ul>
         </div>
     </nav>
-    <div>
-        <img src="Imagenes/usuario.png" width="100"><?php echo $_SESSION['usuario']?>
-    </div>
 </body>
 </html>
 
