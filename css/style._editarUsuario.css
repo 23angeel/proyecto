@@ -17,9 +17,11 @@
   overflow: hidden;
 }
 form{
+  min-width: 360px;
   display: flex;
   flex-direction: column;
-  padding: 40px;
+  padding: 20px;
+  margin: 0px;
   border: 1px #eee solid;
   background-color: #eee;
   box-shadow: 2px 4px 10px rgba(0,0, 0,0.5);
@@ -27,19 +29,19 @@ form{
 
 }
 
-section {
+/*section {
   position: absolute;
   transform: rotate(35deg) translate(0px,-50%);
   top: 0px;
   width: 150%;
   height: 100vh;
-}
+}*/
 
-.content-input{
+/*.content-input{
   display: flex;
   flex-direction: column;
   width: 50%;
-}
+}*/
 
 
 button {
@@ -49,10 +51,6 @@ background-color:#3aada3 ;
   font-weight: 600;
   padding: 14px 45px;
   border-radius: 20px;
-}
-
-button:nth-child(1) {
-  margin-right: 16px;
 }
 
 div {
