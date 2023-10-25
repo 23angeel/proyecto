@@ -27,7 +27,7 @@ $usuario = mysqli_fetch_assoc($resultado);
 <body>
 <nav>
         <ul class="cont-ul">
-            <li>INICIO</li>
+		<a href="Menu_admin.php"><li>INICIO</li></a>
             <li class="develop">
                 CURSOS 
                 <ul class="ul-second">
@@ -46,7 +46,7 @@ $usuario = mysqli_fetch_assoc($resultado);
         </ul>
     </nav>
 <div class="container">
- <form method="post" action="">
+ <form method="post" action="funciones.php">
 		<section></section>
 		<h1>EDITAR USUARIO</h1>
 
@@ -54,7 +54,7 @@ $usuario = mysqli_fetch_assoc($resultado);
 		<input type="text" name="name" value="<?php echo $usuario['usuario'];?>"required>
 
 		<label>CONTRASEÑA</label>
-		<input type="password" name="password">
+		<input type="password" name="password" value="<?php echo $usuario['contrasena'];?>"required>
 
 		<label>ROL EN EL SISTEMA</label><br>
 		ADMINISTRADOR<input type="radio" name="tipo" value="1">

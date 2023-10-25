@@ -27,7 +27,7 @@
 <body>
 <nav>
         <ul class="cont-ul">
-            <li>INICIO</li>
+		<a href="Menu_admin.php"><li>INICIO</li></a>
             <li class="develop">
                 CURSOS 
                 <ul class="ul-second">
