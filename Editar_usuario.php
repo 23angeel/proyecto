@@ -60,6 +60,9 @@ $usuario = mysqli_fetch_assoc($resultado);
 		ADMINISTRADOR<input type="radio" name="tipo" value="1">
 		USUARIO<input type="radio" name="tipo" value="2">
 
+		<input type="hidden" name="accion" value="editar_usuario">
+        <input type="hidden" name="id" value="<?php echo $id;?>">
+
 		<?php
 		if ($usuario['id_rol'] == 1) {
 		?>
@@ -71,8 +74,6 @@ $usuario = mysqli_fetch_assoc($resultado);
 				<?php
 			}
 		?>
-		<input type="hidden" name="accion" value="editar_usuario">
-        <input type="hidden" name="id" value="<?php echo $id;?>">
 
 		<button type="submit" name="editar" >Editar</button>
 	</form>

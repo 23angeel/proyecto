@@ -70,6 +70,29 @@ if (isset($_POST['accion'])){
 
 }
 
+function editar_usuario() {
+    include 'conexion_bd.php';
+
+    $id = $_POST['id'];
+    $usuario = $_POST['name'];
+    $contraseña = $_POST['password'];
+    $clase = $_POST['tipo'];
+
+    //Encriptamiento de contraseña
+    $contrasena = hash('sha512', $contraseña);
+
+    $consulta="UPDATE usuarios SET usuario = '$usuario', contrasena = '$contrasena', id_rol = '$clase'  WHERE id = '$id' ";
+
+    mysqli_query($conexion, $consulta);
+
+    echo'
+    <script>
+        alert("Usuario editado correctamente");
+        window.location = "Usuarios_creados.php"
+    </script>
+    ';
+}
+
 function crear_usuario() {
     if (strlen($_POST['name']) >= 1 && strlen($_POST['password']) >= 1) {
 
@@ -124,27 +147,4 @@ function crear_usuario() {
         </script>
         <?php
     }
-}
-
-
-function editar_usuario() {
-    include 'conexion_bd.php';
-
-    $usuario = $_POST['name'];
-    $contraseña = $_POST['password'];
-    $clase = $_POST['tipo'];
-
-    //Encriptamiento de contraseña
-    $contrasena = hash('sha512', $contraseña);
-
-    $consulta="UPDATE usuarios SET usuario = '$usuario', contrasena = '$contrasena', id_rol = '$clase'  WHERE id = '$id' ";
-
-    mysqli_query($conexion, $consulta);
-
-    echo'
-    <script>
-        alert("Usuario editado correctamente");
-        window.location = "Usuarios_creados.php"
-    </script>
-    ';
 }
