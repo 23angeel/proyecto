@@ -14,6 +14,21 @@ if($_SESSION['cargo'] == 1) { //administrador
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,100&display=swap" rel="stylesheet">
 </head>
+<script type="text/javascript">
+	function validarPassword(password) {
+    const decimal = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8}$/;
+
+    if(password.value.match(decimal)) {
+
+        return true;
+
+    } else {
+
+        alert("La contraseña debe contener al menos una minúscula, mayúscula, número y un carácter especial. Y 8 carácteres como mínimo.")
+				return false;
+    }
+}
+</script>
 <body>
 <nav>
         <ul class="cont-ul">
@@ -39,17 +54,17 @@ if($_SESSION['cargo'] == 1) { //administrador
 	<div class="body">
 	<section class="img-back"></section>
 	<div class="container">
-	<form method="post" action="funciones.php">
+	<form method="post" action="funciones.php" name="registro">
 		<h1>CREAR USUARIO</h1>
 
 		<div  class="input-box">
 			<div>
-				<label>NOMBRE DE USUARIO</label><br>
-				<input required minlength="1" type="text" name="name" maxlength="30"><br>
+				<label for="usuario">NOMBRE DE USUARIO</label><br>
+				<input required minlength="1" type="text" id="usuario" name="name" maxlength="30"><br>
 			</div>
 			<div>
-				<label>CONTRASEÑA</label><br>
-				<input required minlength="1" type="password" name="password"><br>
+				<label for="password">CONTRASEÑA</label><br>
+				<input required minlength="1" type="text" id="password" name="password"><br>
 			</div>
 		
 		<label>ROL EN EL SISTEMA</label><br>
@@ -59,7 +74,7 @@ if($_SESSION['cargo'] == 1) { //administrador
 
 		
 		<div class="btns">
-		<button type="submit" name="crear"> Crear </button>
+		<button type="submit" name="crear" onclick="return validarPassword(password)"> Crear </button>
 		<button type="reset"> limpiar </button>
 
 
