@@ -8,6 +8,10 @@ if (isset($_POST['inicio'])){
         case 'acceso_user':
             acceso_user();
             break;
+
+        case 'recuperar_contraseña':
+            recuperar_contraseña();
+            break;
     }
 }
 
@@ -50,6 +54,36 @@ function acceso_user() {
             alert("Por favor complete los campos");
         </script>
          <?php
+    }
+}
+
+function recuperar_contraseña() {
+
+    $usuario = $_POST['usuario'];
+    $contraseña = $_POST['password'];
+    $contraseña2 = $_POST['password2'];
+    if ($contraseña == $contraseña2) {
+        include 'conexion_bd.php';
+
+        //Encriptamiento de contraseña
+        $contrasena = hash('sha512', $contraseña);
+
+        $consulta="UPDATE usuarios SET contrasena = '$contrasena' WHERE usuario = '$usuario' ";
+        mysqli_query($conexion, $consulta);
+
+        echo'
+        <script>
+            alert("Cambio de contraseña exito");
+            window.location = "Iniciodeseccion.php"
+        </script>
+        '; 
+    }else{
+        echo'
+        <script>
+            alert("No coinciden los datos");
+            window.location = "Recuperar_contraseña.php"
+        </script>
+        ';
     }
 }
 
@@ -148,3 +182,6 @@ function crear_usuario() {
         <?php
     }
 }
+
+
+
