@@ -184,4 +184,48 @@ function crear_usuario() {
 }
 
 
+//Modulo de curso
+if (isset($_POST['curso'])){ 
+    switch ($_POST['curso']){
+
+        case 'crear_curso':
+            crear_curso();
+            break;
+    }
+
+}
+
+function crear_curso(){
+    include 'conexion_bd.php';
+
+    $curso = $_POST['name'];
+    $año = $_POST['año'];
+    $año1 = $_POST['año1'];
+    $estado = 1;
+
+    $año2 = $año."/".$año1;
+
+    $query = "INSERT INTO cursos(nombre, año_curso, estado)
+                    VALUES('$curso', '$año2', '$estado')";
+    $ejecutar = mysqli_query($conexion, $query);
+
+        if($ejecutar){
+            ?>
+            <script>
+                alert("Curso registrado correctamente");
+                window.location = "Menu_admin.php"
+            </script>
+            <?php
+            }else {
+                ?>
+                <script>
+                    alert("Error al crear el curso");
+                    window.location = "Menu_admin.php"
+                </script>
+                <?php
+            }
+            mysqli_close($conexion);
+}
+
+
 
