@@ -1,3 +1,10 @@
+<?php
+session_start();
+if($_SESSION['cargo'] == 1) { //administrador
+}else{
+    header("Location: Iniciodeseccion.php");
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
