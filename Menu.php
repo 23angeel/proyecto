@@ -59,10 +59,10 @@ if($_SESSION['cargo'] == 2) { //usuario
                         <ul class="dropdown__sub">
 
                             <li class="dropdown__li">
-                                <a href="#" class="dropdown__anchor">Resgitrar</a>
+                                <a href="Crearcurso.php" class="dropdown__anchor">Resgitrar</a>
                             </li>
                             <li class="dropdown__li">
-                                <a href="#" class="dropdown__anchor">Consultar</a>
+                                <a href="Cursos_creados.php" class="dropdown__anchor">Consultar</a>
                             </li>
 
                         </ul>

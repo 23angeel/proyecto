@@ -97,7 +97,10 @@ if (isset($_POST['accion'])){
 
             case 'editar_usuario';
             editar_usuario();
-    
+            break;
+
+            case 'eliminar_usuario';
+            eliminar_usuario();
             break;
 
 	}
@@ -182,14 +185,16 @@ function crear_usuario() {
         <?php
     }
 }
-
-
 //Modulo de curso
 if (isset($_POST['curso'])){ 
     switch ($_POST['curso']){
 
         case 'crear_curso':
             crear_curso();
+            break;
+
+        case 'editar_curso':
+            editar_curso();
             break;
     }
 
@@ -228,4 +233,21 @@ function crear_curso(){
 }
 
 
+function editar_curso(){
 
+    include 'conexion_bd.php';
+    $id = $_POST['id'];
+    $curso = $_POST['name'];
+    $año = $_POST['año'];
+
+    $consulta="UPDATE cursos SET nombre = '$curso', año_curso = '$año' WHERE id = '$id' ";
+
+    mysqli_query($conexion, $consulta);
+
+    echo'
+    <script>
+        alert("Curso editado correctamente");
+        window.location = "Cursos_admin.php"
+    </script>
+    ';
+}
