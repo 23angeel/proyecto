@@ -16,9 +16,16 @@ if( $validar == null || $validar = ''){
     <title>CURSOS | ESCUELA DE TRANSPORTE</title>
 </head>
 <body>
-    <h1>Cursos Creados</h1>
+     <h1>Cursos Creados</h1>
+      <div>
+  <form>
+      <input class="form-control me-2 light-table-filter" data-table="table_id" type="text" placeholder="Buscar">
+      </form>
+  </div>
 
-    <table>
+  <br>
+
+    <table class="table table-striped table-dark table_id">
         <thead>
             <tr>
                 <th>ID</th>
@@ -56,5 +63,6 @@ if( $validar == null || $validar = ''){
         ?>
         </tbody>
     </table>
+    <script src="buscador.js"></script>
 </body>
 </html>
