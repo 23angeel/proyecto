@@ -26,8 +26,13 @@ $cursos = mysqli_fetch_assoc($resultado);
         <label for="curso">NOMBRE DEl CURSO</label><br>
         <input type="text" id="curso" name="name" value="<?php echo $cursos['nombre'];?>"required><br>
 
-        <label for="año">AÑO DEL CURSO</label><br>
-        <input type="text" id="año" name="año" value="<?php echo $cursos['año_curso'];?>"required><br>
+        <label for="grado">GRADO</label><br>
+        <input type="number" name="grado" id="grado" value="<?php echo $cursos['grado'];?>"><br>
+        <b>Colocar el grado para cuando es para licencia</b><br>
+
+        <label for="mes">MES</label> <label for="año">AÑO</label><br>
+        <input type="text" id="mes" name="mes" value="<?php echo $cursos['mes'];?>"> /
+        <input type="number" id="año" name="año" value="<?php echo $cursos['año'];?>"><br>
 
         <input type="hidden" name="curso" value="editar_curso">
         <input type="hidden" name="id" value="<?php echo $id;?>">

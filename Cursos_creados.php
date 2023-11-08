@@ -29,15 +29,17 @@ if( $validar == null || $validar = ''){
         <thead>
             <tr>
                 <th>ID</th>
-                <th>NOMBRE DEL CURSO</th>
-                <th>AÑO DEL CURSO</th>
+                <th>NOMBRE</th>
+                <th>GRADO</th>
+                <th>MES / AÑO</th>
+                <th>ESTADO</th>
             </tr>
         </thead>
         <tbody>
             <?php
             include 'conexion_bd.php';
 
-            $sql = "SELECT cursos.id, cursos.nombre, cursos.año_curso FROM cursos WHERE cursos.estado = 1";
+            $sql = "SELECT id, nombre, grado, mes, año, estado FROM cursos cursos WHERE cursos.estado = 1";
             $datos = mysqli_query($conexion, $sql);
             if($datos -> num_rows >0){
                 while($fila=mysqli_fetch_array($datos)){
@@ -45,7 +47,8 @@ if( $validar == null || $validar = ''){
             <tr>
                 <td><?php echo $fila['id'];?></td>
                 <td><?php echo $fila['nombre'];?></td>
-                <td><?php echo $fila['año_curso'];?></td>
+                <td><?php echo $fila['grado'];?></td>
+                <td><?php echo $fila['mes']."/".$fila['año'];?></td>
                 <td>
                     <a href="">Ver</a>
                 </td>

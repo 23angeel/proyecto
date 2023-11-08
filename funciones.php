@@ -204,14 +204,13 @@ function crear_curso(){
     include 'conexion_bd.php';
 
     $curso = $_POST['name'];
+    $grado = $_POST['grado'];
+    $mes = $_POST['mes'];
     $año = $_POST['año'];
-    $año1 = $_POST['año1'];
     $estado = 1;
 
-    $año2 = $año."/".$año1;
-
-    $query = "INSERT INTO cursos(nombre, año_curso, estado)
-                    VALUES('$curso', '$año2', '$estado')";
+    $query = "INSERT INTO cursos(nombre, grado, mes, año, estado)
+                    VALUES('$curso', '$grado', '$mes', '$año', '$estado')";
     $ejecutar = mysqli_query($conexion, $query);
 
         if($ejecutar){
@@ -238,9 +237,11 @@ function editar_curso(){
     include 'conexion_bd.php';
     $id = $_POST['id'];
     $curso = $_POST['name'];
+    $grado = $_POST['grado'];
+    $mes = $_POST['mes'];
     $año = $_POST['año'];
 
-    $consulta="UPDATE cursos SET nombre = '$curso', año_curso = '$año' WHERE id = '$id' ";
+    $consulta="UPDATE cursos SET nombre = '$curso', grado = '$grado', mes = '$mes', año = '$año' WHERE id = '$id' ";
 
     mysqli_query($conexion, $consulta);
 
