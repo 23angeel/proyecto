@@ -202,6 +202,7 @@ if (isset($_POST['curso'])){
 
 function crear_curso(){
     include 'conexion_bd.php';
+    $rol = $_POST['rol'];
 
     $curso = $_POST['name'];
     $grado = $_POST['grado'];
@@ -214,21 +215,30 @@ function crear_curso(){
     $ejecutar = mysqli_query($conexion, $query);
 
         if($ejecutar){
-            ?>
-            <script>
-                alert("Curso registrado correctamente");
-                window.location = "Menu_admin.php"
-            </script>
-            <?php
-            }else {
+            if ($rol == 1) {
                 ?>
                 <script>
-                    alert("Error al crear el curso");
+                    alert("Curso registrado correctamente");
                     window.location = "Menu_admin.php"
                 </script>
                 <?php
+            }else{
+                ?>
+                <script>
+                    alert("Curso registrado correctamente");
+                    window.location = "Menu.php"
+                </script>
+                <?php
             }
-            mysqli_close($conexion);
+        }else {
+            ?>
+            <script>
+                alert("Error al crear el curso");
+                window.location = "Cursos_admin.php"
+            </script>
+            <?php
+        }
+        mysqli_close($conexion);
 }
 
 
