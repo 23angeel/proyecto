@@ -185,6 +185,27 @@ function crear_usuario() {
         <?php
     }
 }
+
+function eliminar_usuario(){
+
+    include 'conexion_bd.php';
+
+    $id = $_POST['id'];
+
+    $eliminar = "DELETE FROM usuarios WHERE id = $id";
+
+    mysqli_query($conexion, $eliminar);
+
+    if ($eliminar) {
+        echo'
+        <script>
+            alert("Usuario eliminado");
+            window.location = "Usuarios_creados.php"
+        </script>
+        ';
+    }
+}
+
 //Modulo de curso
 if (isset($_POST['curso'])){ 
     switch ($_POST['curso']){
@@ -261,4 +282,79 @@ function editar_curso(){
         window.location = "Cursos_admin.php"
     </script>
     ';
+}
+
+//Modulo de estudiante
+if (isset($_POST['estudiante'])){ 
+    switch ($_POST['estudiante']){
+
+        case 'crear_estudiante':
+            crear_estudiante();
+            break;
+    }
+
+}
+
+function crear_estudiante(){
+    include 'conexion_bd.php';
+    $rol = $_POST['rol'];
+
+    $fecha_registro = $_POST['inscripcion'];
+    $nombre = $_POST['name'];
+    $apellidos = $_POST['ape'];
+    $cedula = $_POST['cedu'];
+    $fecha_nacimiento = $_POST['nacimiento'];
+    $sexo = $_POST['tipo'];
+    $habitacion = $_POST['habit'];
+    $celular = $_POST['celu'];
+    $oficina = $_POST['ofi'];
+    $otro = $_POST['otro'];
+    $correo = $_POST['correo'];              
+    $correo2 = $_POST['correo2'];
+    $direcion = $_POST['direc'];
+    $curso = $_POST['curso'];
+
+    $query = "INSERT INTO estudiantes(cedula, nombres, apellidos, fecha_nacimiento, sexo, habitacion_tel, celular_tel, oficina_tel, otro_tel, correo_1, correo_2, direccion, fecha_registro, id_curso)
+                    VALUES('$cedula', '$nombre', '$apellidos', '$fecha_nacimiento', '$sexo', '$habitacion', '$celular', '$oficina', '$otro', '$correo', '$correo2', '$direcion', '$fecha_registro', '$curso')";
+
+    //Verificar que no se repita numero de cedula en la base de datos
+        $verificar_cedula = mysqli_query($conexion, "SELECT * FROM estudiantes WHERE cedula = '$cedula'");
+        if(mysqli_num_rows($verificar_cedula) > 0){
+            ?>
+            <script>
+                alert("Ya existe un estudiante con el numero de cedula ingresado");
+                window.location = "Crearestudiante.php"
+            </script>
+            <?php
+            exit();
+            mysqli_close($conexion);
+        }
+
+    $ejecutar = mysqli_query($conexion, $query);
+
+    if($ejecutar){
+            if ($rol == 1) {
+                ?>
+                <script>
+                    alert("Estudiante registrado correctamente");
+                    window.location = "Menu_admin.php"
+                </script>
+                <?php
+            }else{
+                ?>
+                <script>
+                    alert("Estudiante registrado correctamente");
+                    window.location = "Menu.php"
+                </script>
+                <?php
+            }
+        }else {
+            ?>
+            <script>
+                alert("Error al crear el curso");
+                window.location = "Cursos_admin.php"
+            </script>
+            <?php
+        }
+        mysqli_close($conexion);
 }
