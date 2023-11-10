@@ -291,6 +291,9 @@ if (isset($_POST['estudiante'])){
         case 'crear_estudiante':
             crear_estudiante();
             break;
+        case 'editar_estudiante':
+            editar_estudiante();
+            break;
     }
 
 }
@@ -313,9 +316,10 @@ function crear_estudiante(){
     $correo2 = $_POST['correo2'];
     $direcion = $_POST['direc'];
     $curso = $_POST['curso'];
+    $estado = 1;
 
-    $query = "INSERT INTO estudiantes(cedula, nombres, apellidos, fecha_nacimiento, sexo, habitacion_tel, celular_tel, oficina_tel, otro_tel, correo_1, correo_2, direccion, fecha_registro, id_curso)
-                    VALUES('$cedula', '$nombre', '$apellidos', '$fecha_nacimiento', '$sexo', '$habitacion', '$celular', '$oficina', '$otro', '$correo', '$correo2', '$direcion', '$fecha_registro', '$curso')";
+    $query = "INSERT INTO estudiantes(cedula, nombres, apellidos, fecha_nacimiento, sexo, habitacion_tel, celular_tel, oficina_tel, otro_tel, correo_1, correo_2, direccion, fecha_registro, id_curso, estado)
+                    VALUES('$cedula', '$nombre', '$apellidos', '$fecha_nacimiento', '$sexo', '$habitacion', '$celular', '$oficina', '$otro', '$correo', '$correo2', '$direcion', '$fecha_registro', '$curso', '$estado')";
 
     //Verificar que no se repita numero de cedula en la base de datos
         $verificar_cedula = mysqli_query($conexion, "SELECT * FROM estudiantes WHERE cedula = '$cedula'");
@@ -357,4 +361,37 @@ function crear_estudiante(){
             <?php
         }
         mysqli_close($conexion);
+}
+
+function editar_estudiante(){
+
+    include 'conexion_bd.php';
+    $id = $_POST['id'];
+    
+    $fecha_registro = $_POST['inscripcion'];
+    $nombre = $_POST['name'];
+    $apellidos = $_POST['ape'];
+    $cedula = $_POST['cedu'];
+    $fecha_nacimiento = $_POST['nacimiento'];
+    $sexo = $_POST['tipo'];
+    $habitacion = $_POST['habit'];
+    $celular = $_POST['celu'];
+    $oficina = $_POST['ofi'];
+    $otro = $_POST['otro'];
+    $correo = $_POST['correo'];              
+    $correo2 = $_POST['correo2'];
+    $direcion = $_POST['direc'];
+    $curso = $_POST['curso'];
+
+    $consulta="UPDATE estudiantes SET cedula = '$cedula', nombres = '$nombre', apellidos = '$apellidos', fecha_nacimiento = '$fecha_nacimiento', sexo = '$sexo', habitacion_tel = '$habitacion', celular_tel = '$celular', oficina_tel = '$oficina', otro_tel = '$otro', correo_1 = '$correo', correo_2 = '$correo2', direccion = '$direcion', fecha_registro = '$fecha_registro', id_curso = '$curso' WHERE id = '$id' ";
+
+    mysqli_query($conexion, $consulta);
+
+    echo'
+    <script>
+        alert("Estudiante editado correctamente");
+        window.location = "Estudiantes_admin.php"
+    </script>
+    ';
+
 }

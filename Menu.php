@@ -87,7 +87,7 @@ if($_SESSION['cargo'] == 2) { //usuario
                                 <a href="Crearestudiante.php" class="dropdown__anchor">Resgitrar</a>
                             </li>
                             <li class="dropdown__li">
-                                <a href="#" class="dropdown__anchor">Consultar</a>
+                                <a href="Estudiantes_creados.php" class="dropdown__anchor">Consultar</a>
                             </li>
                           
 

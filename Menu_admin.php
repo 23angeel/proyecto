@@ -95,7 +95,7 @@ if($_SESSION['cargo'] == 1) { //administrador
                                 <a href="Crearestudiante.php" class="dropdown__anchor">Resgitrar</a>
                             </li>
                             <li class="dropdown__li">
-                                <a href="#" class="dropdown__anchor">Consultar</a>
+                                <a href="Estudiantes_admin.php" class="dropdown__anchor">Consultar</a>
                             </li>
                           
 
