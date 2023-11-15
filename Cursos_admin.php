@@ -32,6 +32,7 @@ if($_SESSION['cargo'] == 1) { //administrador
                 <th>GRADO</th>
                 <th>MES / AÑO</th>
                 <th>ESTADO</th>
+                <th>Imagen</th>
             </tr>
         </thead>
         <tbody>
@@ -56,6 +57,7 @@ if($_SESSION['cargo'] == 1) { //administrador
                         echo '<p><a href="Estado.php?id='.$fila['id'].'&estado=1">Desactivado</a></p>';
                     }
                     ?>
+                <td><img height="50px" src="data:image/jpg;base64,<?php echo base64_encode($fila['imagen']); ?>"></td>
                 <td>
                     <a href="">Ver</a>
                     <a href="Editar_curso.php?id=<?php echo $fila['id']?>">Editar</a>

@@ -32,6 +32,7 @@ if( $validar == null || $validar = ''){
                 <th>NOMBRE</th>
                 <th>GRADO</th>
                 <th>MES / AÑO</th>
+                <th>Imagen</th>
             </tr>
         </thead>
         <tbody>
@@ -48,6 +49,7 @@ if( $validar == null || $validar = ''){
                 <td><?php echo $fila['nombre'];?></td>
                 <td><?php echo $fila['grado'];?></td>
                 <td><?php echo $fila['mes']."/".$fila['año'];?></td>
+                <td><img height="50px" src="data:image/jpg;base64,<?php echo base64_encode($fila['imagen']); ?>"></td>
                 <td>
                     <a href="">Ver</a>
                 </td>

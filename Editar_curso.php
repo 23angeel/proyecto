@@ -20,7 +20,7 @@ $cursos = mysqli_fetch_assoc($resultado);
     <title>EDITAR CURSO | ESCUELA DE TRANSPORTE</title>
 </head>
 <body>
-    <form method="post" action="funciones.php">
+    <form method="post" action="funciones.php" enctype="multipart/form-data">
 
         <h1>Editar Curso</h1>
         <label for="curso">NOMBRE DEl CURSO</label><br>
@@ -33,6 +33,9 @@ $cursos = mysqli_fetch_assoc($resultado);
         <label for="mes">MES</label> <label for="año">AÑO</label><br>
         <input type="text" id="mes" name="mes" value="<?php echo $cursos['mes'];?>"> /
         <input type="number" id="año" name="año" value="<?php echo $cursos['año'];?>"><br>
+
+        <label>Seleccione una imagen para el curso</label><br>
+        <input type="file" name="imagen"><br>
 
         <input type="hidden" name="curso" value="editar_curso">
         <input type="hidden" name="id" value="<?php echo $id;?>">
