@@ -12,10 +12,9 @@ session_destroy();
    <meta charset="UTF-8">
 </head>
 <body>
-
-   <section>
-</section>
-
+<section class="bg-logo"></section>
+<div class="content">
+<section class="imagen-logo"></section>   
 <form method="post" action="funciones.php">
    <h1>Inicio de Sesion</h1>
    <div> 
@@ -40,6 +39,7 @@ session_destroy();
          <br></br>
          
       </form>
-</form>
+</form></div>
+
 </body>
 </html>
