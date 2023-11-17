@@ -22,7 +22,7 @@ if( $validar == null || $validar = ''){
 	<title>Crear curso</title>
 </head>
 <body>
-	<form method="post" action="funciones.php">
+	<form method="post" action="funciones.php" enctype="multipart/form-data">
 		<h1>Crear curso</h1>
 		<label for="curso">NOMBRE DEl CURSO</label><br>
 		<input required minlength="1" type="text" id="curso" name="name" placeholder="Licencia" maxlength="150"><br>
@@ -34,6 +34,9 @@ if( $validar == null || $validar = ''){
 		<label for="mes">MES</label> <label for="año">AÑO</label><br>
 		<input required minlength="1" type="text" id="mes" name="mes" placeholder="Enero" maxlength="50"> /
 		<input required minlength="1" type="number" id="año" name="año" placeholder="2024" maxlength="4"><br>
+
+		<label>Seleccione una imagen para el curso</label><br>
+		<input type="file" name="imagen"><br>
 
 		<input type="hidden" name="curso" value="crear_curso">
 		<input type="hidden" name="rol" value="<?php echo $rol;?>">

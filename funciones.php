@@ -229,10 +229,11 @@ function crear_curso(){
     $grado = $_POST['grado'];
     $mes = $_POST['mes'];
     $año = $_POST['año'];
+    $imagen = addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
     $estado = 1;
 
-    $query = "INSERT INTO cursos(nombre, grado, mes, año, estado)
-                    VALUES('$curso', '$grado', '$mes', '$año', '$estado')";
+    $query = "INSERT INTO cursos(nombre, grado, mes, año, imagen, estado)
+                    VALUES('$curso', '$grado', '$mes', '$año', '$imagen', '$estado')";
     $ejecutar = mysqli_query($conexion, $query);
 
         if($ejecutar){
@@ -271,8 +272,9 @@ function editar_curso(){
     $grado = $_POST['grado'];
     $mes = $_POST['mes'];
     $año = $_POST['año'];
+    $imagen = addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
 
-    $consulta="UPDATE cursos SET nombre = '$curso', grado = '$grado', mes = '$mes', año = '$año' WHERE id = '$id' ";
+    $consulta="UPDATE cursos SET nombre = '$curso', grado = '$grado', mes = '$mes', año = '$año', imagen = '$imagen' WHERE id = '$id' ";
 
     mysqli_query($conexion, $consulta);
 
