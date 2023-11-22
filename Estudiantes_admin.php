@@ -59,7 +59,7 @@ if($_SESSION['cargo'] == 1) { //administrador
                     }
                     ?>
                 <td>
-                    <a href="">Ver</a>
+                    <a href="Perfil_estudiante.php?id=<?php echo $fila['id']?>">Ver</a>
                     <a href="Editar_estudiante.php?id=<?php echo $fila['id']?>">Editar</a>
                     <a href="">Eliminar</a>
                 </td>

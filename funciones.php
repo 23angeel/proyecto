@@ -307,7 +307,7 @@ function crear_estudiante(){
     $fecha_registro = $_POST['inscripcion'];
     $nombre = $_POST['name'];
     $apellidos = $_POST['ape'];
-    $cedula = $_POST['cedu'];
+    $cedula = $_POST['cedula']."".$_POST['cedu'];
     $fecha_nacimiento = $_POST['nacimiento'];
     $sexo = $_POST['tipo'];
     $habitacion = $_POST['habit'];
@@ -343,14 +343,14 @@ function crear_estudiante(){
                 ?>
                 <script>
                     alert("Estudiante registrado correctamente");
-                    window.location = "Menu_admin.php"
+                    window.location = "Estudiantes_admin.php"
                 </script>
                 <?php
             }else{
                 ?>
                 <script>
                     alert("Estudiante registrado correctamente");
-                    window.location = "Menu.php"
+                    window.location = "Estudiantes_creados.php"
                 </script>
                 <?php
             }
@@ -383,7 +383,7 @@ function editar_estudiante(){
     $correo = $_POST['correo'];              
     $correo2 = $_POST['correo2'];
     $direcion = $_POST['direc'];
-    $curso = $_POST['curso'];
+    $curso = $_POST['curso']; 
 
     $consulta="UPDATE estudiantes SET cedula = '$cedula', nombres = '$nombre', apellidos = '$apellidos', fecha_nacimiento = '$fecha_nacimiento', sexo = '$sexo', habitacion_tel = '$habitacion', celular_tel = '$celular', oficina_tel = '$oficina', otro_tel = '$otro', correo_1 = '$correo', correo_2 = '$correo2', direccion = '$direcion', fecha_registro = '$fecha_registro', id_curso = '$curso' WHERE id = '$id' ";
 

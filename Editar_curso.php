@@ -35,7 +35,7 @@ $cursos = mysqli_fetch_assoc($resultado);
         <input type="number" id="año" name="año" value="<?php echo $cursos['año'];?>"><br>
 
         <label>Seleccione una imagen para el curso</label><br>
-        <input type="file" name="imagen"><br>
+        <input type="file" REQUIRED name="imagen"><br>
 
         <input type="hidden" name="curso" value="editar_curso">
         <input type="hidden" name="id" value="<?php echo $id;?>">
