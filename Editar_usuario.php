@@ -27,7 +27,7 @@ $usuario = mysqli_fetch_assoc($resultado);
 <body>
 <nav>
         <ul class="cont-ul">
-		<a href="Menu_admin.php"><li>INICIO</li></a>
+            <a href="Menu_admin.php"><li>INICIO</li></a>
             <li class="develop">
                 CURSOS 
                 <ul class="ul-second">
@@ -56,25 +56,24 @@ $usuario = mysqli_fetch_assoc($resultado);
 		<label>CONTRASEÑA</label>
 		<input type="password" name="password" value="<?php echo $usuario['contrasena'];?>"required>
 
-		<label>ROL EN EL SISTEMA</label><br>
-		ADMINISTRADOR<input type="radio" name="tipo" value="1">
-		USUARIO<input type="radio" name="tipo" value="2">
 
 		<input type="hidden" name="accion" value="editar_usuario">
         <input type="hidden" name="id" value="<?php echo $id;?>">
 
+		<label>ROL EN EL SISTEMA</label><br>
 		<?php
 		if ($usuario['id_rol'] == 1) {
 		?>
-				<p>El usuario tiene el rol de administrador</p>
-				<?php
+		ADMINISTRADOR<input type="radio" name="tipo" value="1" checked>
+		USUARIO<input type="radio" name="tipo" value="2">
+		<?php
 			}else{
 				?>
-				<p>El usuario tiene el rol de usuario</p>
+				ADMINISTRADOR<input type="radio" name="tipo" value="1" checked>
+				USUARIO<input type="radio" name="tipo" value="2" checked>
 				<?php
 			}
 		?>
-
 		<button type="submit" name="editar" >Editar</button>
 	</form>
 
