@@ -40,16 +40,16 @@ $curso = $estudiante['id_curso'];
     <input type="date" name="nacimiento" id="nacimiento" value="<?php echo $estudiante['fecha_nacimiento'];?>"required><br>
 
     <label>Sexo:</label>
-    <span>Femenino<input type="radio" name="tipo" value="F"> </span>
-    <span>Masculino<input type="radio" name="tipo" value="M"></span><br>
     <?php
-    if ($estudiante['sexo'] == "f") {
+    if ($estudiante['sexo'] == "F") {
     ?>
-        <b>El estudiante es femenino</b>
-        <?php
+    Femenino<input type="radio" name="tipo" value="F" checked> </span>
+    Masculino<input type="radio" name="tipo" value="M"></span><br>
+    <?php
       }else{
         ?>
-        <b>El estudiante es masculino</b><br>
+        Femenino<input type="radio" name="tipo" value="F"> </span>
+        Masculino<input type="radio" name="tipo" value="M" checked></span><br>
         <?php
       }
     ?>
@@ -80,7 +80,7 @@ $curso = $estudiante['id_curso'];
         $trayecto = $fila['mes']."/".$fila['año'];
         $id = $fila['id'];
         ?>
-        <option value="<?php echo $id; ?>"><?php echo $fila['nombre']." ".$fila['grado']." ".$trayecto;?></option>
+        <option selected value="<?php echo $id; ?>"><?php echo $fila['nombre']." ".$fila['grado']." ".$trayecto;?></option>
       <?php
       include 'conexion_bd.php';
       $sql = "SELECT * FROM cursos WHERE cursos.estado = 1 ORDER BY id";
