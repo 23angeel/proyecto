@@ -69,7 +69,7 @@ $usuario = mysqli_fetch_assoc($resultado);
 		<?php
 			}else{
 				?>
-				ADMINISTRADOR<input type="radio" name="tipo" value="1" checked>
+				ADMINISTRADOR<input type="radio" name="tipo" value="1">
 				USUARIO<input type="radio" name="tipo" value="2" checked>
 				<?php
 			}
