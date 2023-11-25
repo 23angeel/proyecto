@@ -19,23 +19,20 @@ if($_SESSION['cargo'] == 1) { //administrador
 
         <div class="nav__container">
 
-            <a href="#menu" class="nav__menu">
-                <img src="./Imagenes/menu (1).svg" class="nav__icon">
-            </a>
-
-            <a href="#" class="nav__menu nav__menu--second">
-                <img src="./Imagenes/x.svg" class="nav__icon ">
-            </a>
-
-            <img src="./Imagenes/menu1 - copia.png" width="190" alt="nav__title">
-
             <ul class="dropdown" id="menu">
+
+                <li>
+                    <a href="#" class="logo">
+                        <img src="./Imagenes/zyro-image (2).png">
+                        <span href="#" class="nav__link">Escuela de Transporte</span>
+                    </a>
+                </li>
 
                 <li class="dropdown__list">
                     <a href="#" class="dropdown__link">
-                        <img src="./Imagenes/usuario.svg" width="60">
+                        <img src="./Imagenes/Perfiles_12.svg" width="45">
                         <span class="dropdown__span">Usuario</span>
-                        <img src="./Imagenes/down2.svg" width="30" class="dropdown__arrow">
+                        <img src="./Imagenes/arrow12.svg" width="30" class="dropdown__arrow">
 
                         <input type="checkbox" class="dropdown__check">
                     </a>
@@ -55,9 +52,9 @@ if($_SESSION['cargo'] == 1) { //administrador
 
                 <li class="dropdown__list">
                     <a href="#" class="dropdown__link">
-                        <img src="./Imagenes/curso.svg" width="65">
+                        <img src="./Imagenes/cursos_12.svg" width="45">
                         <span class="dropdown__span">Cursos</span>
-                        <img src="./Imagenes/down2.svg" width="30" class="dropdown__arrow">
+                        <img src="./Imagenes/arrow12.svg" width="30" class="dropdown__arrow">
 
                         <input type="checkbox" class="dropdown__check">
                     </a>
@@ -80,9 +77,9 @@ if($_SESSION['cargo'] == 1) { //administrador
 
                 <li class="dropdown__list">
                     <a href="#" class="dropdown__link">
-                        <img src="./Imagenes/estudiante.svg" width="60">
+                        <img src="./Imagenes/Estudiantes_12.svg" width="45">
                         <span class="dropdown__span">Estudiante</span>
-                       <img src="./Imagenes/down2.svg" width="30" class="dropdown__arrow">
+                       <img src="./Imagenes/arrow12.svg" width="30" class="dropdown__arrow">
 
                         <input type="checkbox" class="dropdown__check">
                     </a>
@@ -106,14 +103,14 @@ if($_SESSION['cargo'] == 1) { //administrador
                 </li>
                  <li class="dropdown__list">
                     <a href="#" class="dropdown__link">
-                        <img src="./Imagenes/control.svg" width="60">
+                        <img src="./Imagenes/controlde_12.svg" width="45">
                         <span class="dropdown__span">Control de Estudios</span>
                     </a>
                 </li>
                 <br><br>
                  <li class="dropdown__list">
                     <a href="iniciodeseccion.php" class="dropdown__link">
-                        <img src="./Imagenes/cerrar.svg" width="60">
+                        <img src="./Imagenes/cerrar (12).svg" width="45">
                         <span class="dropdown__span">Cerrar sesión</span>
                     </a>
                 </li>

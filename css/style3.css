@@ -7,8 +7,9 @@
 
 body {
     height: 100vh;
-    
-    color: ;
+    background: url(../Imagenes/fondo.jpg);
+    background-repeat: no-repeat;
+background-size: cover;
 }
 
 nav {
@@ -16,7 +17,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #3aada3;
+    background-color: hsl(209.8deg 100% 29.61%);
     padding-left: 2vw;
 }
 
@@ -33,7 +34,7 @@ li {
 }
 
 li:hover {
-    background-color: #4db8a9;
+    background-color: hsl(209.8deg 100% 29.61%);
 }
 
 .develop {
@@ -51,11 +52,11 @@ li:hover {
     transform: translateX(-20px);
     border-bottom:solid 1px #fff ;
     text-align: center;
-    background-color: #3aada3;
+    background-color: hsl(209.8deg 100% 29.61%);
 }
 
 .ul-second > li:hover {
-    background-color: #4db8a9;
+    background-color: hsl(209.8deg 100% 29.61%);
 }
 
 .develop:hover > .ul-second {
@@ -68,7 +69,7 @@ li:hover {
     right: 0;
     top: 40%;
     display: none;
-    background-color: #4db8a9;
+    background-color: hsl(209.8deg 100% 29.61%);
 }
 
 .ul-third > li {

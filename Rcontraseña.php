@@ -12,6 +12,10 @@ if ($usuarios) {
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <title>RECUPERAR CONTRASEÑA | ESCUELA DE TRANSPORTE</title>
+	<link rel="stylesheet" type="text/css" href="./css/rcontraseña.css">
+	<link rel= "preconnect" hret= "https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,100&display=swap" rel="stylesheet">
 </head>
 <script type="text/javascript">
    function validarPassword(password) {
@@ -28,21 +32,23 @@ if ($usuarios) {
 }
 </script>
 <body>
-   <div>
-      <h4>Recuperar contraseña <?php echo $usuario;?></h4>
-   </div>
+   
    <form method="post" action="funciones.php">
-            <label for="password">Ingrese su nueva contraseña</label><br>
-            <input type="password" id="password" name="password" placeholder="contraseña"><br>
-            <label for="password2">Confirmar contraseña</label><br>
-            <input type="password" id="password2" name="password2" placeholder="contraseña"><br>
+      <h4>Recuperar contraseña <?php echo $usuario;?></h4>
+            <div class="inputBox"><label for="password">Ingrese su nueva contraseña</label>
+            <input type="password" id="password" name="password" placeholder="contraseña">
+            </div>
+            <div class="inputBox"><label for="password2">Confirmar contraseña</label>
+            <input type="password" id="password2" name="password2" placeholder="contraseña">
+            </div>
 
             <input type="hidden" name="inicio" value="recuperar_contraseña">
             <input type="hidden" name="usuario" value="<?php echo $usuario;?>">
-            
+           <div class="actions">
             <button type="submit" name="cambiar" onclick="return validarPassword(password)">Cambiar</button></a>
+           <a href="Iniciodeseccion.php"><button type="button">Cancelar</button></a>
+           </div>
       </form>
-      <a href="Iniciodeseccion.php"><button>Cancelar</button></a>
 </body>
 </html>
 

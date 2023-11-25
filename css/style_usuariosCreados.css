@@ -4,7 +4,6 @@
 }
 
 .container  {
-   min-width: 100%;
    min-height: 100vh;
        margin: 0px;
    padding: 0px;
@@ -15,7 +14,7 @@
    align-items: center;
    position: relative;
    overflow: hidden;
-   z-index: 1;
+   margin-left: 270px;
 }
 
 .content {
@@ -25,7 +24,6 @@
   margin-inline: 60px;
   z-index: 10;
 }
-
 section {
   position:fixed;
   transform: rotate(38deg) translate(50px,30%);
@@ -38,7 +36,7 @@ h1 {
   text-align: center;
   margin-bottom: 24px;
   font-size: 32px;
-  color: #4db8a9;
+  color: hsl(209.8deg 100% 29.61%);
   font-weight: 600;
   z-index: 1;
 }
@@ -63,7 +61,7 @@ table{
 }
 
 button{
-  background-color:#3aada3 ;
+  background-color:hsl(209.8deg 100% 29.61%) ;
     color: wheat;
     border: none;
     font-weight: 600;
