@@ -11,6 +11,7 @@ include 'conexion_bd.php';
 $consulta= "SELECT * FROM estudiantes WHERE id = $id";
 $resultado = mysqli_query($conexion, $consulta);
 $estudiante = mysqli_fetch_assoc($resultado);
+$curso = $estudiante['id_curso'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,22 +34,22 @@ $estudiante = mysqli_fetch_assoc($resultado);
     <input type="text" name="ape" id="ape" value="<?php echo $estudiante['apellidos'];?>"required><br>
 
     <label for="id">Cedula de Identidad:</label>
-    <input type="number" name="cedu" id="id" value="<?php echo $estudiante['cedula'];?>"required><br>
+    <input type="text" name="cedu" id="id" value="<?php echo $estudiante['cedula'];?>"required><br>
 
     <label for="nacimiento">Fecha de Nacimiento:</label>
     <input type="date" name="nacimiento" id="nacimiento" value="<?php echo $estudiante['fecha_nacimiento'];?>"required><br>
 
     <label>Sexo:</label>
-    <span>Femenino<input type="radio" name="tipo" value="F"> </span>
-    <span>Masculino<input type="radio" name="tipo" value="M"></span><br>
     <?php
-    if ($estudiante['sexo'] == "f") {
+    if ($estudiante['sexo'] == "F") {
     ?>
-        <b>El estudiante es femenino</b>
-        <?php
+    Femenino<input type="radio" name="tipo" value="F" checked> </span>
+    Masculino<input type="radio" name="tipo" value="M"></span><br>
+    <?php
       }else{
         ?>
-        <b>El estudiante es masculino</b><br>
+        Femenino<input type="radio" name="tipo" value="F"> </span>
+        Masculino<input type="radio" name="tipo" value="M" checked></span><br>
         <?php
       }
     ?>
@@ -59,23 +60,27 @@ $estudiante = mysqli_fetch_assoc($resultado);
     Oficina:<input type="number" name="ofi" value="<?php echo $estudiante['oficina_tel'];?>"><br>
     Otro:<input type="number" name="otro" value="<?php echo $estudiante['otro_tel'];?>"><br>
 
+    <input type="hidden" name="estudiante" value="editar_estudiante">
+    <input type="hidden" name="id" value="<?php echo $id;?>">
+
     <label>Correos Electronicos:</label><br>
     <span>Principal:<input type="email" name="correo" value="<?php echo $estudiante['correo_1'];?>" required></span><br>
     <span>Otro:<input type="email" name="correo2" value="<?php echo $estudiante['correo_2'];?>"></span><br>
 
     <label>Direccion de Habitacion</label><br>
-    <textarea name="direc" maxlength="100" placeholder="<?php echo $estudiante['direccion'];?>"></textarea><br>
+    <textarea name="direc" maxlength="100"><?php echo $estudiante['direccion'];?></textarea><br>
 
     <label>Cursos</label>
     <select name="curso">
       <?php
         include 'conexion_bd.php';
-        $sql = "SELECT * FROM estudiantes LEFT JOIN cursos ON estudiantes.id_curso = cursos.id";
+        $sql = "SELECT * FROM cursos WHERE id = $curso";
         $datos = mysqli_query($conexion, $sql);
         $fila=mysqli_fetch_array($datos);
         $trayecto = $fila['mes']."/".$fila['año'];
+        $id = $fila['id'];
         ?>
-        <option><?php echo $fila['nombre']." ".$fila['grado']." ".$trayecto;?></option>
+        <option selected value="<?php echo $id; ?>"><?php echo $fila['nombre']." ".$fila['grado']." ".$trayecto;?></option>
       <?php
       include 'conexion_bd.php';
       $sql = "SELECT * FROM cursos WHERE cursos.estado = 1 ORDER BY id";
@@ -92,10 +97,6 @@ $estudiante = mysqli_fetch_assoc($resultado);
       }
       ?>
     </select><br>
-
-
-
-    <input type="hidden" name="estudiante" value="editar_estudiante">
 
     <button type="submit" name="editar">Editar</button>
   </form>

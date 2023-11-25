@@ -35,7 +35,11 @@ if( $validar == null || $validar = ''){
     <input type="text" name="ape" id="ape" placeholder="Chirinos Colina" required><br>
 
     <label for="id">Cedula de Identidad:</label>
-    <input type="number" name="cedu" id="id" placeholder="30715180" required><br>
+    <select name="cedula">
+        <option value="V-">V-</option>
+        <option value="E-">E-</option>
+    </select>
+    <input type="text" name="cedu" id="id" placeholder="30715180" required><br>
 
     <label for="nacimiento">Fecha de Nacimiento:</label>
     <input type="date" name="nacimiento" id="nacimiento" required><br>
@@ -63,7 +67,7 @@ if( $validar == null || $validar = ''){
 
       <?php
       include 'conexion_bd.php';
-      $sql = "SELECT * FROM cursos ORDER BY id";
+      $sql = "SELECT * FROM cursos WHERE cursos.estado = 1 ORDER BY id";
       $datos = mysqli_query($conexion, $sql);
       while ($fila=mysqli_fetch_array($datos)) {
         $id = $fila['id'];

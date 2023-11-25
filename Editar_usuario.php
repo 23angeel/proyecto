@@ -159,15 +159,16 @@ $usuario = mysqli_fetch_assoc($resultado);
 		<?php
 		if ($usuario['id_rol'] == 1) {
 		?>
-				<p>El usuario tiene el rol de administrador</p>
-				<?php
+		ADMINISTRADOR<input type="radio" name="tipo" value="1" checked>
+		USUARIO<input type="radio" name="tipo" value="2">
+		<?php
 			}else{
 				?>
-				<p>El usuario tiene el rol de usuario</p>
+				ADMINISTRADOR<input type="radio" name="tipo" value="1">
+				USUARIO<input type="radio" name="tipo" value="2" checked>
 				<?php
 			}
 		?>
-
 		<button type="submit" name="editar" >Editar</button>
 	</form>
 

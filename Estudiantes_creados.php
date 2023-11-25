@@ -51,7 +51,7 @@ if( $validar == null || $validar = ''){
                 <td><?php echo $fila['apellidos'];?></td>
                 <td><?php echo $fila['fecha_registro'];?></td>
                 <td>
-                    <a href="">Ver</a>
+                    <a href="Perfil_estudiante.php?id=<?php echo $fila['id']?>">Ver</a>
                 </td>
             </tr>
             <?php

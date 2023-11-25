@@ -51,7 +51,7 @@ if( $validar == null || $validar = ''){
                 <td><?php echo $fila['mes']."/".$fila['año'];?></td>
                 <td><img height="50px" src="data:image/jpg;base64,<?php echo base64_encode($fila['imagen']); ?>"></td>
                 <td>
-                    <a href="">Ver</a>
+                    <a href="Perfil_curso.php?id=<?php echo $fila['id']?>">Ver</a>
                 </td>
             </tr>
             <?php

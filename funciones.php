@@ -22,8 +22,6 @@ function acceso_user() {
         $usuario = $_POST['usuario'];
         $contraseña = $_POST['password'];
 
-        $contraseña = hash('sha512', $contraseña);
-
         include 'conexion_bd.php';
 
         $consulta = mysqli_query($conexion, "SELECT * FROM usuarios WHERE usuario = '$usuario' AND contrasena = '$contraseña'");
@@ -64,9 +62,6 @@ function recuperar_contraseña() {
     $contraseña2 = $_POST['password2'];
     if ($contraseña == $contraseña2) {
         include 'conexion_bd.php';
-
-        //Encriptamiento de contraseña
-        $contrasena = hash('sha512', $contraseña);
 
         $consulta="UPDATE usuarios SET contrasena = '$contrasena' WHERE usuario = '$usuario' ";
         mysqli_query($conexion, $consulta);
@@ -115,10 +110,7 @@ function editar_usuario() {
     $contraseña = $_POST['password'];
     $clase = $_POST['tipo'];
 
-    //Encriptamiento de contraseña
-    $contrasena = hash('sha512', $contraseña);
-
-    $consulta="UPDATE usuarios SET usuario = '$usuario', contrasena = '$contrasena', id_rol = '$clase'  WHERE id = '$id' ";
+    $consulta="UPDATE usuarios SET usuario = '$usuario', contrasena = '$contraseña', id_rol = '$clase'  WHERE id = '$id' ";
 
     mysqli_query($conexion, $consulta);
 
@@ -139,8 +131,6 @@ function crear_usuario() {
         $contrasena = $_POST['password'];
         $clase = $_POST['tipo'];
 
-        //Encriptamiento de contraseña
-        $contrasena = hash('sha512', $contrasena);
 
         $query = "INSERT INTO usuarios(usuario, contrasena, id_rol)
                     VALUES('$usuario', '$contrasena', '$clase')";
@@ -307,7 +297,7 @@ function crear_estudiante(){
     $fecha_registro = $_POST['inscripcion'];
     $nombre = $_POST['name'];
     $apellidos = $_POST['ape'];
-    $cedula = $_POST['cedu'];
+    $cedula = $_POST['cedula']."".$_POST['cedu'];
     $fecha_nacimiento = $_POST['nacimiento'];
     $sexo = $_POST['tipo'];
     $habitacion = $_POST['habit'];
@@ -343,14 +333,14 @@ function crear_estudiante(){
                 ?>
                 <script>
                     alert("Estudiante registrado correctamente");
-                    window.location = "Menu_admin.php"
+                    window.location = "Estudiantes_admin.php"
                 </script>
                 <?php
             }else{
                 ?>
                 <script>
                     alert("Estudiante registrado correctamente");
-                    window.location = "Menu.php"
+                    window.location = "Estudiantes_creados.php"
                 </script>
                 <?php
             }
@@ -383,7 +373,7 @@ function editar_estudiante(){
     $correo = $_POST['correo'];              
     $correo2 = $_POST['correo2'];
     $direcion = $_POST['direc'];
-    $curso = $_POST['curso'];
+    $curso = $_POST['curso']; 
 
     $consulta="UPDATE estudiantes SET cedula = '$cedula', nombres = '$nombre', apellidos = '$apellidos', fecha_nacimiento = '$fecha_nacimiento', sexo = '$sexo', habitacion_tel = '$habitacion', celular_tel = '$celular', oficina_tel = '$oficina', otro_tel = '$otro', correo_1 = '$correo', correo_2 = '$correo2', direccion = '$direcion', fecha_registro = '$fecha_registro', id_curso = '$curso' WHERE id = '$id' ";
 

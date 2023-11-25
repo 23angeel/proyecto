@@ -163,8 +163,8 @@ if($_SESSION['cargo'] == 1) { //administrador
                     }
                     ?>
                 <td><img height="50px" src="data:image/jpg;base64,<?php echo base64_encode($fila['imagen']); ?>"></td>
-                <td class="actions">
-                    <a href="">Ver</a>
+                <td>
+                    <a href="Perfil_curso.php?id=<?php echo $fila['id']?>">Ver</a>
                     <a href="Editar_curso.php?id=<?php echo $fila['id']?>">Editar</a>
                     <a href="">Eliminar</a>
                 </td>
