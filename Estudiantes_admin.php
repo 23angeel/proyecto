@@ -61,7 +61,7 @@ if($_SESSION['cargo'] == 1) { //administrador
                 <td>
                     <a href="Perfil_estudiante.php?id=<?php echo $fila['id']?>">Ver</a>
                     <a href="Editar_estudiante.php?id=<?php echo $fila['id']?>">Editar</a>
-                    <a href="">Eliminar</a>
+                    <a href="Eliminar_estudiante.php?id=<?php echo $fila['id']?>" onclick="return Delete()">Eliminar</a>
                 </td>
             </tr>
             <?php
@@ -79,5 +79,17 @@ if($_SESSION['cargo'] == 1) { //administrador
     </table>
     </form>
     <script src="buscador.js"></script>
+    <script type="text/javascript">
+        function Delete()
+        {
+            var respuesta = confirm("¿Estas seguro de eliminar este estudiante?");
+
+            if (respuesta == true) {
+                return true;
+            }else{
+                return false;
+            }
+        }
+    </script>
 </body>
 </html>

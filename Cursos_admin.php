@@ -11,11 +11,11 @@ if($_SESSION['cargo'] == 1) { //administrador
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CURSOS | ESCUELA DE TRANSPORTE</title>
-	<link rel="stylesheet" href="./css/style0.css">
+    <link rel="stylesheet" href="./css/style0.css">
     <link rel="stylesheet" type="text/css" href="./css/cursos_admin.css">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,100&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,100&display=swap" rel="stylesheet">
 </head>
 <body>
 <nav class="nav">
@@ -166,7 +166,7 @@ if($_SESSION['cargo'] == 1) { //administrador
                 <td>
                     <a href="Perfil_curso.php?id=<?php echo $fila['id']?>">Ver</a>
                     <a href="Editar_curso.php?id=<?php echo $fila['id']?>">Editar</a>
-                    <a href="">Eliminar</a>
+                    <a href="Eliminar_curso.php?id=<?php echo $fila['id']?>" onclick="return Delete()">Eliminar</a>
                 </td>
             </tr>
             <?php
@@ -185,5 +185,17 @@ if($_SESSION['cargo'] == 1) { //administrador
     </form>
 </div>
     <script src="buscador.js"></script>
+    <script type="text/javascript">
+        function Delete()
+        {
+            var respuesta = confirm("¿Estas seguro de eliminar este curso?");
+
+            if (respuesta == true) {
+                return true;
+            }else{
+                return false;
+            }
+        }
+    </script>
 </body>
 </html>
