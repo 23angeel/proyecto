@@ -81,7 +81,7 @@ input{
 }
 
 input:focus {
-    border: 1px solid #3aada3;
+    border: 1px solid hsl(209.8deg 100% 29.61%);
 }
 
 h1{
