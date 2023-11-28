@@ -63,7 +63,7 @@ function recuperar_contraseña() {
     if ($contraseña == $contraseña2) {
         include 'conexion_bd.php';
 
-        $consulta="UPDATE usuarios SET contrasena = '$contrasena' WHERE usuario = '$usuario' ";
+        $consulta="UPDATE usuarios SET contrasena = '$contraseña' WHERE usuario = '$usuario' ";
         mysqli_query($conexion, $consulta);
 
         echo'
