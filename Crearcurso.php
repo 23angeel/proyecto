@@ -39,7 +39,9 @@ if( $validar == null || $validar = ''){
                         <span href="#" class="nav__link">Escuela de Transporte</span>
                     </a>
                 </li>
-
+                <?php
+                if ($rol == 1) {
+                    ?>
                 <li class="dropdown__list">
                     <a href="#" class="dropdown__link">
                         <img src="./Imagenes/Perfiles_12.svg" width="45">
@@ -48,7 +50,6 @@ if( $validar == null || $validar = ''){
 
                         <input type="checkbox" class="dropdown__check">
                     </a>
-
                     <div class="dropdown__content">
 
                         <ul class="dropdown__sub">
@@ -61,6 +62,9 @@ if( $validar == null || $validar = ''){
                             </li>
 
                         </ul>
+                    <?php
+                }
+                ?>
 
                 <li class="dropdown__list">
                     <a href="#" class="dropdown__link">
@@ -79,9 +83,17 @@ if( $validar == null || $validar = ''){
                                 <a href="Crearcurso.php" class="dropdown__anchor">Resgitrar</a>
                             </li>
                             <li class="dropdown__li">
+                            <?php
+                            if ($rol == 1) {
+                                ?>
                                 <a href="Cursos_admin.php" class="dropdown__anchor">Consultar</a>
-                            </li>
-
+                                <?php
+                            }else{
+                                ?>
+                                <a href="Cursos_creados.php" class="dropdown__anchor">Consultar</a>
+                                <?php
+                            }
+                        ?>
                         </ul>
 
                     </div>
@@ -104,7 +116,17 @@ if( $validar == null || $validar = ''){
                                 <a href="Crearestudiante.php" class="dropdown__anchor">Resgitrar</a>
                             </li>
                             <li class="dropdown__li">
-                                <a href="Estudiantes_admin.php" class="dropdown__anchor">Consultar</a>
+                                <?php
+                                if ($rol == 1) {
+                                    ?>
+                                    <a href="Estudiantes_admin.php" class="dropdown__anchor">Consultar</a>
+                                    <?php
+                                }else{
+                                    ?>
+                                <a href="Estudiantes_creados.php" class="dropdown__anchor">Consultar</a>
+                                <?php
+                            }
+                            ?>
                             </li>
                           
 
