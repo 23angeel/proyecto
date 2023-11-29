@@ -1,0 +1,96 @@
+*{
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+}
+body{
+display: flex;
+justify-content: center;
+align-items:center;
+min-height: 100vh;
+}
+.inputBox{
+margin-bottom: 10px;
+display: flex;
+flex-direction: column;
+gap: 1px;
+}
+
+.container {
+  min-width: 100%;
+  min-height: 100vh;
+      margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  z-index: -1;
+}
+
+form{
+  min-width: 360hv;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin: 0px;
+  border: 1px #eee solid;
+  background-color: #eee;
+  box-shadow: 2px 4px 10px rgba(0,0, 0,0.5);
+  border-radius: 8px;
+  width: 55%;
+
+}
+
+button {
+background-color:hsl(209.8deg 100% 29.61%) ;
+  color: wheat;
+  border: none;
+  font-weight: 5;
+  padding: 5px 5px;
+  border-radius: 15px;
+  margin-top: 15px
+}
+
+div {
+margin-bottom: 10px;
+}
+
+input{
+width: 90%;
+  padding: 1px 10px;
+  border-radius: 1px;
+  outline:none;
+  background-color: #f4f8f7;
+  border: none;
+
+}
+
+input:focus {
+  border: 1px solid hsl(209.8deg 100% 29.61%);
+}
+
+
+h1{
+ text-align: center;
+  margin-bottom: 1px;
+  font-size: 28px;
+  color: hsl(209.8deg 100% 29.61%);
+  font-weight: 600;
+}
+
+.btns{
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+label{
+    font-size: 12px;
+}
+
+.radio{
+  width: 10%;
+}
