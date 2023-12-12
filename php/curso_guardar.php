@@ -122,6 +122,10 @@
             </script>
         ';
     }else{
+        if (is_file($img_dir.$foto)) {
+            chmod($img_dir.$foto,0777);
+            unlink($img_dir.$foto);
+        }
         echo '
             <script>
                 alert("No se pudo registrar el curso, intentelo nuevamente");
