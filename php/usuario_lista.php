@@ -2,8 +2,10 @@
 	
 	$inicio = ($pagina>0) ? (($pagina*$registros)-$registros) : 0;
 	$tabla="";
+
+	$campos= "usuarios.usuario_id, usuarios.usuario_usuario, usuarios.usuario_contrasena, usuarios.rol_id, rol.rol_id, rol.rol_nombre";
 	
-	$consulta_datos="SELECT * FROM usuarios WHERE usuario_id!='".$_SESSION['id']."' ORDER BY usuario_id ASC LIMIT $inicio,$registros";
+	$consulta_datos="SELECT $campos FROM usuarios INNER JOIN rol ON usuarios.rol_id=rol.rol_id WHERE usuario_id!='".$_SESSION['id']."' ORDER BY usuario_id ASC LIMIT $inicio,$registros";
 	$consulta_total="SELECT COUNT(usuario_id) FROM usuarios WHERE usuario_id!='".$_SESSION['id']."'";
 
 	$conexion =conexion();
@@ -37,7 +39,7 @@
 					<tr>
 					<td>'.$contador.'</td>
 					<td>'.$filas['usuario_usuario'].'</td>
-					<td>'.$filas['usuario_rol'].'></td>
+					<td>'.$filas['rol_nombre'].'</td>
 					<td>
 						<a href="index.php?vista=usuario_update&user_id_up='.$filas['usuario_id'].'"><img class="img-btn-edit" src="./Imagenes/edit.svg"></a>
 						<a href="'.$url.$pagina.'&user_id_del='.$filas['usuario_id'].'"><img class="img-btn-delete" onclick="return Delete()" src="./Imagenes/eliminar.svg"></button></a>
