@@ -40,7 +40,7 @@ if ($_SESSION['rol']== 1) {
 			<label>Rol en el sistema</label>
 			<div class="roles">
 				<?php
-				if ($datos['usuario_rol'] == 1) {
+				if ($datos['rol_id'] == 1) {
 				?>
 				<label>
 					ADMINISTRADOR<input type="radio" name="tipo" value="1" checked>
