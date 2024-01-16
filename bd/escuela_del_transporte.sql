@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-12-2023 a las 03:31:08
+-- Tiempo de generación: 16-01-2024 a las 02:04:44
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -107,17 +107,18 @@ CREATE TABLE `usuarios` (
   `usuario_id` int(11) NOT NULL,
   `usuario_usuario` varchar(50) NOT NULL,
   `usuario_contrasena` varchar(100) NOT NULL,
-  `usuario_rol` int(11) NOT NULL
+  `rol_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`usuario_id`, `usuario_usuario`, `usuario_contrasena`, `usuario_rol`) VALUES
+INSERT INTO `usuarios` (`usuario_id`, `usuario_usuario`, `usuario_contrasena`, `rol_id`) VALUES
 (3, 'Angel', '$2y$10$0B3LUV4pVS7CAzxV7o8fkOx8FF/zC/MQVWdwZpURCx4oXCIcyIAtm', 1),
 (4, 'Angel3', '$2y$10$l0j9ceCzk.B.bMnX9gH0seCPIqcq71eiQx3Na30eDJRV7q18lMiD.', 2),
-(9, 'Angel2', '$2y$10$U7Jua5eckJfuxYQfXhBB0ej3/arqVkYeuMMdFmIME2eLq8SP6UIDa', 2);
+(9, 'Angel2', '$2y$10$U7Jua5eckJfuxYQfXhBB0ej3/arqVkYeuMMdFmIME2eLq8SP6UIDa', 2),
+(10, 'Angel4', '$2y$10$mzifkfhFd0P6AqTmRaNV9.iBbjsJL4epHv9KKMoao2wgAN/q2QoiO', 1);
 
 --
 -- Índices para tablas volcadas
@@ -147,7 +148,7 @@ ALTER TABLE `rol`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`usuario_id`),
-  ADD KEY `usuario_rol` (`usuario_rol`);
+  ADD KEY `usuario_rol` (`rol_id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -175,7 +176,7 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `usuario_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `usuario_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restricciones para tablas volcadas
@@ -191,7 +192,7 @@ ALTER TABLE `estudiantes`
 -- Filtros para la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`usuario_rol`) REFERENCES `rol` (`rol_id`);
+  ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`rol_id`) REFERENCES `rol` (`rol_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

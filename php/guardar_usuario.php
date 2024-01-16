@@ -36,7 +36,7 @@
         
         #GUARDAR DATOS
         $guardar_usuario=conexion();
-        $guardar_usuario=$guardar_usuario->prepare("INSERT INTO usuarios(usuario_usuario, usuario_contrasena, usuario_rol) VALUES( :usuario,:contrasena, :clase)");
+        $guardar_usuario=$guardar_usuario->prepare("INSERT INTO usuarios(usuario_usuario, usuario_contrasena, rol_id) VALUES( :usuario,:contrasena, :clase)");
 
         $marcadores=[
             ":usuario"=>$usuario,
