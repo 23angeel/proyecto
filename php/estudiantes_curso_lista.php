@@ -1,10 +1,10 @@
 <?php
-
+	
 	$inicio = ($pagina>0) ? (($pagina*$registros)-$registros) : 0;
 	$tabla="";
 	
-	$consulta_datos="SELECT * FROM estudiantes ORDER BY estudiantes_cedula ASC LIMIT $inicio,$registros";
-	$consulta_total="SELECT COUNT(estudiantes_id) FROM estudiantes";
+	$consulta_datos="SELECT * FROM estudiantes  WHERE estudiantes_curso ='$id' ORDER BY estudiantes_cedula ASC LIMIT $inicio,$registros";
+	$consulta_total="SELECT COUNT(estudiantes_id) FROM estudiantes WHERE estudiantes_curso ='$id'";
 
 	$conexion =conexion();
 
@@ -30,7 +30,8 @@
                     <th>Cedula</th>
                     <th>NOMBRES</th>
                     <th>APELLIDOS</th>
-                    <th>FECHA DE REGISTRO</th>
+                    <th>EVALUACION TEORICA</th>
+                    <th>EVALUACION PRACTICA</th>
                 </tr>
             </thead>
         <tbody>
@@ -45,17 +46,12 @@
                 <td>'.$filas['estudiantes_cedula'].'</td>
                 <td>'.$filas['estudiantes_nombres'].'</td>
                 <td>'.$filas['estudiantes_apellidos'].'</td>
-                <td>'.$filas['estudiantes_inscripcion'].'</td>
+                <td> 1 </td>
+                <td> 2 </td>
                 <td>
-                <a href="index.php?vista=estudiante_profile&estudiante_id_up='.$filas['estudiantes_id'].'">Ver</a>';
-                    if ($_SESSION['rol']== 1) {
-					$tabla.='
-                    <a href="index.php?vista=estudiante_update&estudiante_id_up='.$filas['estudiantes_id'].'">Editar</a>
-                    <a href="'.$url.$pagina.'&estudiante_id_del='.$filas['estudiantes_id'].'" onclick="return Delete()">Eliminar</a>
+                    <a href="">Ver</a>
                 </td>
-            </tr>
 			';
-		}
 			$contador++;
 		}
 		$paginador_final=$contador-1;
@@ -86,7 +82,7 @@
 	';
 
 	if($total>0 && $pagina<=$Npaginas){
-		$tabla.='<p>Mostrando estudiatess <strong>'.$paginador_inicial.'</strong> al <strong>'.$paginador_final.'</strong> de un <strong>total de '.$total.'</strong></p>';
+		$tabla.='<p>Mostrando estudiatess del curso <strong>'.$paginador_inicial.'</strong> al <strong>'.$paginador_final.'</strong> de un <strong>total de '.$total.'</strong></p>';
 	}
 
 	$conexion=null;
@@ -98,15 +94,3 @@
 ?>
 
 <script src="./js/buscador.js"></script>
-<script type="text/javascript">
-    function Delete()
-    {
-        var respuesta = confirm("¿Estas seguro de eliminar este estudiante?");
-
-        if (respuesta == true) {
-            return true;
-        }else{
-            return false;
-        }
-    }
-</script>

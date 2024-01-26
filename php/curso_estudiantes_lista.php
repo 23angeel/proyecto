@@ -3,8 +3,8 @@
 	$inicio = ($pagina>0) ? (($pagina*$registros)-$registros) : 0;
 	$tabla="";
 	
-	$consulta_datos="SELECT * FROM cursos ORDER BY curso_año ASC LIMIT $inicio,$registros";
-	$consulta_total="SELECT COUNT(curso_id) FROM cursos";
+	$consulta_datos="SELECT * FROM cursos WHERE curso_id = '$curso' ORDER BY curso_año ASC LIMIT $inicio,$registros";
+	$consulta_total="SELECT COUNT(curso_id) FROM cursos WHERE curso_id = '$curso'";
 
 	$conexion =conexion();
 
@@ -27,9 +27,10 @@
         <thead class="thead">
             <tr>
                 <th>#</th>
-                <th>Nombre</th>
-                <th>Grado</th>
-                <th>Mes / Año</th>
+                <th>Curso / Grado</th>
+                <th>Trayecto</th>
+                <th>Evaluacion Teorica</th>
+                <th>Evaluacion Practica</th>
             </tr>
         </thead>
         <tbody>
@@ -46,19 +47,13 @@
 			$tabla.='
 			<tr>
                 <td>'.$contador.'</td>
-                <td>'.$filas['curso_nombre'].'</td>
-                <td>'.$grado.'</td>
+                <td>'.$filas['curso_nombre'].''.$grado.'</td>
                 <td>'.$filas['curso_mes']."/".$filas['curso_año'].'</td>
+                <td></td>
+                <td></td>
                 	<td>
-                    	<a href="index.php?vista=curso_profile&curso_id_up='.$filas['curso_id'].'">Ver</a>';
-                    	if ($_SESSION['rol']== 1) {
-                		$tabla.='
-                    	<a href="index.php?vista=curso_update&curso_id_up='.$filas['curso_id'].'">Editar</a>
-                    	<a href="'.$url.$pagina.'&curso_id_del='.$filas['curso_id'].'" onclick="return Delete()">Eliminar</a>
-                	</td>
-            	</tr>
-				';
-				}
+                    	<a href="index.php?vista=curso_profile&curso_id_up='.$filas['curso_id'].'">Ver</a>
+                    </td>';
 			$contador++;
 		}
 		$paginador_final=$contador-1;
@@ -98,15 +93,3 @@
 	}
 ?>
 <script src="./js/buscador.js"></script>
-<script type="text/javascript">
-    function Delete()
-    {
-        var respuesta = confirm("¿Estas seguro de eliminar este curso?");
-
-        if (respuesta == true) {
-            return true;
-        }else{
-            return false;
-        }
-    }
-</script>

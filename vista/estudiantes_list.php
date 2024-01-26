@@ -7,6 +7,11 @@
     <h1>Estudiantes Registrados</h1>
 <?php
     require_once "./php/main.php";
+
+    //Eliminar estudiante
+    if(isset($_GET['estudiante_id_del'])){
+        require_once "./php/estudiante_eliminar.php";
+    }
     
     if (!isset($_GET['page'])) {
         $pagina=1;
