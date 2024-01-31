@@ -50,7 +50,8 @@
                 <td>'.$grado.'</td>
                 <td>'.$filas['curso_mes']."/".$filas['curso_año'].'</td>
                 	<td>
-                    	<a href="index.php?vista=curso_profile&curso_id_up='.$filas['curso_id'].'">Ver</a>';
+                    	<a href="index.php?vista=curso_profile&curso_id_up='.$filas['curso_id'].'">Ver</a>
+                    	<a href="index.php?vista=estudiantes_matricular&curso_id_up='.$filas['curso_id'].'">Matricular</a>';
                     	if ($_SESSION['rol']== 1) {
                 		$tabla.='
                     	<a href="index.php?vista=curso_update&curso_id_up='.$filas['curso_id'].'">Editar</a>

@@ -2,9 +2,11 @@
 
 	$inicio = ($pagina>0) ? (($pagina*$registros)-$registros) : 0;
 	$tabla="";
+
+	$campos="estudiantes_cursos.id, estudiantes_cursos.id_curso, estudiantes_cursos.id_estudiante,estudiantes_cursos.evaluacion_teorica,estudiantes_cursos.evaluacion_practica, cursos.curso_id, cursos.curso_nombre, cursos.curso_grado, cursos.curso_mes, cursos.curso_año";
 	
-	$consulta_datos="SELECT * FROM cursos WHERE curso_id = '$curso' ORDER BY curso_año ASC LIMIT $inicio,$registros";
-	$consulta_total="SELECT COUNT(curso_id) FROM cursos WHERE curso_id = '$curso'";
+	$consulta_datos="SELECT $campos FROM estudiantes_cursos INNER JOIN cursos ON estudiantes_cursos.id_curso=cursos.curso_id WHERE id_estudiante= '$id' ORDER BY curso_año ASC LIMIT $inicio,$registros";
+	$consulta_total="SELECT COUNT(id_curso) FROM estudiantes_cursos WHERE id_estudiante= '$id'";
 
 	$conexion =conexion();
 
@@ -49,8 +51,8 @@
                 <td>'.$contador.'</td>
                 <td>'.$filas['curso_nombre'].''.$grado.'</td>
                 <td>'.$filas['curso_mes']."/".$filas['curso_año'].'</td>
-                <td></td>
-                <td></td>
+                <td>'.$filas['evaluacion_teorica'].'</td>
+                <td>'.$filas['evaluacion_practica'].'</td>
                 	<td>
                     	<a href="index.php?vista=curso_profile&curso_id_up='.$filas['curso_id'].'">Ver</a>
                     </td>';
