@@ -23,7 +23,7 @@
         	</form>
     	</div>
     	<form>
-    		<table class="table table-striped table-dark table_id">
+    		<table class="table">
         <thead class="thead">
             <tr>
                 <th>#</th>
@@ -32,7 +32,7 @@
                 <th>Mes / Año</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="tbody">
 	';
 	if($total>1 && $pagina<=$Npaginas){
 		$contador=$inicio+1;
@@ -49,13 +49,13 @@
                 <td>'.$filas['curso_nombre'].'</td>
                 <td>'.$grado.'</td>
                 <td>'.$filas['curso_mes']."/".$filas['curso_año'].'</td>
-                	<td>
-                    	<a href="index.php?vista=curso_profile&curso_id_up='.$filas['curso_id'].'">Ver</a>
+                	<td class="btn-actions">
+                    	<a href="index.php?vista=curso_profile&curso_id_up='.$filas['curso_id'].'"><img class="img-logo" src="./Imagenes/eye-solid.svg"></a>
                     	<a href="index.php?vista=estudiantes_matricular&curso_id_up='.$filas['curso_id'].'">Matricular</a>';
                     	if ($_SESSION['rol']== 1) {
                 		$tabla.='
-                    	<a href="index.php?vista=curso_update&curso_id_up='.$filas['curso_id'].'">Editar</a>
-                    	<a href="'.$url.$pagina.'&curso_id_del='.$filas['curso_id'].'" onclick="return Delete()">Eliminar</a>
+                    	<a href="index.php?vista=curso_update&curso_id_up='.$filas['curso_id'].'"><img class="img-logo" src="./Imagenes/edit.svg"></a>
+                    	<a href="'.$url.$pagina.'&curso_id_del='.$filas['curso_id'].'" onclick="return Delete()"><img class="img-logo" src="./Imagenes/eliminar.svg"></a>
                 	</td>
             	</tr>
 				';
@@ -88,7 +88,9 @@
   			</form>
 	';
 	if($total>0 && $pagina<=$Npaginas){
-		$tabla.='<p>Mostrando cursos <strong>'.$paginador_inicial.'</strong> al <strong>'.$paginador_final.'</strong> de un <strong>total de '.$total.'</strong></p>';
+		$tabla.='<div class="footer-table">
+							<p>Mostrando cursos <strong>'.$paginador_inicial.'</strong> al <strong>'.$paginador_final.'</strong> de un <strong>total de '.$total.'</strong></p>
+						</div>';
 	}
 
 	$conexion=null;

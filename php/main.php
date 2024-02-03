@@ -1,7 +1,7 @@
 <?php
     // CONEXION A LA BASE DE DATOS
     function conexion(){
-        $pdo = new PDO('mysql:host=localhost;dbname=escuela del transporte', 'root', '');
+        $pdo = new PDO('mysql:host=localhost;dbname=escuela_del_transporte', 'root', '');
         return $pdo;
     }
 
@@ -47,7 +47,7 @@
 
 	# Funcion paginador de tablas #
 	function paginador_tablas($pagina, $Npaginas, $url, $botonoes){
-		$tabla='<nav>';
+		$tabla='<nav class="paginator">';
 
 		if($pagina<=1){
 			$tabla.='
