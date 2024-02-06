@@ -61,7 +61,7 @@
     }
 
     $pagina=limpiar_cadena($pagina);
-    $url="index.php?vista=estudiantes_cursos_list&page=";
+    $url="index.php?vista=curso_profile&curso_id_up=".$id."&page=";
     $registros=15;
     $busqueda="";
     require_once './php/estudiantes_curso_lista.php';

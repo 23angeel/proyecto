@@ -17,10 +17,9 @@
    $correo = limpiar_cadena($_POST['correo']);              
    $correo2 = limpiar_cadena($_POST['correo2']);
    $direcion = limpiar_cadena($_POST['direc']);
-   $curso = limpiar_cadena($_POST['curso']);
 
    #Verificar datos obligatorios
-     if($fecha_registro=="" || $nombre=="" || $apellidos=="" || $n=="" || $cedula=="" || $fecha_nacimiento=="" || $sexo=="" || $correo=="" || $curso==""){
+     if($fecha_registro=="" || $nombre=="" || $apellidos=="" || $n=="" || $cedula=="" || $fecha_nacimiento=="" || $sexo=="" || $correo==""){
       echo '
             <script>
                 alert("No has llenado todo los campos que son obligatorios");
@@ -55,23 +54,9 @@
    }
    $check_cedula=null;
 
-   /*Verificando curso*/
-   $check_curso=conexion();
-   $check_curso=$check_curso->query("SELECT curso_id FROM cursos WHERE curso_id='$curso'");
-   if ($check_curso->rowCount()<=0) {
-      echo '
-      <script>
-            alert("El curso seleccionado no existe");
-            window.location = "../index.php?vista=estudiante_new"
-         </script>
-      ';
-      exit();
-   }
-   $check_curso=null;
-
    #GUARDAR DATOS
     $guardar_estudiante=conexion();
-    $guardar_estudiante=$guardar_estudiante->prepare("INSERT INTO estudiantes(estudiantes_cedula, estudiantes_n, estudiantes_nombres,estudiantes_apellidos, estudiantes_naciemineto, estudiantes_sexo, estudiantes_habitacion, estudiantes_celular, estudiantes_oficia,estudiantes_otro, estudiantes_correo, estudiantes_correo2, estudiantes_direccion, estudiantes_inscripcion, estudiantes_curso) VALUES( :cedula, :n, :nombre, :apellidos, :fecha_nacimiento, :sexo, :habitacion, :celular, :oficina, :otro, :correo, :correo2, :direcion, :fecha_registro, :curso)");
+    $guardar_estudiante=$guardar_estudiante->prepare("INSERT INTO estudiantes(estudiantes_cedula, estudiantes_n, estudiantes_nombres,estudiantes_apellidos, estudiantes_naciemineto, estudiantes_sexo, estudiantes_habitacion, estudiantes_celular, estudiantes_oficia,estudiantes_otro, estudiantes_correo, estudiantes_correo2, estudiantes_direccion, estudiantes_inscripcion) VALUES( :cedula, :n, :nombre, :apellidos, :fecha_nacimiento, :sexo, :habitacion, :celular, :oficina, :otro, :correo, :correo2, :direcion, :fecha_registro)");
 
     $marcadores=[
         ":cedula"=>$cedula, 
@@ -87,8 +72,7 @@
         ":correo"=>$correo, 
         ":correo2"=>$correo2, 
         ":direcion"=>$direcion, 
-        ":fecha_registro"=>$fecha_registro, 
-        ":curso"=>$curso
+        ":fecha_registro"=>$fecha_registro
     ];
     $guardar_estudiante->execute($marcadores);
 

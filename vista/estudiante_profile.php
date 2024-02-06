@@ -11,7 +11,6 @@
 	$check_estudiante=$check_estudiante->query("SELECT * FROM estudiantes WHERE estudiantes_id='$id'");
 	if($check_estudiante->rowCount()>0){
 		$datos=$check_estudiante->fetch();
-		$curso=$datos['estudiantes_curso'];
 		if ($datos['estudiantes_habitacion']!="") {
             $habitacion=$datos['estudiantes_habitacion'];
         }else{
@@ -105,7 +104,7 @@
     }
 
     $pagina=limpiar_cadena($pagina);
-    $url="index.php?vista=estudiantes_list&page=";
+    $url="index.php?vista=estudiante_profile&estudiante_id_up=".$id."&page=";
     $registros=15;
     $busqueda="";
 

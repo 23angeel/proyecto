@@ -60,6 +60,7 @@
                         <a href="index.php?vista=cursos_list" class="dropdown__anchor">Consultar</a>
                     </li>
 
+                    </li>
                 </ul>
 
             </div>
@@ -92,18 +93,12 @@
 
         </li>
          <li class="dropdown__list">
-            <a href="#" class="dropdown__link">
+            <a href="index.php?vista=studies_control" class="dropdown__link">
                 <img src="./Imagenes/controlde_12.svg" width="45">
                 <span class="dropdown__span">Control de Estudios</span>
             </a>
         </li>
         <br><br><br>
-        <li class="dropdown__list">
-            <a href="index.php?vista=usuario_update&usur_id_up=<?php echo $_SESSION['id']?>" class="dropdown__link">
-                <img src="./Imagenes/cuenta.svg" width="45">
-                <span class="dropdown__span">Mi cuenta</span>
-            </a>
-        </li>
          <li class="dropdown__list">
             <a href="index.php?vista=cerrar_session" class="dropdown__link">
                 <img src="./Imagenes/cerrar (12).svg" width="45">
