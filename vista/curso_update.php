@@ -32,7 +32,60 @@
 
     <div class="inputBox">
         <label for="grado">GRADO</label>
-        <input type="number" name="grado" id="grado" value="<?php echo $grado;?>">
+        <?php
+        if ($datos['curso_grado']==0) {
+        	?>
+			<select name="grado">
+				<option>Seleccionar Gradro</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+        <?php
+        }elseif ($datos['curso_grado']==2) {
+        	?>
+			<select name="grado">
+				<option>Seleccionar Gradro</option>
+				<option value="2" selected>2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+		<?php
+		}elseif ($datos['curso_grado']==3) {
+			?>
+			<select name="grado">
+				<option>Seleccionar Gradro</option>
+				<option value="2">2</option>
+				<option value="3" selected>3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+		<?php
+		}elseif ($datos['curso_grado']==4) {
+			?>
+			<select name="grado">
+				<option>Seleccionar Gradro</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4" selected>4</option>
+				<option value="5">5</option>
+			</select>
+		<?php 
+		}else{
+			?>
+			<select name="grado">
+				<option>Seleccionar Gradro</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5" selected>5</option>
+			</select>
+		<?php
+		}
+		?>
+
         <b>Colocar el grado para cuando es para licencia</b> 
 	</div>
 

@@ -18,19 +18,6 @@
         exit();
     }
 
-    //Verificar grado
-    if ($grado!="") {
-	    if ($grado!=2 && 3 && 4 && 5) {
-	    	echo '
-	            <script>
-	                alert("El grado no coincide con el formato solicitado");
-	                window.location = "../index.php?vista=home"
-	            </script>
-	        ';
-	        exit();
-	    }
-	}
-
     # Directorio de imagenes #
     $img_dir="../Imagenes/curso/";
 

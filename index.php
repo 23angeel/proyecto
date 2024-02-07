@@ -29,9 +29,9 @@
         }else{
             if($_GET['vista']=="login"){
                 include "./vista/login.php";
-            }if($_GET['vista']=="recuperar_password") {
+            }elseif($_GET['vista']=="recuperar_password") {
                 include "./vista/recuperar_password.php";
-            }if($_GET['vista']=="password_recuperar") {
+            }elseif($_GET['vista']=="password_recuperar") {
                 include "./vista/password_recuperar.php";
             }else{
                 include "./vista/404.php";

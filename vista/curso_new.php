@@ -16,7 +16,13 @@
 
         <div class="inputBox">
         	<label for="grado">GRADO</label> 
-			<input type="number" name="grado" id="grado" placeholder="2" maxlength="1" min="2" max="5"> 
+			<select name="grado">
+				<option>Seleccionar Gradro</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
 			<b>Colocar el grado cuando es para licencia</b> 
         </div>
 
