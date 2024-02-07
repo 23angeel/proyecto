@@ -51,6 +51,13 @@
 <div>
 	<legend>Estudiantes Registrados</legend>
 	<?php
+    require_once "./php/main.php";
+
+    //Eliminar matricula
+    if(isset($_GET['matricula_id_del'])){
+        require_once "./php/matricula_eliminar.php";
+    }
+
 	if (!isset($_GET['page'])) {
 		$pagina=1;
     }else{

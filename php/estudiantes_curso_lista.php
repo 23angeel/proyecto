@@ -51,9 +51,13 @@
                 <td>'.$filas['evaluacion_teorica'].'</td>
                 <td>'.$filas['evaluacion_practica'].'</td>
                 <td>
-                    <a href="">Ver</a>
+                    <a href="">Ver</a>';
+                    if ($_SESSION['rol']== 1) {
+                		$tabla.='
+                    	<a href="'.$url.$pagina.'&matricula_id_del='.$filas['id'].'" onclick="return Delete()">Eliminar del Curso</a>
                 </td>
 			';
+		}
 			$contador++;
 		}
 		$paginador_final=$contador-1;
@@ -96,3 +100,15 @@
 ?>
 
 <script src="./js/buscador.js"></script>
+<script type="text/javascript">
+    function Delete()
+    {
+        var respuesta = confirm("¿Estas seguro de eliminar al estudiante de este curso?");
+
+        if (respuesta == true) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+</script>
