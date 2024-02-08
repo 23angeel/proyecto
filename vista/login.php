@@ -23,13 +23,11 @@
    <div id="recuperarClave">
       <h1 class="text-center mb-5 recuperarPass"> </h1>
 
-      <form action="Recuperar_contraseña.php" method="post">
       <div class="filed-wrap">
          <label for="">¿Haz olvidado tu contraseña?</label>
-         <a href="Recuperar_contraseña.php">Recuperar contraseña</a>
+         <a href="index.php?vista=recuperar_password">Recuperar contraseña</a>
       </div>
          <br></br>
-      </form>
       <?php
             if (isset($_POST['usuario']) && isset($_POST['password'])) {
                require_once "./php/main.php";
