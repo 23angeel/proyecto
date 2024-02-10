@@ -1,5 +1,5 @@
 <head>
-	<link rel="stylesheet" type="text/css" href="./css/perfil_curso.css">
+	<link rel="stylesheet" type="text/css" href="./css/cursos_admin.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,100&display=swap" rel="stylesheet">
@@ -20,7 +20,9 @@
                 	$grado="";
                 }
 ?>
-<div>
+
+<!-- TODO-ANGEL: para que sirve esto? -->
+<!-- <div>
 	<h5>Informacion del Curso</h5>
     <a href="">Hacer PDF</a>
 </div>
@@ -47,9 +49,9 @@
     <?php
 	}
 	?>
-</div>
-<div>
-	<legend>Estudiantes Registrados</legend>
+</div> -->
+<div class="content">
+	<h1>Estudiantes Registrados</h1>
 	<?php
     require_once "./php/main.php";
 

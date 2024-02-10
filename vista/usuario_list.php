@@ -9,7 +9,6 @@ if ($_SESSION['rol']== 1) {
 </head>
 <div class="container">
 	<div class="form">
-		<section></section>
 	<h1>Lista de Usuarios Creados</h1>
 
 	<?php

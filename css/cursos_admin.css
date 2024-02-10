@@ -63,6 +63,8 @@ form:has(.table) {
 
 .btn-actions {
   display: flex;
+  padding-block: 20px;
+  padding-inline: 10px;
   justify-content: center;
   gap: 10px;
   border: 0px;

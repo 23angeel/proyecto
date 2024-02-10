@@ -1,9 +1,10 @@
 <head>
     <link rel="stylesheet" type="text/css" href="./css/estudiante_admin.css">
+    <link rel="stylesheet" type="text/css" href="./css/style_usuariosCreados.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,100&display=swap" rel="stylesheet">
 </head>
-<div class="content">
+<div class="container">
     <h1>Estudiantes Registrados</h1>
 <?php
     require_once "./php/main.php";

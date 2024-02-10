@@ -19,16 +19,15 @@
 	$Npaginas=ceil($total/$registros);
 
 	$tabla.='
-	<div>
-		<table>
-			<thead>
+		<table class="table">
+			<thead class="thead">
 				<tr>
 					<th>#</th>
 					<th>USUARIO</th>
 					<th>ROL</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody class="tbody">
 	';
 
 	if($total>1 && $pagina<=$Npaginas){
@@ -72,11 +71,10 @@
 
 	}
 	$tabla.='</tbody>
-				</table>
-			</div>';
+				</table>';
 
 	if($total>0 && $pagina<=$Npaginas){
-		$tabla.='<p>Mostrando usuarios <strong>'.$paginador_inicial.'</strong> al <strong>'.$paginador_final.'</strong> de un <strong>total de '.$total.'</strong></p>';
+		$tabla.='<p class="footer-table">Mostrando usuarios <strong>'.$paginador_inicial.'</strong> al <strong>'.$paginador_final.'</strong> de un <strong>total de '.$total.'</strong></p>';
 	}
 
 	$conexion=null;

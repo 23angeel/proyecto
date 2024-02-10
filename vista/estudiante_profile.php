@@ -1,5 +1,9 @@
 <head>
-	
+    <link rel="stylesheet" type="text/css" href="./css/cursos_admin.css">
+    <link rel="stylesheet" type="text/css" href="./css/estudiantes_profile.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,100&display=swap" rel="stylesheet">
 </head>
 <?php
 	require_once "./php/main.php";
@@ -42,54 +46,75 @@
             $correo2="N/A";
         }
 ?>
+<div class="header d-none">
+    <img src="./Imagenes/zyro-image (2).png" alt="">
+</div>
+
+<div class="container">
+    <div class="button-content">
+	    <h5>Informacion del Estudiante</h5>
+	    <button class="button">descargar PDF</button>
+    </div>
+<div class="pdf d-none">
+    <div>
+        <label><b>Fecha de Registro</b></label>
+        <span><?php echo $datos['estudiantes_inscripcion'];?></span>
+    </div>
+
+    <div>
+        <label><b>Cedula de Identidad</b></label>
+        <span><?php echo $datos['estudiantes_cedula'];?></span>
+    </div>
+    
+        <div>
+    <label><b>Nombres</b></label>
+    <span><?php echo $datos['estudiantes_nombres'];?></span>
+    </div>
 <div>
-	<h5>Informacion del Estudiante</h5>
-	<a href="">Hacer PDF</a>
+    <label><b>Apellidos</b></label>
+    <span><?php echo $datos['estudiantes_apellidos'];?></span>
 </div>
 <div>
-    <label><b>Fecha de Registro</b></label><br>
-    <div><?php echo $datos['estudiantes_inscripcion'];?></div><br>
-
-    <label><b>Cedula de Identidad</b></label><br>
-    <div><?php echo $datos['estudiantes_cedula'];?></div><br>
-
-    <label><b>Nombres</b></label><br>
-    <div><?php echo $datos['estudiantes_nombres'];?></div><br>
-
-    <label><b>Apellidos</b></label><br>
-    <div><?php echo $datos['estudiantes_apellidos'];?></div><br>
-
-    <label><b>Fecha de Naciemiento</b></label><br>
-    <div><?php echo $datos['estudiantes_naciemineto'];?></div><br>
-
-    <label><b>Sexo</b></label><br>
-    <div><?php echo $datos['estudiantes_sexo'];?></div><br>
-
+    <label><b>Fecha de Naciemiento</b></label>
+    <span><?php echo $datos['estudiantes_naciemineto'];?></span>
+</div>
+<div>
+    <label><b>Sexo</b></label>
+    <span><?php echo $datos['estudiantes_sexo'];?></span>
+</div>
+<div>
     <legend><b>Numeros de Telefonos</b></legend>
-    <label><b>Habitacion</b></label><br>
-    <div><?php echo $habitacion;?></div><br>
-
-    <label><b>Celular</b></label><br>
-    <div><?php echo $celular;?></div><br>
-
-    <label><b>Oficina</b></label><br>
-    <div><?php echo $oficina;?></div><br>
-
-    <label><b>Otro</b></label><br>
-    <div><?php echo $otro;?></div><br>
-
-    <legend><b>Correos Electronicos</b></legend>
-    <label><b>Principal</b></label><br>
-    <div><?php echo $correo;?></div><br>
-
-    <label><b>Otro</b></label><br>
-    <div><?php echo $correo2;?></div><br>
-
-    <label><b>Direccion</b></label><br>
-    <div><?php echo $datos['estudiantes_direccion'];?></div><br>
+    <label><b>Habitacion</b></label>
+    <span><?php echo $habitacion;?></span>
 </div>
 <div>
-  <legend>Historia Academica</legend>
+    <label><b>Celular</b></label>
+    <span><?php echo $celular;?></span>
+</div>
+<div>
+    <label><b>Oficina</b></label>
+    <span><?php echo $oficina;?></span>
+</div>
+<div>
+    <label><b>Otro</b></label>
+    <span><?php echo $otro;?></span>
+</div>
+<div>
+    <legend><b>Correos Electronicos</b></legend>
+    <label><b>Principal</b></label>
+    <span><?php echo $correo;?></span>
+</div>
+<div>
+    <label><b>Otro</b></label>
+    <span><?php echo $correo2;?></span>
+</div>
+<div>
+    <label><b>Direccion</b></label>
+    <span><?php echo $datos['estudiantes_direccion'];?></span>
+    </div>
+</div>
+<div class="table-content">
+  <legend class="titulo">Historial academico</legend>
 	<?php
     require_once "./php/main.php";
 
@@ -116,6 +141,8 @@
     require_once './php/curso_estudiantes_lista.php';
 ?>
 </div>
+</div>
+
 <?php
 	}else{
 		echo '
@@ -127,3 +154,39 @@
 	}
 	$check_estudiante=null;
 ?>
+
+<script>
+const PDF = document.querySelector(".pdf");
+const TABLE = document.querySelector(".table-content");
+const BUTTON_PDF = document.querySelector(".button");
+const BUTTON_CONTENT = document.querySelector(".button-content");
+const NAV = document.querySelector(".nav");
+const CONTAINER = document.querySelector(".container");
+const HEADER = document.querySelector(".header");
+
+BUTTON_PDF.addEventListener("click", ()=> {
+        remove();
+     window.print();
+});
+
+function remove() {
+    PDF.classList.remove("d-none");
+    TABLE.classList.add("d-none");
+    BUTTON_PDF.classList.add("d-none");
+    BUTTON_CONTENT.classList.add("d-none"); 
+    NAV.classList.add("d-none");
+    CONTAINER.classList.replace("container","container-fluid");
+    HEADER.classList.remove("d-none");
+
+     setTimeout(()=> {
+     PDF.classList.add("d-none");
+     TABLE.classList.remove("d-none");
+     BUTTON_PDF.classList.remove("d-none");
+     BUTTON_CONTENT.classList.remove("d-none"); 
+      NAV.classList.remove("d-none");
+      CONTAINER.classList.replace("container-fluid", "container");
+      HEADER.classList.add("d-none");
+
+     },500);
+}
+</script>

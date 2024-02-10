@@ -108,3 +108,5 @@
     </ul>
 </div>
 </nav>
+
+<script src="./js/print_pdf.js"></script>

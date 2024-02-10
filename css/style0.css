@@ -9,6 +9,10 @@
     font-size: 15px;
 }
 
+.d-none {
+    display: none;
+}
+
 body{
     background: #eee;
 }

@@ -21,11 +21,11 @@
 	$tabla.='
 	    <div>
 	    	<form>
-            	<input class="form-control me-2 light-table-filter" data-table="table_id" type="text" placeholder="Buscar">
+            	<input class="form-control" data-table="table_id" type="text" placeholder="Buscar">
         	</form>
     	</div>
     	<form>
-    		<table class="table table-striped table-dark table_id">
+    		<table class="table table_id">
         <thead class="thead">
             <tr>
                 <th>#</th>
@@ -35,9 +35,9 @@
                 <th>Evaluacion Practica</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="tbody">
 	';
-	if($total>1 && $pagina<=$Npaginas){
+	if($total>1 && $pagina<=$Npaginas) {
 		$contador=$inicio+1;
 		$paginador_inicial=$inicio+1;
 		foreach($datos as $filas) {
@@ -53,11 +53,11 @@
                 <td>'.$filas['curso_mes']."/".$filas['curso_año'].'</td>
                 <td>'.$filas['evaluacion_teorica'].'</td>
                 <td>'.$filas['evaluacion_practica'].'</td>
-                	<td>
-                    	<a href="index.php?vista=curso_profile&curso_id_up='.$filas['curso_id'].'">Ver</a>';
+                	<td class="btn-actions">
+                    	<a href="index.php?vista=curso_profile&curso_id_up='.$filas['curso_id'].'"><img class="img-logo" src="./Imagenes/eye-solid.svg"></a>';
                     	if ($_SESSION['rol']== 1) {
                 		$tabla.='
-                    	<a href="'.$url.$pagina.'&matricula_id_del='.$filas['id'].'" onclick="return Delete()">Eliminar del Curso</a>
+                    	<a href="'.$url.$pagina.'&matricula_id_del='.$filas['id'].'" onclick="return Delete()"><img class="img-logo" src="./Imagenes/eliminar.svg"></a>
                 </td>
 			';
 		}
@@ -89,7 +89,7 @@
   			</form>
 	';
 	if($total>0 && $pagina<=$Npaginas){
-		$tabla.='<p>Mostrando cursos <strong>'.$paginador_inicial.'</strong> al <strong>'.$paginador_final.'</strong> de un <strong>total de '.$total.'</strong></p>';
+		$tabla.='<p class="footer-table">Mostrando cursos <strong>'.$paginador_inicial.'</strong> al <strong>'.$paginador_final.'</strong> de un <strong>total de '.$total.'</strong></p>';
 	}
 
 	$conexion=null;

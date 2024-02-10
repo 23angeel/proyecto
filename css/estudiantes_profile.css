@@ -1,0 +1,90 @@
+.container {
+  min-height: 100vh;
+  width: calc(100% - 300px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  float: right;
+}
+
+.container-fluid {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.button-content {
+  order: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pdf {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 700px;
+}
+
+.d-block {
+  display: block;
+}
+.pdf div {
+  width: 33%;
+  display: flex;
+  margin-bottom: 15px;
+flex-direction: column; align-items: center;  
+}
+
+.button {
+  padding: 8px 15px;
+  background-color: #1C4C96;
+  color: white;
+}
+
+.titulo {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 34px;
+  color: hsl(209.8deg 100% 29.61%);
+  font-weight: 600;
+}
+
+.table-content {
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.form-control{
+  padding: 10px 15px;
+  border: 1px solid hsl(209.8deg 100% 29.61%);
+  display: flex;
+}
+
+.footer-table {
+  align-self: self-start;
+}
+
+.d-none {
+  display: none;
+}
+
+.header {
+  width: 100%;
+  padding-left: 15px;
+  position: absolute;
+  top: 0;
+}
+
+.header img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}

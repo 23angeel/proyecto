@@ -19,12 +19,12 @@
 	$tabla.='
     <div>
         <form>
-            <input class="form-control me-2 light-table-filter" data-table="table_id" type="text" placeholder="Buscar">
+            <input class="input-form" data-table="table_id" type="text" placeholder="Buscar">
         </form>
     </div>
-    <form>
-        <table class="table table-striped table-dark table_id">
-            <thead>
+    <form class="form">
+        <table class="table table_id">
+            <thead class="thead">
                 <tr>
                     <th>#</th>
                     <th>Cedula</th>
@@ -33,7 +33,7 @@
                     <th>FECHA DE REGISTRO</th>
                 </tr>
             </thead>
-        <tbody>
+        <tbody class="tbody">
 	';
 	if($total>1 && $pagina<=$Npaginas){
 		$contador=$inicio+1;
@@ -46,12 +46,12 @@
                 <td>'.$filas['estudiantes_nombres'].'</td>
                 <td>'.$filas['estudiantes_apellidos'].'</td>
                 <td>'.$filas['estudiantes_inscripcion'].'</td>
-                <td>
-                <a href="index.php?vista=estudiante_profile&estudiante_id_up='.$filas['estudiantes_id'].'">Ver</a>';
+                <td class="btn-actions">
+                <a href="index.php?vista=estudiante_profile&estudiante_id_up='.$filas['estudiantes_id'].'"><img class="image-logo" src="./Imagenes/eye-solid.svg" alt="Ver"</a>';
                     if ($_SESSION['rol']== 1) {
 					$tabla.='
-                    <a href="index.php?vista=estudiante_update&estudiante_id_up='.$filas['estudiantes_id'].'">Editar</a>
-                    <a href="'.$url.$pagina.'&estudiante_id_del='.$filas['estudiantes_id'].'" onclick="return Delete()">Eliminar</a>
+                    <a href="index.php?vista=estudiante_update&estudiante_id_up='.$filas['estudiantes_id'].'"><img class="image-logo" src="./Imagenes/edit.svg" alt="Editar"></a>
+                    <a href="'.$url.$pagina.'&estudiante_id_del='.$filas['estudiantes_id'].'" onclick="return Delete()"><img class="image-logo" src="./Imagenes/eliminar.svg" alt="Eliminar"</a>
                 </td>
             </tr>
 			';
@@ -82,11 +82,10 @@
 
 	$tabla.='</tbody>
         </table>
-    	</form>
 	';
 
 	if($total>0 && $pagina<=$Npaginas){
-		$tabla.='<p>Mostrando estudiatess <strong>'.$paginador_inicial.'</strong> al <strong>'.$paginador_final.'</strong> de un <strong>total de '.$total.'</strong></p>';
+		$tabla.='<p class="footer-table">Mostrando estudiatess <strong>'.$paginador_inicial.'</strong> al <strong>'.$paginador_final.'</strong> de un <strong>total de '.$total.'</strong></p>';
 	}
 
 	$conexion=null;
@@ -95,6 +94,7 @@
 	if($total>=1 && $pagina<=$Npaginas){
 		echo paginador_tablas($pagina,$Npaginas,$url,7);
 	}
+	'</form>';
 ?>
 
 <script src="./js/buscador.js"></script>

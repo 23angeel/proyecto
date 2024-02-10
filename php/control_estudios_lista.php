@@ -19,11 +19,11 @@
 	$tabla.='
 	    <div>
 	    	<form>
-            	<input class="form-control me-2 light-table-filter" data-table="table_id" type="text" placeholder="Buscar">
+            	<input class="form-control" data-table="table_id" type="text" placeholder="Buscar">
         	</form>
     	</div>
     	<form>
-    		<table class="table table-striped table-dark table_id">
+    		<table class="table table_id">
         <thead class="thead">
             <tr>
                 <th>#</th>
@@ -32,7 +32,7 @@
                 <th>Mes / Año</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="tbody">
 	';
 	if($total>1 && $pagina<=$Npaginas){
 		$contador=$inicio+1;
