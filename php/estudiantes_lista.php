@@ -19,11 +19,11 @@
 	$tabla.='
     <div>
         <form>
-            <input class="input-form" data-table="table_id" type="text" placeholder="Buscar">
+            <input class="form-control me-2 light-table-filter" data-table="table_id" type="text" placeholder="Buscar">
         </form>
     </div>
     <form class="form">
-        <table class="table table_id">
+        <table class="table table-striped table-dark table_id" class="table">
             <thead class="thead">
                 <tr>
                     <th>#</th>

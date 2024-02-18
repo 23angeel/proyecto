@@ -21,11 +21,11 @@
 	$tabla.='
 	    <div>
 	    	<form>
-            	<input class="form-control" data-table="table_id" type="text" placeholder="Buscar">
+            	<input class="form-control me-2 light-table-filter" data-table="table_id" type="text" placeholder="Buscar">
         	</form>
     	</div>
     	<form>
-    		<table class="table table_id">
+    		<table class="table table-striped table-dark table_id" class="table table_id">
         <thead class="thead">
             <tr>
                 <th>#</th>
@@ -49,7 +49,7 @@
 			$tabla.='
 			<tr>
                 <td>'.$contador.'</td>
-                <td>'.$filas['curso_nombre'].''.$grado.'</td>
+                <td>'.$filas['curso_nombre'].' '.$grado.'</td>
                 <td>'.$filas['curso_mes']."/".$filas['curso_año'].'</td>
                 <td>'.$filas['evaluacion_teorica'].'</td>
                 <td>'.$filas['evaluacion_practica'].'</td>
@@ -85,7 +85,7 @@
 		}
 	}
 	$tabla.='</tbody>
-    			</table>
+    			</table> 
   			</form>
 	';
 	if($total>0 && $pagina<=$Npaginas){

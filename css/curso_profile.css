@@ -10,103 +10,48 @@
 
 .caja{
   position: relative;
-  top: 5px;
+  top: 20px;
   left: -500px;
 }
+
 .titulo{
   position: relative;
-  top: 10px;
+  top: -10px;
   left: 500px;
 }
 
 .button{
   position: relative;
-  top: -10px;
-  left: 1100px;
+  top: -31px;
+  left: 900px;
 }
 
-.cedula{
+.grado{
   position: relative;
-  top: -45px;
-  left: 200px;
+  top: -44px;
+  left: 300px;
+}
+.mes{
+  position: relative;
+  top: -20px;
 }
 
-.nombre{
+.año{
   position: relative;
-  top: -91px;
-  left: 430px;
-}
-
-.apellido{
-  position: relative;
-  top: -60px;
-}
-
-.nacimiento{
-  position: relative;
-  top: -100px;
-  left: 200px;;
-}
-
-.sexo{
-  position: relative;
-  top: -145px;
-  left: 430px;
-}
-
-.numeros{
-  position: relative;
-  top: -150px;
-}
-
-.habitacion{
-  position: relative;
-  top: -140px;
-}
-
-.celular{
-  position: relative;
-  top: -185px;
-  left: 180px;
-}
-
-.oficina{
-  position: relative;
-  top: -230px;
-  left: 340px;
-}
-
-.otro{
-  position: relative;
-  top: -275px;
-  left: 520px;
-}
-
-.correos{
-  position: relative;
-  top: -260px;
-}
-
-.correo{
-  position: relative;
-  top: -250px;
-}
-
-.correo2{
-  position: relative;
-  top: -290px;
+  top: -64px;
   left: 300px;
 }
 
-.direc{
+.img{
   position: relative;
-  top: -280px;
+  top: -160px;
+  left: 600px;
 }
 
 .table-content{
   position: relative;
-  top: -230px;
-  left: -100px;
+  top: -90px;
+  left: -20px;
 }
 
 .table, .tbody, th, td, tr {
@@ -115,7 +60,7 @@
 }
 
 .table th {
-  padding: 10px 40px;
+  padding: 20px 40px;
 }
 
 .table td {

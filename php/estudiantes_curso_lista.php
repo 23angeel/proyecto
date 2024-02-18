@@ -21,11 +21,11 @@
 	$tabla.='
     <div>
         <form>
-            <input class="form-control" data-table="table_id" type="text" placeholder="Buscar">
+            <input class="form-control me-2 light-table-filter" data-table="table_id" type="text" placeholder="Buscar">
         </form>
     </div>
     <form>
-        <table class="table table_id">
+        <table class="table table-striped table-dark table_id" class="table table_id">
             <thead class="thead">
                 <tr>
                     <th>#</th>
@@ -51,7 +51,7 @@
                 <td>'.$filas['evaluacion_teorica'].'</td>
                 <td>'.$filas['evaluacion_practica'].'</td>
                 <td class="btn-actions">
-                    <a href=""><img class="img-logo" src="./Imagenes/eye-solid.svg"></a>';
+                    <a href="index.php?vista=estudiante_profile&estudiante_id_up='.$filas['estudiantes_id'].'""><img class="img-logo" src="./Imagenes/eye-solid.svg"></a>';
                     if ($_SESSION['rol']== 1) {
                 		$tabla.='
                     	<a href="'.$url.$pagina.'&matricula_id_del='.$filas['id'].'" onclick="return Delete()"><img class="img-logo" src="./Imagenes/eliminar.svg"></a>

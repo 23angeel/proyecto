@@ -16,14 +16,14 @@
 
 	$Npaginas=ceil($total/$registros);
 
-	$tabla.='
+	$tabla.=' 
 	    <div>
 	    	<form>
             	<input class="form-control me-2 light-table-filter" data-table="table_id" type="text" placeholder="Buscar">
         	</form>
     	</div>
     	<form>
-    		<table class="table">
+    		<table class="table table-striped table-dark table_id" class="table">
         <thead class="thead">
             <tr>
                 <th>#</th>
