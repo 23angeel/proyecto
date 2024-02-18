@@ -56,7 +56,7 @@ body{
 }
 
 .dropdown{
-    position: absolute;
+    position: fixed;
     background-color: #1C4C96;
     width: 100%;
     max-width: 270px;
