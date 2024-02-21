@@ -1,5 +1,5 @@
 <head>
-	<link rel="stylesheet" type="text/css" href="./css/editar_curso.css">
+	<link rel="stylesheet" type="text/css" href="./css/control_studies.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,100&display=swap" rel="stylesheet">
@@ -20,6 +20,7 @@
                 	$grado="";
                 }
 ?>
+<div class="content">
 	<form action="./php/control_estudios.php" method="post">
 		<div>
 			<h1>Control de estudios</h1>
@@ -40,7 +41,7 @@
     $busqueda="";
     require_once './php/estudiantes_control.php';
 ?>
-	<button type="submit" name="agregar">Agregar</button> 
+	<button type="submit" name="agregar"class="agregar-btn" >Agregar</button>
 	</form>
 </div>
 <?php
@@ -54,3 +55,4 @@
 	}
 	$check_curso=null;
 ?>
+</div>

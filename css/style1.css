@@ -1,119 +1,88 @@
-*{
-    box-sizing: border-box;
-    font-size: 10px;
-}
-
-
 .body {
-   /* background: url(../Imagenes/fondo.jpg); */
-    min-height: 100vh;
-        margin: 0px;
-    padding: 0px;
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    margin-left: 270px;
-    /*background-repeat: no-repeat;
-background-size: cover;*/
+  font-family: 'Poppins', sans-serif;
+  background-color: #F7F9F9;
+  padding: 50px;
 }
 
-.container{
-    width: 30%;
-    display: flex;
-    height: 530px;
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #F7F9F9;
+  padding: 20px;
+  border-radius: 4px;
 }
 
-form{
-    display: flex;
-    flex-direction: column;
-    padding: 24px;
-    border: 1px #eee solid;
-    background-color: #eee;
-    box-shadow: 0px 4px 10px rgba(0,0, 0,0.5);
-    border-radius: 8px;
-    width: 100%;
-
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: hsl(209.8, 100%, 29.61%);
+  font-size: 20px;
 }
 
-.content-input{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
+.input-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-
-button {
-background-color:hsl(209.8deg 100% 29.61%) ;
-    color: wheat;
-    border: none;
-    font-weight: 600;
-    padding: 10px 45px;
-    border-radius: 20px;
+.input-box .group {
+  margin-right: 10px;
 }
 
- button:nth-child(1) {
-    margin-right: 16px;
+.input-box .group label {
+  display: block;
+  margin-bottom: 5px;
 }
 
-div {
-margin-bottom: 15px;
+.input-box .group input[type="text"],
+.input-box .group input[type="password"] {
+  width: 100%;
+  padding: 5px;
+  font-size: 10px;
+  background-color:#F7F9F9;
+  border: 1px solid hsl(209.8, 100%, 29.61%);
 }
 
-input{
- width: 100%;
-    padding: 8px 10px;
-    border-radius: 4px;
-    outline:none;
-    background-color: #f4f8f7;
-    border: none;
-
+.group {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
 }
 
-input:focus {
-    border: 1px solid hsl(209.8deg 100% 29.61%);
+.group label {
+  margin-right: 5px;
 }
 
-
-
-h1{
-   text-align: center;
-    margin-bottom: 24px;
-    font-size: 32px;
-    color: hsl(209.8deg 100% 29.61%);
-    font-weight: 600;
-}
-
-label{
-    display: block;
-    margin-bottom: 8px;
-    font-size: 14px;
-    margin-left: 8px;
-}
-
-.tooltip {
-    position: fixed;
-    bottom: 60px;
-    font-size: 20px;
-    margin-left: 20px;
+.group input[type="radio"] {
+  margin-right: 5px;
 }
 
 .btns {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
-span {
-    width: 100%;
-    display: block;
+.btns button {
+  padding: 10px 20px;
+  background-color: hsl(209.8, 100%, 29.61%);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  margin-right: 5px;
 }
-span > input {
-    width: 100px;
+
+.btns button:last-child {
+  margin-right: 0;
 }
-.input-2 {
-    width: 172px;
+
+label span {
+  color: red;
 }
+
+p{
+  color: red;
+}
+

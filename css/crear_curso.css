@@ -1,94 +1,112 @@
-*{
-  box-sizing: border-box;
-  font-size: 14px;
-}
-
-
 body {
-  /*background: url(../Imagenes/fondo.jpg);*/
-  min-width: 100%;
-  min-height: 100vh;
-      margin: 0px;
-  padding: 0px;
   font-family: 'Poppins', sans-serif;
-  /*display: flex;*/
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  /*background-repeat: no-repeat;
-background-size: cover;*/
+  background-color: #F7F9F9;
+  padding: 20px;
+  margin: 0;
 }
 
-form{
-  display: flex;
-  flex-direction: column;
-  padding: 24px;
-  border: 1px #eee solid;
-  background-color: #eee;
-  box-shadow: 0px 4px 10px rgba(0,0, 0,0.5);
-  border-radius: 8px;
-  width: 30%;
+.content {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #F7F9F9;
+  padding: 20px;
+  border-radius: 4px;
 }
 
-button {
-  background-color:hsl(209.8deg 100% 29.61%) ;
-      color: wheat;
-      border: none;
-      font-weight: 600;
-      padding: 10px 45px;
-      border-radius: 20px;
-}
-.btns{
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-}
-
-h1{
+h1 {
   text-align: center;
-   margin-bottom: 24px;
-   font-size: 32px;
-   color: hsl(209.8deg 100% 29.61%);
-   font-weight: 600;
+  margin-bottom: 20px;
+  color: hsl(209.8, 100%, 29.61%);
+  font-size: 25px;
 }
 
-label{
-   display: block;
-   margin-bottom: 8px;
-   font-size: 16px;
-   margin-left: 8px;
+.btns {
+  margin-bottom: 15px;
 }
 
-input{
-  width: 100%;
-     padding: 8px 10px;
-     border-radius: 4px;
-     outline:none;
-     background-color: #f4f8f7;
-     border: none;
- 
- }
-
- nav {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: hsl(209.8deg 100% 29.61%);
-  padding-left: 2vw;
+.btns label {
+  margin-right: 15px;
 }
-.content{
+
+.btns input,
+.btns select {
+  flex: 3;
+  padding: 5px;
+  margin-bottom: 6px;
+  font-size: 14px;
+  background-color: #F7F9F9;
+  border: 1px solid hsl(209.8, 100%, 29.61%);
+  border-radius: 3px;
+}
+
+.texto{
+  margin-left: 370px;
+}
+
+span1{
+  font-size: 12px;
+}
+
+.btns input[type="file"] {
+  display: none;
+}
+
+.btns span {
+  margin-left: 10px;
+  font-size: 12px;
+  color: red;
+}
+
+.imagen-span {
+      border: 1px solid hsl(209.8, 100%, 29.61%);
+      margin-left: 100px;
+      padding: 5px;
+      display: inline-block;
+      color: #eee;
+    }
+
+.btns p {
+  color: red;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+
+
+/* Estilos específicos */
+
+.selectBox {
+  flex: 1;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2px;
+}
+
+.selectBox select {
+  width: 110%;
+  padding: 5px;
+  font-size: 14px;
+  background-color: #F7F9F9;
+  border: 1px solid hsl(209.8, 100%, 29.61%);
+  border-radius: 3px;
+}
+
+.btns button {
+  padding: 10px 20px;
+  background-color: hsl(209.8, 100%, 29.61%);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  margin-right: 5px;
+}
+
+.btns button:last-child {
+  margin-right: 0;
+}
+
+.button-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-.inputBox{
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  
 }

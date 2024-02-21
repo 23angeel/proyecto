@@ -1,5 +1,5 @@
 <head>
-	<link rel="stylesheet" type="text/css" href="./css/editar_curso.css">
+	<link rel="stylesheet" type="text/css" href="./css/matricular_curso.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,100&display=swap" rel="stylesheet">
@@ -72,9 +72,10 @@
 				<td class="eliminar"><input type="button" value="Menos -"></td>
 			</tr>
 		</tbody>
-    </table>
-	<button id="adicional" name="adicional" type="button" class="btn btn-warning"> Más + </button>
-	<input type="submit" name="insertar" value="Matricular" class="btn btn-info"/>
+    </table><br>
+
+	<button id="adicional" name="adicional" type="button" class="btn btn-warning">Más +</button><br>
+	<input type="submit" name="insertar" value="Matricular" class="btn btn-matricular" />
 </form>
 <?php
 	}else{

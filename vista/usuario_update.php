@@ -18,27 +18,30 @@ if ($_SESSION['rol']== 1) {
 	if($check_usuario->rowCount()>0){
 		$datos=$check_usuario->fetch();
 ?>
-<div class="container">
+<div class="body">
+  <div class="container">
 	<form method="post" action="./php/usuario_editar.php" autocomplete="off">
-		<section></section>
 		<h1>Editar Usuario</h1>
-		<div class="inputBox">
+		
+        <div class="input-box">
+  <div class="group">
 			<input type="hidden" name="usuario_id" value="<?php echo $datos['usuario_id'];?>" required>
-
-			<label>Nombre de usuario</label>
+			<label>Nombre de usuario:<span>*</span></label>
 			<input type="text" name="name" value="<?php echo $datos['usuario_usuario'];?>" required>
 		</div>
-		<div class="inputBox">
-			<p>
-				SI desea actualizar la clave de este usuario por favor llene el campo. Si NO desea actualizar la clave deje el campo vacíos.
-			</p>
-			<label>Contraseña</label>
+ 		
+ 		<div class="group">
+			<label>Contraseña:</label>
 			<input type="password" name="password" value="">
 		</div>
+	</div>
 
-		<div class="inputBox">
-			<label>Rol en el sistema</label>
-			<div class="roles">
+	<a>
+				SI desea actualizar la clave de este usuario por favor llene el campo. Si NO desea actualizar la clave deje el campo vacíos.
+			</a><br>
+			
+		<div class="group">
+			<label>Rol en el sistema<span>*</span></label>
 				<?php
 				if ($datos['rol_id'] == 1) {
 				?>
@@ -62,18 +65,27 @@ if ($_SESSION['rol']== 1) {
             	<?php
             	}
         		?>
-			</div>
-	</div>
-	<p>
+			</div><br>
+
+<div class="input-box">
+  <div class="group">
+    <label for="nombre">Nombre de usuario:<span>*</span></label>
+    <input type="text" id="nombre" name="nombre">
+  </div>
+  <div class="group">
+    <label for="contraseña">Contraseña de usuario:<span>*</span></label>
+    <input type="password" id="contraseña" name="contraseña">
+  </div>
+</div>
+	<a>
 		Para poder actualizar los datos de este usuario por favor ingrese su USUARIO y CLAVE con la que ha iniciado sesion
-	</p>
-	<label>Nombre de usuario</label>
-	<input type="text" name="usuario" required>
-	<label>Contraseña</label>
-	<input type="password" name="clave" value="" required><br> 
+	</a><br><br>
 
+<p>Los campos obligatorios están marcados con un asterisco rojo *</p>
+
+	<div class="btns">
 	<button type="submit" name="editar" >Editar</button>
-
+	</div>
 	</form>
 </div>
 <?php

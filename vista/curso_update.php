@@ -25,81 +25,35 @@
 
 	<input type="hidden" name="curso_id" value="<?php echo $datos['curso_id'];?>" required>
 
-    <div class="inputBox">
-    	<label for="curso">NOMBRE DEl CURSO</label>
+    <div class="btns">
+    	<label for="curso">NOMBRE DEL CURSO <span>*</span></label>
         <input type="text" id="curso" name="name" value="<?php echo $datos['curso_nombre'];?>" required>
-    </div>
 
-    <div class="inputBox">
-        <label for="grado">GRADO</label>
-        <?php
-        if ($datos['curso_grado']==0) {
-        	?>
-			<select name="grado">
-				<option>Seleccionar Gradro</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
-				<option value="5">5</option>
-			</select>
-        <?php
-        }elseif ($datos['curso_grado']==2) {
-        	?>
-			<select name="grado">
-				<option>Seleccionar Gradro</option>
-				<option value="2" selected>2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
-				<option value="5">5</option>
-			</select>
-		<?php
-		}elseif ($datos['curso_grado']==3) {
-			?>
-			<select name="grado">
-				<option>Seleccionar Gradro</option>
-				<option value="2">2</option>
-				<option value="3" selected>3</option>
-				<option value="4">4</option>
-				<option value="5">5</option>
-			</select>
-		<?php
-		}elseif ($datos['curso_grado']==4) {
-			?>
-			<select name="grado">
-				<option>Seleccionar Gradro</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4" selected>4</option>
-				<option value="5">5</option>
-			</select>
-		<?php 
-		}else{
-			?>
-			<select name="grado">
-				<option>Seleccionar Gradro</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
-				<option value="5" selected>5</option>
-			</select>
-		<?php
-		}
-		?>
+        <label for="grado">GRADO <span>*</span></label>
+        <input type="number" name="grado" id="grado" value="<?php echo $grado;?>">
+        </div>
+        <div class="texto">
+        <span1>Colocar el grado cuando es para licencia</span1>
+      </div><br>
 
-        <b>Colocar el grado para cuando es para licencia</b> 
-	</div>
 
-	<div class="dates">
-	<div class="date">
-		<label for="mes">MES</label> 
+	<div class="btns">
+		<label for="mes">MES <span>*</span></label> 
         <input type="text" id="mes" name="mes" value="<?php echo $datos['curso_mes'];?>"> 
-	</div>
-	<div class="date"> 
-    	<label for="año">AÑO</label>
+	
+    	<label for="año">AÑOS <span>*</span></label>
     	<input type="number" id="año" name="año" value="<?php echo $datos['curso_año'];?>">
-	</div>        
+
+    	 <div class="button-container">
+        <div class="btns">
+          <p>Los campos obligatorios están marcados con un asterisco rojo *</p>
+        </div>
+      </div>
+	        
 	</div>
-    <button type="submit" name="crear">Editar</button>
+    <div class="btns">
+	<button type="submit" name="editar" >Editar</button>
+	</div>
         
 </form>
 

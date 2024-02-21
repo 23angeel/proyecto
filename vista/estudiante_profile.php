@@ -108,14 +108,14 @@
         }else{
             $pagina=(int) $_GET['page'];
             if($pagina<=1){
-                $pagina=5;
+                $pagina=1;
             }
 
         }
 
         $pagina=limpiar_cadena($pagina);
         $url="index.php?vista=estudiante_profile&estudiante_id_up=".$id."&page=";
-        $registros=2;
+        $registros=5;
         $busqueda="";
 
         require_once './php/curso_estudiantes_lista.php';
