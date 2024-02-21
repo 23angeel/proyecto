@@ -7,7 +7,7 @@
 
 
 body{
-  background-image: url(../Imagenes/fondo.jpg);
+  background-image: url(../Imagenes/UNETRANS1.jpg);
 min-height: 100vh;
 min-width: 100vw;
 display: flex;
@@ -15,6 +15,8 @@ justify-content: center;
 align-items: center;
 background-repeat: no-repeat;
 background-size: cover;
+backdrop-filter: blur(3px);
+background-position: center center;
 }
 
 h4{
