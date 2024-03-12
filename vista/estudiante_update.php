@@ -4,6 +4,16 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,100&display=swap" rel="stylesheet">
 </head>
+<script type="text/javascript">
+    /* Esperamos a la carga del DOM */
+    window.addEventListener('DOMContentLoaded', (evento) => {
+    /* Obtenemos la fecha de hoy en formato ISO */
+    const hoy_fecha = new Date().toISOString().substring(0, 10);
+    /* Buscamos la etiqueta, ya sea por ID (que no tiene) o por su selector */
+    document.querySelector("input[name='inscripcion']").max = hoy_fecha;
+    document.querySelector("input[name='nacimiento']").max = hoy_fecha;
+    })
+</script>
 
 <?php
 	require_once "./php/main.php";
@@ -63,21 +73,29 @@
       </div><br>
 
        
-      <label placeholder="Campo ">Sexo:</label><br>
+      <label placeholder="Campo">Genero:</label><br>
         <?php
         if ($datos['estudiantes_sexo'] == "F") {
         ?>
-        <span> Femenino<input type="radio" name="tipo" value="F" checked> </span>
-        <span> Masculino<input type="radio" name="tipo" value="M"></span><br>
+        <span>Femenino<input type="radio" name="tipo" value="F" checked> </span>
+        <span>Masculino<input type="radio" name="tipo" value="M"></span>
+        <span>Otro<input type="radio" name="tipo" value="O"></span><br>
         <?php
-          }else{
+          }elseif($datos['estudiantes_sexo'] == "M"){
           ?>
           <span>Femenino<input type="radio" name="tipo" value="F"> </span>
-          <span>Masculino<input type="radio" name="tipo" value="M" checked></span><br><br>
+          <span>Masculino<input type="radio" name="tipo" value="M" checked></span>
+          <span>Otro<input type="radio" name="tipo" value="O"></span><br>
+          <?php
+          }else{
+            ?>
+            <span>Femenino<input type="radio" name="tipo" value="F"> </span>
+            <span>Masculino<input type="radio" name="tipo" value="M"></span>
+            <span>Otro<input type="radio" name="tipo" value="O" checked></span><br>
+            <br>
           <?php
           }
         ?>
-
       <label1>Numeros de Telefono:</label1><br>
     <div class="btns">
         Habitacion:<input type="text" name="habit" value="<?php echo $datos['estudiantes_habitacion']; ?>"><br>      

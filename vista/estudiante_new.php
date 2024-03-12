@@ -1,8 +1,18 @@
- <head>
+<head>
     <link rel="stylesheet" href="./css/crear_estudiante.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,100&display=swap" rel="stylesheet">
 </head>
+<script type="text/javascript">
+    /* Esperamos a la carga del DOM */
+    window.addEventListener('DOMContentLoaded', (evento) => {
+    /* Obtenemos la fecha de hoy en formato ISO */
+    const hoy_fecha = new Date().toISOString().substring(0, 10);
+    /* Buscamos la etiqueta, ya sea por ID (que no tiene) o por su selector */
+    document.querySelector("input[name='inscripcion']").max = hoy_fecha;
+    document.querySelector("input[name='nacimiento']").max = hoy_fecha;
+    })
+</script>
 
 <?php
     require_once "./php/main.php";
@@ -11,8 +21,8 @@
 <form method="post" action="./php/estudiante_guardar.php" autocomplete="off">
     <h1>Crear Estudiante</h1>
     
-    <label for="fecha">Fecha de inscripcion:</label>    
-    <input type="date" name="inscripcion" id="fecha" required><br><br>
+    <label for="inscripcion">Fecha de inscripcion:</label>    
+    <input type="date" name="inscripcion" id="inscripcion" required><br><br>
 
 
     <div class="btns">
@@ -32,13 +42,14 @@
         </select>
         <input type="text" placeholder="30.715.180"  name="cedu" id="id" pattern="[0-9.]{1,10}" maxlength="10" placeholder="30.715.180" required >
 
-        <label class="required" for="fecha">Fecha de nacimiento: <p>*</p></label>
-<input type="date" name="nacimiento" id="fecha" required><br><br>
+        <label class="required" for="nacimiento">Fecha de nacimiento: <p>*</p></label>
+        <input type="date" name="nacimiento" id="nacimiento" required><br><br>
     </div>
     
-        <label placeholder="Campo ">Sexo: </label><br>
+        <label placeholder="Campo ">Genero: </label><br>
         <span>Femenino<input required type="radio" name="tipo" value="F"> </span>
-        <span>Masculino<input required type="radio" name="tipo" value="M"></span><br>
+        <span>Masculino<input required type="radio" name="tipo" value="M"></span>
+        <span>Otro<input required type="radio" name="tipo" value="O"></span><br>
     <br>
 
 
