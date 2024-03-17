@@ -1,7 +1,7 @@
 <?php
     // CONEXION A LA BASE DE DATOS
     function conexion(){
-        $pdo = new PDO('mysql:host=localhost;dbname=escuela_del_transporte', 'root', '');
+        $pdo = new PDO('mysql:host=localhost;dbname=escuela del transporte', 'root', '');
         return $pdo;
     }
 
@@ -108,3 +108,9 @@
 		$nombre=$nombre."_".rand(0,100);
 		return $nombre;
 	}
+
+	# DIVIDIR CADENA NUMEROS DE TELEFONOS #
+	function dividirCadena($strDatos){
+    	$arrResultado=(strlen($strDatos)==12) ? str_split($strDatos, 5) : null;
+    	return $arrResultado;
+	}	
