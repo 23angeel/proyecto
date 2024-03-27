@@ -82,6 +82,14 @@ class PDF extends FPDF
    // Pie de página
    function Footer()
    {
+      $this->SetY(-35); // Posición: a 1,5 cm del final
+      $this->SetFont('Arial', 'I', 8); //tipo fuente, negrita(B-I-U-BIU), tamañoTexto
+      $this->Cell(0, 10, utf8_decode('___________________'), 0, 0, 'C'); //pie de pagina(numero de pagina)
+
+      $this->SetY(-30); // Posición: a 1,5 cm del final
+      $this->SetFont('Arial', 'I', 8); //tipo fuente, negrita(B-I-U-BIU), tamañoTexto
+      $this->Cell(0, 10, utf8_decode('FIRMA '), 0, 0, 'C'); //pie de pagina(numero de pagina)
+      
       $this->SetY(-15); // Posición: a 1,5 cm del final
       $this->SetFont('Arial', 'I', 8); //tipo fuente, negrita(B-I-U-BIU), tamañoTexto
       $this->Cell(0, 10, utf8_decode('8 Carr. Panamericana, Caracas 1000, Distrito Capital '), 0, 0, 'C'); //pie de pagina(numero de pagina)
