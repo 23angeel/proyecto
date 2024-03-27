@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-02-2024 a las 01:15:15
+-- Tiempo de generación: 27-03-2024 a las 23:44:41
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -41,9 +41,13 @@ CREATE TABLE `cursos` (
 --
 
 INSERT INTO `cursos` (`curso_id`, `curso_nombre`, `curso_grado`, `curso_mes`, `curso_año`, `curso_foto`) VALUES
-(2, 'Licencia', 2, 'Marzo', '2023', ''),
+(2, 'Licencia', 3, 'Marzo', '2023', ''),
 (3, 'Manejo', 0, 'Enero', '2023', ''),
-(4, 'Camion', 0, 'Enero', '2025', 'Camion_65.jpg');
+(4, 'Camion', 0, 'Enero', '2025', 'Camion_65.jpg'),
+(5, 'Moto', 3, 'Marzo', '2026', ''),
+(6, 'Camionetica', 0, 'Enero', '2024', ''),
+(7, 'Licencia Moto', 3, 'Enero', '2025', ''),
+(8, 'CARRITO', 0, 'MARZO', '2024', '');
 
 -- --------------------------------------------------------
 
@@ -74,8 +78,8 @@ CREATE TABLE `estudiantes` (
 --
 
 INSERT INTO `estudiantes` (`estudiantes_id`, `estudiantes_cedula`, `estudiantes_n`, `estudiantes_nombres`, `estudiantes_apellidos`, `estudiantes_naciemineto`, `estudiantes_sexo`, `estudiantes_habitacion`, `estudiantes_celular`, `estudiantes_oficia`, `estudiantes_otro`, `estudiantes_correo`, `estudiantes_correo2`, `estudiantes_direccion`, `estudiantes_inscripcion`) VALUES
-(1, '30715180', 'V-', 'Angel', 'Perez', '2003-01-23', 'M', '0212251131', '04241906240', '', '', 'angeldavid@gmail.com', '', 'Palo Verde', '2023-12-09'),
-(2, '30716181', 'V-', 'David', 'Rosales', '2023-12-08', 'M', '', '04241926343', '02122322232', '', 'angeldavid957@gmail.com', '', 'Caracas', '2023-12-09');
+(8, '45180180', 'V-', 'PEPE', 'PEREZ', '2024-03-05', 'M', '0412-1234567', '', '', '0414-1234567', 'pepe@gmail.com', '', 'CARACAS', '2024-03-15'),
+(13, '30715180', 'V-', 'ANGEL', 'PEREZ', '2024-03-06', 'M', '0412-2511131', '0424-1906240', '', '', 'angeldavid957@gmail.com', '', 'CARACAS', '2024-03-14');
 
 -- --------------------------------------------------------
 
@@ -90,18 +94,6 @@ CREATE TABLE `estudiantes_cursos` (
   `evaluacion_teorica` varchar(50) NOT NULL,
   `evaluacion_practica` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `estudiantes_cursos`
---
-
-INSERT INTO `estudiantes_cursos` (`id`, `id_curso`, `id_estudiante`, `evaluacion_teorica`, `evaluacion_practica`) VALUES
-(6, 2, 1, '0', '0'),
-(7, 4, 2, '12', '12'),
-(8, 3, 1, '0', '0'),
-(9, 3, 2, '12', '12'),
-(10, 2, 2, '12', '12'),
-(11, 4, 1, '0', '0');
 
 -- --------------------------------------------------------
 
@@ -140,8 +132,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`usuario_id`, `usuario_usuario`, `usuario_contrasena`, `rol_id`) VALUES
-(3, 'Angel', '$2y$10$0B3LUV4pVS7CAzxV7o8fkOx8FF/zC/MQVWdwZpURCx4oXCIcyIAtm', 1),
-(4, 'Angel3', '$2y$10$l0j9ceCzk.B.bMnX9gH0seCPIqcq71eiQx3Na30eDJRV7q18lMiD.', 2),
+(3, 'Angel', '$2y$10$dfhg3yu82X.3oe0bvlybkeRn2RtwNkrKcVALHZOnliJor/lCFju/m', 1),
+(4, 'Angel3', '$2y$10$54sTYptYgkAyRuCwH.p1uueI6k6F18fK6ihJ0cqHinmzVe4gNB.WS', 2),
 (9, 'Angel2', '$2y$10$U7Jua5eckJfuxYQfXhBB0ej3/arqVkYeuMMdFmIME2eLq8SP6UIDa', 2),
 (10, 'Angel4', '$2y$10$mzifkfhFd0P6AqTmRaNV9.iBbjsJL4epHv9KKMoao2wgAN/q2QoiO', 1);
 
@@ -167,7 +159,8 @@ ALTER TABLE `estudiantes`
 ALTER TABLE `estudiantes_cursos`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_curso` (`id_curso`),
-  ADD KEY `id_estudiante` (`id_estudiante`);
+  ADD KEY `id_estudiante` (`id_estudiante`),
+  ADD KEY `id_curso_2` (`id_curso`);
 
 --
 -- Indices de la tabla `rol`
@@ -190,19 +183,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `cursos`
 --
 ALTER TABLE `cursos`
-  MODIFY `curso_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `curso_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `estudiantes`
 --
 ALTER TABLE `estudiantes`
-  MODIFY `estudiantes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `estudiantes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `estudiantes_cursos`
 --
 ALTER TABLE `estudiantes_cursos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
@@ -224,8 +217,8 @@ ALTER TABLE `usuarios`
 -- Filtros para la tabla `estudiantes_cursos`
 --
 ALTER TABLE `estudiantes_cursos`
-  ADD CONSTRAINT `estudiantes_cursos_ibfk_1` FOREIGN KEY (`id_curso`) REFERENCES `cursos` (`curso_id`),
-  ADD CONSTRAINT `estudiantes_cursos_ibfk_2` FOREIGN KEY (`id_estudiante`) REFERENCES `estudiantes` (`estudiantes_id`);
+  ADD CONSTRAINT `estudiantes_cursos_ibfk_1` FOREIGN KEY (`id_curso`) REFERENCES `cursos` (`curso_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `estudiantes_cursos_ibfk_2` FOREIGN KEY (`id_estudiante`) REFERENCES `estudiantes` (`estudiantes_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `usuarios`

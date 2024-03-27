@@ -32,44 +32,32 @@
     $otro=$datos['estudiantes_otro'];
 
     if ($habitacion!="") {
-      $N1=dividirCadena($habitacion);
-      if($N1){
-        $codihabit=$N1[0];
-        $habit=$N1[1];
-      }
+      $codihabit=substr($habitacion, 0,5);
+      $habit=substr($habitacion, -7);
     }else{
       $codihabit="";
       $habit="";
     }
 
     if ($celular!="") {
-      $N2=dividirCadena($celular);
-      if ($N2){
-        $codicelu=$N2[0];
-        $celu=$N2[1];
-      }
+      $codicelu=substr($celular, 0,5);
+      $celu=substr($celular, -7);
     }else{
       $codicelu="";
       $celu="";
     }
 
     if ($oficina!="") {
-      $N3=dividirCadena($oficina);
-      if ($N3){
-        $codiofi=$N3[0];
-        $ofi=$N3[1];
-      }
+      $codiofi=substr($oficina, 0,5);
+      $ofi=substr($oficina, -7);
     }else{
       $codiofi="";
       $ofi="";
     }
 
     if ($otro!="") {
-      $N4=dividirCadena($otro);
-      if ($N4){
-        $codiotro=$N4[0];
-        $otro=$N4[1];
-      }
+      $codiotro=substr($otro, 0,5);
+      $otro=substr($otro, -7);
     }else{
       $codiotro="";
       $otro="";
