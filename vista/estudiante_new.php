@@ -27,10 +27,10 @@
 
     <div class="btns">
         <label for="nombre">Nombres:</label>
-        <input type="text" name="name" id="nombre" placeholder="Eddo Jose" required><br>
+        <input type="text" name="name" id="nombre" required><br>
 
         <label for="ape">Apellidos:</label>
-        <input type="text" name="ape" id="ape" placeholder="Chirinos Colina" required><br>
+        <input type="text" name="ape" id="ape" required><br>
     </div><br>
 
 
@@ -40,7 +40,7 @@
             <option value="V-">V-</option>
             <option value="E-">E-</option>
         </select>
-        <input type="text" placeholder="30.715.180"  name="cedu" id="id" pattern="[0-9.]{1,10}" maxlength="10" placeholder="30.715.180" required >
+        <input type="text" placeholder="30.715.180"  name="cedu" id="id" pattern="[0-9.]{1,10}" maxlength="10" required >
 
         <label class="required" for="nacimiento">Fecha de nacimiento: <p>*</p></label>
         <input type="date" name="nacimiento" id="nacimiento" required><br><br>
@@ -55,13 +55,45 @@
 
     <label2>Numeros de Telefono:</label2><br>
     <div class="btns">
-        Habitacion:<input type="text" name="habit" pattern="[0-9.]{1,11}" maxlength="11" placeholder="0212-2511131"><br>
-        Celular:<input type="text" name="celu" pattern="[0-9.]{1,11}" maxlength="11" placeholder="0424-1906240"><br>
+        Habitacion:
+        <select name="codihabit">
+            <option>-Seleccione-</option>
+            <option value="0412-">0412-</option>
+            <option value="0414-">0414-</option>
+            <option value="0424-">0424-</option>
+            <option value="0416-">0416-</option>
+            <option value="0426-">0426-</option>
+        </select> <input type="text" name="habit" pattern="[0-9.]{1,7}" maxlength="7"><br>
+        Celular:
+        <select name="codicelu">
+            <option value="">-Seleccione-</option>
+            <option value="0412-">0412-</option>
+            <option value="0414-">0414-</option>
+            <option value="0424-">0424-</option>
+            <option value="0416-">0416-</option>
+            <option value="0426-">0426-</option>
+        </select><input type="text" name="celu" pattern="[0-9.]{1,7}" maxlength="7"><br>
     </div><br>
 
     <div class="btns">
-        Oficina:<input type="text" name="ofi" pattern="[0-9.]{1,11}" maxlength="11" placeholder="0212-67842">
-        Otro:<input type="text" name="otro" pattern="[0-9.]{1,11}" maxlength="11" placeholder="0416-324567"><br>
+        Oficina:
+        <select name="codiofi">
+            <option value="">-Seleccione-</option>
+            <option value="0412-">0412-</option>
+            <option value="0414-">0414-</option>
+            <option value="0424-">0424-</option>
+            <option value="0416-">0416-</option>
+            <option value="0426-">0426-</option>
+        </select><input type="text" name="ofi" pattern="[0-9.]{1,7}" maxlength="7">
+        Otro:
+        <select name="codiotro">
+            <option value="">-Seleccione-</option>
+            <option value="0412-">0412-</option>
+            <option value="0414-">0414-</option>
+            <option value="0424-">0424-</option>
+            <option value="0416-">0416-</option>
+            <option value="0426-">0426-</option>
+        </select><input type="text" name="otro" pattern="[0-9.]{1,7}" maxlength="7"><br>
     </div><br>
 
     
@@ -72,7 +104,7 @@
     </div><br>
 
     <label2>Direccion de Habitacion</label2><br>
-    <textarea name="direc" maxlength="100" placeholder="Av.  42, casa Nro. 16-1, sector los samanes, Ciudad Ojeda Municipio Lagunillas"></textarea><br>
+    <textarea name="direc" maxlength="100"></textarea><br>
 
    <p>Los campos obligatorios están marcados con un asterisco rojo *</p><br>
 

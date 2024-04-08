@@ -3,20 +3,20 @@
    require_once "main.php";
 
    #Almacenando datos
-   $fecha_registro = limpiar_cadena($_POST['inscripcion']);
-   $nombre = limpiar_cadena($_POST['name']);
-   $apellidos = limpiar_cadena($_POST['ape']);
-   $n = limpiar_cadena($_POST['cedula']);
-   $cedula= limpiar_cadena($_POST['cedu']);
-   $fecha_nacimiento = limpiar_cadena($_POST['nacimiento']);
-   $sexo = limpiar_cadena($_POST['tipo']);
-   $habitacion = limpiar_cadena($_POST['habit']);
-   $celular = limpiar_cadena($_POST['celu']);
-   $oficina = limpiar_cadena($_POST['ofi']);
-   $otro = limpiar_cadena($_POST['otro']);
-   $correo = limpiar_cadena($_POST['correo']);              
-   $correo2 = limpiar_cadena($_POST['correo2']);
-   $direcion = limpiar_cadena($_POST['direc']);
+    $fecha_registro = limpiar_cadena($_POST['inscripcion']);
+    $nombre = limpiar_cadena($_POST['name']);
+    $apellidos = limpiar_cadena($_POST['ape']);
+    $n = limpiar_cadena($_POST['cedula']);
+    $cedula= limpiar_cadena($_POST['cedu']);
+    $fecha_nacimiento = limpiar_cadena($_POST['nacimiento']);
+    $sexo = limpiar_cadena($_POST['tipo']);
+    $habitacion = limpiar_cadena($_POST['codihabit']."".$_POST['habit']);
+    $celular = limpiar_cadena($_POST['codicelu']."".$_POST['celu']);
+    $oficina = limpiar_cadena($_POST['codiofi']."".$_POST['ofi']);
+    $otro = limpiar_cadena($_POST['codiotro']."".$_POST['otro']);
+    $correo = limpiar_cadena($_POST['correo']);              
+    $correo2 = limpiar_cadena($_POST['correo2']);
+    $direcion = limpiar_cadena($_POST['direc']);
 
    #Verificar datos obligatorios
      if($fecha_registro=="" || $nombre=="" || $apellidos=="" || $n=="" || $cedula=="" || $fecha_nacimiento=="" || $sexo=="" || $correo==""){
@@ -28,6 +28,12 @@
         ';
         exit();
     }
+
+    #PASANDO LOS DATOS A MAYUSCULA
+    $nombre=strtoupper($nombre);
+    $apellidos=strtoupper($apellidos);
+    $direcion=strtoupper($direcion);
+
 
     #Verificar integridad de los datos
     if (verificar_datos("[0-9.]{1,10}", $cedula)) {

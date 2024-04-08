@@ -28,10 +28,10 @@
     $cedula= limpiar_cadena($_POST['cedu']);
     $fecha_nacimiento = limpiar_cadena($_POST['nacimiento']);
     $sexo = limpiar_cadena($_POST['tipo']);
-    $habitacion = limpiar_cadena($_POST['habit']);
-    $celular = limpiar_cadena($_POST['celu']);
-    $oficina = limpiar_cadena($_POST['ofi']);
-    $otro = limpiar_cadena($_POST['otro']);
+    $habitacion = limpiar_cadena($_POST['codihabit']."".$_POST['habit']);
+    $celular = limpiar_cadena($_POST['codicelu']."".$_POST['celu']);
+    $oficina = limpiar_cadena($_POST['codiofi']."".$_POST['ofi']);
+    $otro = limpiar_cadena($_POST['codiotro']."".$_POST['otro']);
     $correo = limpiar_cadena($_POST['correo']);              
     $correo2 = limpiar_cadena($_POST['correo2']);
     $direcion = limpiar_cadena($_POST['direc']);
@@ -47,6 +47,11 @@
         exit();
     }
 
+    #PASANDO LOS DATOS A MAYUSCULA
+    $nombre=strtoupper($nombre);
+    $apellidos=strtoupper($apellidos);
+    $direcion=strtoupper($direcion);
+
     #Verificar integridad de los datos
     if (verificar_datos("[0-9.]{1,10}", $cedula)) {
       echo '
@@ -60,8 +65,8 @@
 
     #EDITAR DATOS
     $editar_estudiante=conexion();
-    $editar_estudiante=$editar_estudiante->prepare("UPDATE estudiantes SET estudiantes_cedula=:cedula, estudiantes_n=:n, estudiantes_nombres=:nombre,estudiantes_apellidos=:apellidos, estudiantes_naciemineto=:fecha_nacimiento, estudiantes_sexo=:sexo, estudiantes_habitacion=:habitacion, estudiantes_celular=:celular, estudiantes_oficia=:oficina,estudiantes_otro=:otro, estudiantes_correo=:correo, estudiantes_correo2=:correo2, estudiantes_direccion=:direcion, estudiantes_inscripcion=fecha_registro WHERE estudiantes_id=:id");
-
+    $editar_estudiante=$editar_estudiante->prepare("UPDATE estudiantes SET estudiantes_cedula=:cedula, estudiantes_n=:n, estudiantes_nombres=:nombre,estudiantes_apellidos=:apellidos, estudiantes_naciemineto=:fecha_nacimiento, estudiantes_sexo=:sexo, estudiantes_habitacion=:habitacion, estudiantes_celular=:celular, estudiantes_oficia=:oficina,estudiantes_otro=:otro, estudiantes_correo=:correo, estudiantes_correo2=:correo2, estudiantes_direccion=:direcion, estudiantes_inscripcion=:direcion WHERE estudiantes_id=:id");
+    
     $marcadores=[
         ":id"=>$id, 
         ":cedula"=>$cedula, 
@@ -79,9 +84,8 @@
         ":direcion"=>$direcion, 
         ":fecha_registro"=>$fecha_registro
     ];
-    $editar_estudiante->execute($marcadores);
 
-    if($editar_estudiante->rowCount()==1){
+    if($editar_estudiante->execute($marcadores)){
         echo '
             <script>
                 alert("El estudiante se edito correctamente");

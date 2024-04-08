@@ -1,7 +1,7 @@
 <?php
     // CONEXION A LA BASE DE DATOS
     function conexion(){
-        $pdo = new PDO('mysql:host=localhost;dbname=escuela_del_transporte', 'root', '');
+        $pdo = new PDO('mysql:host=localhost;dbname=escuela del transporte', 'root', '');
         return $pdo;
     }
 

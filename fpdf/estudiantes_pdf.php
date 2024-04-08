@@ -56,54 +56,48 @@ class PDF extends FPDF
         $inscripcion=$datos['estudiantes_inscripcion'];
    }
 
-      $this->Image('logo.jpg', 270, 5, 20); //logo de la empresa,moverDerecha,moverAbajo,tamañoIMG
+      $this->Image('logo.jpeg', 230, 10, 60); //logo de la empresa,moverDerecha,moverAbajo,tamañoIMG
       $this->SetFont('Arial', 'B', 19); //tipo fuente, negrita(B-I-U-BIU), tamañoTexto
       $this->Cell(95); // Movernos a la derecha
       $this->SetTextColor(0, 0, 0); //color
       $this->Ln(3); // Salto de línea
-      $this->SetTextColor(103); //color
+      $this->SetTextColor(0); //color
 
       /* FECHA DE INSCRIPCION */
       $this->Cell(10);  // mover a la derecha
       $this->SetFont('Arial', 'B', 10);
       $this->Cell(85, 10, utf8_decode("FECHA DE INSCRIPCION : $inscripcion"), 0, 0, '', 0);
-      $this->Ln(5);
+      $this->Ln(6);
 
-      /* NOMBRE */
+      /* CEDULA */
       $this->Cell(10);  // mover a la derecha
       $this->SetFont('Arial', 'B', 10);
       $this->Cell(96, 10, utf8_decode("Nº CEUDLA : $cedula"), 0, 0, '', 0);
-      $this->Ln(5);
+      $this->Ln(0);
 
       /* NOMBRES */
-      $this->Cell(10);  // mover a la derecha
+      $this->Cell(70);  // mover a la derecha
       $this->SetFont('Arial', 'B', 10);
       $this->Cell(59, 10, utf8_decode("NOMBRES : $nombre"), 0, 0, '', 0);
-      $this->Ln(5);
+      $this->Ln(0);
 
       /* APELLIDOS */
-      $this->Cell(10);  // mover a la derecha
+      $this->Cell(120);  // mover a la derecha
       $this->SetFont('Arial', 'B', 10);
       $this->Cell(85, 10, utf8_decode("APELLIDOS: $apellido"), 0, 0, '', 0);
-      $this->Ln(5);
+      $this->Ln(6);
 
       /* FECHA DE NACIMIENTO */
       $this->Cell(10);  // mover a la derecha
       $this->SetFont('Arial', 'B', 10);
       $this->Cell(85, 10, utf8_decode("FECHA DE NACIMIENTO : $nacimiento"), 0, 0, '', 0);
-      $this->Ln(5);
-
-      /* FECHA DE NACIMIENTO */
-      $this->Cell(10);  // mover a la derecha
-      $this->SetFont('Arial', 'B', 10);
-      $this->Cell(85, 10, utf8_decode("FECHA DE NACIMIENTO : $nacimiento"), 0, 0, '', 0);
-      $this->Ln(5);
+      $this->Ln(0);
 
       /* SEXO */
-      $this->Cell(10);  // mover a la derecha
+      $this->Cell(90);  // mover a la derecha
       $this->SetFont('Arial', 'B', 10);
       $this->Cell(85, 10, utf8_decode("SEXO : $sexo"), 0, 0, '', 0);
-      $this->Ln(5);
+      $this->Ln(6);
 
       /* NUMEROS DE TELEFONOS */
       $this->Cell(10);  // mover a la derecha
@@ -115,25 +109,25 @@ class PDF extends FPDF
       $this->Cell(10);  // mover a la derecha
       $this->SetFont('Arial', 'B', 10);
       $this->Cell(85, 10, utf8_decode("HABITACION : $habitacion"), 0, 0, '', 0);
-      $this->Ln(5);
+      $this->Ln(0);
 
       /* CELULAR */
-      $this->Cell(10);  // mover a la derecha
+      $this->Cell(80);  // mover a la derecha
       $this->SetFont('Arial', 'B', 10);
       $this->Cell(85, 10, utf8_decode("CELULAR : $celular"), 0, 0, '', 0);
-      $this->Ln(5);
+      $this->Ln(0);
 
       /* OFICINA */
-      $this->Cell(10);  // mover a la derecha
+      $this->Cell(150);  // mover a la derecha
       $this->SetFont('Arial', 'B', 10);
       $this->Cell(85, 10, utf8_decode("OFICINA : $oficina"), 0, 0, '', 0);
-      $this->Ln(5);
+      $this->Ln(0);
 
       /* OTRO */
-      $this->Cell(10);  // mover a la derecha
+      $this->Cell(210);  // mover a la derecha
       $this->SetFont('Arial', 'B', 10);
       $this->Cell(85, 10, utf8_decode("OTRO : $otro"), 0, 0, '', 0);
-      $this->Ln(5);
+      $this->Ln(6);
 
       /* CORREOS ELECTRONICOS */
       $this->Cell(10);  // mover a la derecha
@@ -145,19 +139,19 @@ class PDF extends FPDF
       $this->Cell(10);  // mover a la derecha
       $this->SetFont('Arial', 'B', 10);
       $this->Cell(85, 10, utf8_decode("PRINCIPAL : $correo"), 0, 0, '', 0);
-      $this->Ln(5);
+      $this->Ln(0);
 
       /* SECUNDARIO */
-      $this->Cell(10);  // mover a la derecha
+      $this->Cell(80);  // mover a la derecha
       $this->SetFont('Arial', 'B', 10);
       $this->Cell(85, 10, utf8_decode("OTRO : $correo2"), 0, 0, '', 0);
-      $this->Ln(5);
+      $this->Ln(6);
 
       /* DIRECCION */
       $this->Cell(10);  // mover a la derecha
       $this->SetFont('Arial', 'B', 10);
       $this->Cell(85, 10, utf8_decode("DIRECCION : $direccion"), 0, 0, '', 0);
-      $this->Ln(5);
+      $this->Ln(10);
 
       /* TITULO DE LA TABLA */
       //color
@@ -165,7 +159,7 @@ class PDF extends FPDF
       $this->Cell(100); // mover a la derecha
       $this->SetFont('Arial', 'B', 15);
       $this->Cell(100, 10, utf8_decode("HISTORIAL ACADEMICO "), 0, 1, 'C', 0);
-      $this->Ln(7);
+      $this->Ln(3);
 
       /* CAMPOS DE LA TABLA */
       //color
@@ -183,14 +177,17 @@ class PDF extends FPDF
    // Pie de página
    function Footer()
    {
+    $this->SetY(-35); // Posición: a 1,5 cm del final
+      $this->SetFont('Arial', 'I', 8); //tipo fuente, negrita(B-I-U-BIU), tamañoTexto
+      $this->Cell(0, 10, utf8_decode('___________________'), 0, 0, 'C'); //pie de pagina(numero de pagina)
+
+      $this->SetY(-30); // Posición: a 1,5 cm del final
+      $this->SetFont('Arial', 'I', 8); //tipo fuente, negrita(B-I-U-BIU), tamañoTexto
+      $this->Cell(0, 10, utf8_decode('FIRMA '), 0, 0, 'C'); //pie de pagina(numero de pagina)
+      
       $this->SetY(-15); // Posición: a 1,5 cm del final
       $this->SetFont('Arial', 'I', 8); //tipo fuente, negrita(B-I-U-BIU), tamañoTexto
-      $this->Cell(0, 10, utf8_decode('Página ') . $this->PageNo() . '/{nb}', 0, 0, 'C'); //pie de pagina(numero de pagina)
-
-      $this->SetY(-15); // Posición: a 1,5 cm del final
-      $this->SetFont('Arial', 'I', 8); //tipo fuente, cursiva, tamañoTexto
-      $hoy = date('d/m/Y');
-      $this->Cell(540, 10, utf8_decode($hoy), 0, 0, 'C'); // pie de pagina(fecha de pagina)
+      $this->Cell(0, 10, utf8_decode('8 Carr. Panamericana, Caracas 1000, Distrito Capital '), 0, 0, 'C'); //pie de pagina(numero de pagina)
    }
 }
 

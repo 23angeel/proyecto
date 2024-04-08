@@ -27,36 +27,36 @@ class PDF extends FPDF
          $año=$datos['curso_año'];
       }
 
-      $this->Image('logo.jpg', 270, 5, 20); //logo de la empresa,moverDerecha,moverAbajo,tamañoIMG
+      $this->Image('logo.jpeg', 210, 12, 60); //logo de la empresa,moverDerecha,moverAbajo,tamañoIMG
       $this->SetFont('Arial', 'B', 19); //tipo fuente, negrita(B-I-U-BIU), tamañoTexto
       $this->Cell(95); // Movernos a la derecha
       $this->SetTextColor(0, 0, 0); //color
       $this->Ln(3); // Salto de línea
-      $this->SetTextColor(103); //color
+      $this->SetTextColor(0); //color
 
       /* NOMBRE */
       $this->Cell(10);  // mover a la derecha
       $this->SetFont('Arial', 'B', 10);
-      $this->Cell(96, 10, utf8_decode("NOMBRE DEL CURSO : $nombre"), 0, 0, '', 0);
-      $this->Ln(5);
+      $this->Cell(96, 10, utf8_decode("NOMBRE : $nombre"), 0, 0, '', 0);
+      $this->Ln(0);
 
       /* GRADO */
-      $this->Cell(10);  // mover a la derecha
+      $this->Cell(80);  // mover a la derecha
       $this->SetFont('Arial', 'B', 10);
       $this->Cell(59, 10, utf8_decode("GRADO : $grado"), 0, 0, '', 0);
-      $this->Ln(5);
+      $this->Ln(10);
 
       /* MES */
       $this->Cell(10);  // mover a la derecha
       $this->SetFont('Arial', 'B', 10);
       $this->Cell(85, 10, utf8_decode("MES: $mes"), 0, 0, '', 0);
-      $this->Ln(5);
+      $this->Ln(0);
 
       /* AÑO */
-      $this->Cell(10);  // mover a la derecha
+      $this->Cell(80);  // mover a la derecha
       $this->SetFont('Arial', 'B', 10);
       $this->Cell(85, 10, utf8_decode("AÑO : $año"), 0, 0, '', 0);
-      $this->Ln(10);
+      $this->Ln(20);
 
       /* TITULO DE LA TABLA */
       //color
@@ -64,7 +64,7 @@ class PDF extends FPDF
       $this->Cell(100); // mover a la derecha
       $this->SetFont('Arial', 'B', 15);
       $this->Cell(100, 10, utf8_decode("ESTUDIANTES REGISTRADOS "), 0, 1, 'C', 0);
-      $this->Ln(7);
+      $this->Ln(5);
 
       /* CAMPOS DE LA TABLA */
       //color
@@ -82,14 +82,17 @@ class PDF extends FPDF
    // Pie de página
    function Footer()
    {
+      $this->SetY(-35); // Posición: a 1,5 cm del final
+      $this->SetFont('Arial', 'I', 8); //tipo fuente, negrita(B-I-U-BIU), tamañoTexto
+      $this->Cell(0, 10, utf8_decode('___________________'), 0, 0, 'C'); //pie de pagina(numero de pagina)
+
+      $this->SetY(-30); // Posición: a 1,5 cm del final
+      $this->SetFont('Arial', 'I', 8); //tipo fuente, negrita(B-I-U-BIU), tamañoTexto
+      $this->Cell(0, 10, utf8_decode('FIRMA '), 0, 0, 'C'); //pie de pagina(numero de pagina)
+      
       $this->SetY(-15); // Posición: a 1,5 cm del final
       $this->SetFont('Arial', 'I', 8); //tipo fuente, negrita(B-I-U-BIU), tamañoTexto
-      $this->Cell(0, 10, utf8_decode('Página ') . $this->PageNo() . '/{nb}', 0, 0, 'C'); //pie de pagina(numero de pagina)
-
-      $this->SetY(-15); // Posición: a 1,5 cm del final
-      $this->SetFont('Arial', 'I', 8); //tipo fuente, cursiva, tamañoTexto
-      $hoy = date('d/m/Y');
-      $this->Cell(540, 10, utf8_decode($hoy), 0, 0, 'C'); // pie de pagina(fecha de pagina)
+      $this->Cell(0, 10, utf8_decode('8 Carr. Panamericana, Caracas 1000, Distrito Capital '), 0, 0, 'C'); //pie de pagina(numero de pagina)
    }
 }
 
