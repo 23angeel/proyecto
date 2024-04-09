@@ -13,6 +13,8 @@
 h1 {
   font-size: 32px;
   color:hsl(209.8deg 100% 29.61%);
+  margin-left: 300px;
+  margin-bottom: 20px;
 }
 
 input {
@@ -27,6 +29,14 @@ body {
 
 form:has(.table) {
   min-width: calc(80%);
+}
+
+button {
+  margin-top: 5px;
+  padding: 10px;
+  background-color: hsl(209.8deg 100% 29.61%);
+  color: #fff;
+  border-radius: 5px;
 }
 
 .table, .tbody, th, td, tr {
@@ -45,12 +55,15 @@ form:has(.table) {
 
 .table {
   width: 100%;
+  margin-top: 5px;
 }
 
 .thead {
   font-weight: 500;
   font-size: 16px;
   color: hsl(209.8deg 100% 29.61%);
+  margin-right: 5px;
+
 }
 
 .thead th {

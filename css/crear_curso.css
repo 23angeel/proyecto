@@ -11,13 +11,14 @@ body {
   background-color: #F7F9F9;
   padding: 20px;
   border-radius: 4px;
+  margin-left: 500px;
 }
 
 h1 {
   text-align: center;
   margin-bottom: 20px;
   color: hsl(209.8, 100%, 29.61%);
-  font-size: 25px;
+  font-size: 32px;
 }
 
 .btns {

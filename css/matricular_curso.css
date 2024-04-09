@@ -37,12 +37,12 @@ form {
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
-
+  margin-left: 600px;
 }
 
 h1 {
   text-align: center;
-  font-size: 24px;
+  font-size: 32px;
   margin-bottom: 10px;
   color: hsl(209.8, 100%, 29.61%);
 }

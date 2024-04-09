@@ -8,14 +8,14 @@ form {
 }
 
 h1 {
-  margin-left: 250px;
+  text-align: center;
   font-size: 32px;
-  margin-bottom: 1px;
+  margin-bottom: 10px;
   color: hsl(209.8, 100%, 29.61%);
 }
 
 label {
-  font-weight: 190px;
+  font-weight: 200;
 }
 
 .form-group {
@@ -38,7 +38,7 @@ label {
 .input-group input,
 .input-group select {
   width: 200px;
-  padding: 1px;
+  padding: 10px;
   border: none;
   background-color: #f2f2f2;
   color: #333;
