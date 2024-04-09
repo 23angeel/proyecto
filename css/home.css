@@ -1,111 +1,150 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
-
-
-.container {
+.caja {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-
-h1 {
-  margin-left: 400px;
+.hola p{
+  position: relative;
+  top: -10px;
+  left: 650px;
 }
-
-h1 img{
-  max-width: 900px;
+.hola img{
+  height: 30px;
+  position: relative;
+  top: 20px;
+  left: 600px;
 }
-
-img{
-  max-width: 500px;
+.titulo h1{
+  font-size: 220%;
+  position: relative;
+  top: 10px;
+  left: 90px;
 }
-
-h3 img{
-  max-width: 1005px;
-  
-
+.container {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
 }
-
-.cuadro {
-  padding: 10px;
+.cursos {
+  position: relative;
+  top: 50px;
+  left: -150px;
+  height: 50px;
+  padding: 50px;
   text-align: center;
-  margin: 2px;
-  max-width: 500px;
-  margin-left: 400px;
+  border-radius: 2px;
+  background-color: #F7DC6F;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 }
-
-.cuadro1 {
-  padding: 20px;
-  text-align: center;
-  margin: 4px;
-  max-width: 990vh;
-  margin-left: 400px;
+.cursos img{
+  height: 70px;
+  position: relative;
+  top: -50px;
+  left: -90px;
 }
-
-/*:::::Pie de Pagina*/
-.pie-pagina{
-  width: 100%;
-  background-color: #0f4d88;
-}
-.pie-pagina .grupo-1{
-  width: 100%;
-  max-width: 1000px;
-  margin: auto;
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap:30px;
-  padding: 30px 0px;
-}
-.pie-pagina .grupo-1 .box figure{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.pie-pagina .grupo-1 .box figure img{
-  width: 250px;
-}
-.pie-pagina .grupo-1 .box h2{
-  color: #fff;
-  margin-bottom: 20px;
+.cursos h3{
+  color: #333;
+  padding: 10px 0;
   font-size: 20px;
+  position: relative;
+  top: -100px;
+  left: 10px;
 }
-.pie-pagina .grupo-1 .box p{
-  color: #efefef;
-  margin-bottom: 5px;
-  font-size: 15px;
+.cursos p{
+  color: #333;
+  font-size: 14px;
+  line-height: 1.6;
+  position: relative;
+  top: -110px;
+  left: 10px;
 }
-.pie-pagina .grupo-1 .red-social a{
+.estudiantes {
+  position: relative;
+  top: -115px;
+  left: 250px;
+  height: 50px;
+  padding: 50px;
+  text-align: center;
+  border-radius: 2px;
+  background-color: #2E86C1;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+.estudiantes img{
+  height: 70px;
+  position: relative;
+  top: -50px;
+  left: -100px;
+}
+.estudiantes h3{
+  color: #333;
+  padding: 10px 0;
+  font-size: 20px;
+  position: relative;
+  top: -100px;
+  left: 10px;
+}
+.estudiantes p{
+  color: #333;
+  font-size: 14px;
+  line-height: 1.6;
+  position: relative;
+  top: -110px;
+  left: 10px;
+}
+.btn{
+  color: #fff;
+  border: none;
+  outline: none;
+  font-size: 17px;
+  margin-top: 10px;
+  padding: 8px 15px;
+  background: #333;
+  border-radius: 5px;
   display: inline-block;
   text-decoration: none;
-  width: 35px;
-  height: 35px;
-  line-height: 35px;
-  color: #fff;
-  margin-right: 10px;
-  background-color: #0074C7; 
-  text-align: center;
-  transition: all 300ms ease;
+  position: relative;
+  top: -90px;
+  left: 10px;
 }
-.pie-pagina .grupo-1 .red-social a:hover{
-  color: aqua;
+.btn:hover{
+  letter-spacing: 1px;
 }
-.pie-pagina .grupo-2{
-  background-color: #0074C7;
+.btn:hover{
+  transform: scale(1.03);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+}
+@media (max-width:770px){
+  .titulo{
+    padding: 20px;
+  }
+}
+.modulos{
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+}
+.modulos h2{
+  font-size: 220%;
+  position: relative;
+  top: 10px;
+  left: 90px;
+}
+.modulos img{
+  height: 500px;
+  padding: 50px;
+  position: relative;
+  top: 30px;
+  left: -250px;
+}
+.grupo-2{
+  background-color: #1C4C96;
+  width: 100%;
   padding: 15px 10px;
   text-align: center;
   color: #fff;
 }
-.pie-pagina .grupo-2 small{
+.grupo-2 small{
   font-size: 15px;
-}
-
-@media screen and (max-width:800px){
-  .pie-pagina .grupo-1{
-      width: 90%;
-      grid-template-columns: repeat(1, 1fr);
-      grid-gap:30px;
-      padding: 35px 0px;
-  }
 }

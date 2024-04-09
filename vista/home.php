@@ -1,68 +1,61 @@
 <head>
   <link rel="stylesheet" type="text/css" href="./css/home.css">
-  <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,100&display=swap" rel="stylesheet">
 </head>
+<?php
+require_once "./php/main.php";
+$conexion=conexion();
+
+$usuario=$conexion->query("SELECT COUNT(usuario_id) total FROM usuarios");
+$resultado=$usuario->fetchColumn();
+
+$cursos=$conexion->query("SELECT COUNT(curso_id) total FROM cursos");
+$total=$cursos->fetchColumn();
+
+$estudiante=$conexion->query("SELECT COUNT(estudiantes_id) total FROM estudiantes");
+$fila=$estudiante->fetchColumn();
+?>
 <body>
-  <div class="container">
-  <h1><img src="./Imagenes/titulo_de_proyectoasdfg-removebg-preview.jpeg" alt="Imagen 1" width="800px"></h1>
-
-    <div class="cuadro">
-      <h2></h2>
-      <p></p>
-      <img src="./Imagenes/Informacion 1.jpeg" alt="Imagen 1">
-    </div>
-    <div class="cuadro">
-      <h2></h2>
-      <p></p>
-      <img src="./Imagenes/Informacion 3.jpeg" alt="Imagen 2">
-    </div>
-        <div class="cuadro">
-      <h2></h2>
-      <p></p>
-      <img src="./Imagenes/Informacion 2.jpeg" alt="Imagen 1">
-    </div>
-    <div class="cuadro1">
-      <h3>
-      <p></p>
-      <img src="./Imagenes/sistema de gestion (2).jpeg" alt="Imagen 3">
-    </h3>
-    </div>
-  </div>
-
-<!--::::Pie de Pagina::::::-->
-  <footer class="pie-pagina">
-        <div class="grupo-1">
-            <div class="box"> 
-                <figure>
-                    <a href="#">
-                        <img src="" alt="">
-                    </a>
-                </figure>
+    <div class="caja">
+        <div class="hola">
+            <img src="./Imagenes/usuariologo.png">
+            <p>Hola <?php echo $_SESSION['usuario']; ?></p>
+        </div>
+        <div class="titulo">
+            <h1>BIENVENIDO AL SISTEMA DE GESTION DE LA ESCUELA DE TRANSPORTE</h1>
+        </div>
+        <div class="container">
+            <div class="cursos">
+                <img src="./Imagenes/cursologo.png">
+                <h3><?php echo $total; ?></h3>
+                <p><b>total de cursos</b></p>
+                <a href="index.php?vista=cursos_list" class="btn">Ver cursos</a>
             </div>
-            <div class="box">
-                <h2>SOBRE NOSOTROS</h2>
-                <p>Este progrma fue creado y desarrollado por las siguientes personas:</p>
-                <p> Angel Perez</p>
-                <p>Saraid Graterol</p>
-                <p>Juan Calero</p>
-            </div>
-            <div class="box">
-                <h2>SIGUENOS</h2>
-                <div class="red-social">
-                    <a href="#" class="fa fa-facebook"></a>
-                    <a href="#" class="fa fa-instagram"></a>
-                </div>
+            <div class="estudiantes">
+                <img src="./Imagenes/estudianteslogo.png">
+                <h3><?php echo $fila; ?></h3>
+                <p><b>total de estudiantes</b></p>
+                <a href="index.php?vista=estudiantes_list" class="btn">Ver estudiantes</a>
             </div>
         </div>
+        <div class="modulos">
+            <h2>¿QUE SE PUEDE HACER EN EL SISTEMA?</h2>
+            <?php
+            if ($_SESSION['rol']==1) {
+                ?>
+                <img src="./Imagenes/modulosistema.png">
+            <?php
+            }else{
+                ?>
+                <img src="./Imagenes/modulosistema1.png">
+            <?php
+            }?>
+        </div>
+        <br>
+        <br>
+        <br>
         <div class="grupo-2">
             <small>&copy; 2024 <b></b> - Todos los Derechos Reservados.</small>
         </div>
-    </footer> 
- 
-
+    </div>
 </body>
 </html>
