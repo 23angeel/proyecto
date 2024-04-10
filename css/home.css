@@ -5,7 +5,7 @@
   align-items: center;
   flex-direction: column;
 }
-.hola p{
+.hola p{ 
   position: relative;
   top: -10px;
   left: 650px;
@@ -21,6 +21,11 @@
   position: relative;
   top: 10px;
   left: 90px;
+}
+.titulo hr{
+  height: 20px;
+  width: 122%;
+  background-color: #B03A2E;
 }
 .container {
   display: grid;
@@ -115,11 +120,6 @@
   transform: scale(1.03);
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
 }
-@media (max-width:770px){
-  .titulo{
-    padding: 20px;
-  }
-}
 .modulos{
   display: grid;
   gap: 15px;
@@ -139,11 +139,10 @@
   left: -250px;
 }
 .grupo-2{
-  background-color: #1C4C96;
   width: 100%;
   padding: 15px 10px;
   text-align: center;
-  color: #fff;
+  margin-left: 250px;
 }
 .grupo-2 small{
   font-size: 15px;

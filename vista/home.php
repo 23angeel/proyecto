@@ -22,6 +22,7 @@ $fila=$estudiante->fetchColumn();
         </div>
         <div class="titulo">
             <h1>BIENVENIDO AL SISTEMA DE GESTION DE LA ESCUELA DE TRANSPORTE</h1>
+            <hr>
         </div>
         <div class="container">
             <div class="cursos">
