@@ -1,34 +1,46 @@
 .body {
   font-family: 'Poppins', sans-serif;
   background-color: #F7F9F9;
-  padding: 50px;
+  width: calc(100% - 300px);
+  float: right;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
 }
 
 .container {
-  max-width: 500px;
-  margin: 0 auto;
-  background-color: #F7F9F9;
+  border: 1px #eee solid;
   padding: 20px;
-  border-radius: 4px;
-  margin-left: 600px;
-
+  border-radius: 8px;
+  background-color:#0979b0 ;
 }
 
 h1 {
   text-align: center;
   margin-bottom: 20px;
-  color: hsl(209.8, 100%, 29.61%);
+  color: #ffff;
   font-size: 32px;
 }
 
 .input-box {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
+  color: white;
+  justify-content: center;
+  gap: 20px;
 }
 
 .input-box .group {
-  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .input-box .group label {
@@ -38,21 +50,22 @@ h1 {
 
 .input-box .group input[type="text"],
 .input-box .group input[type="password"] {
-  width: 100%;
-  padding: 5px;
-  font-size: 10px;
+  width: 180px;
+  padding: 4px 10px;
+  font-size: 14px;
   background-color:#F7F9F9;
   border: 1px solid hsl(209.8, 100%, 29.61%);
 }
 
-.group {
+.group.gender {
   display: flex;
   align-items: center;
-  margin-top: 10px;
+  flex-direction: column;
+  color: white;
 }
 
-.group label {
-  margin-right: 5px;
+.group.gender span,.group.gender > label {
+  font-size: 16px;
 }
 
 .group input[type="radio"] {
@@ -64,17 +77,17 @@ h1 {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  gap: 24px;
 }
 
 .btns button {
   padding: 10px 20px;
-  background-color: hsl(209.8, 100%, 29.61%);
+  background-color: #0E264A;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 12px;
-  margin-right: 5px;
+  font-size: 16px;
 }
 
 .btns button:last-child {
@@ -85,7 +98,7 @@ label span {
   color: red;
 }
 
-p{
+p {
   color: red;
 }
 
