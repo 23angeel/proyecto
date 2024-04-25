@@ -25,23 +25,26 @@ if ($_SESSION['rol']== 1) {
 <div class="body">
   <div class="container">
     <form method="POST" action="./php/guardar_usuario.php" name="registro" autocomplete="off">
-      <h1>CREAR USUARIO</h1>
+      <h1>Crear usuario</h1>
 
       <div class="input-box">
         <div class="group">
-          <label for="usuario">USUARIO<span>*</span></label>
+          <label for="usuario">Usuario<span>*</span></label>
           <input required minlength="1" type="text" id="usuario" name="name" maxlength="30">
         </div>
         <div class="group">
-          <label for="password">CONTRASEÑA<span>*</span></label>
+          <label for="password">Contraseña<span>*</span></label>
           <input required type="text" id="password" name="password">
         </div>
       </div>
       
-      <div class="group">
-        <label>ROL EN EL SISTEMA<span>*</span></label><br>
-        <span>ADMINISTRADOR<input required type="radio" name="tipo" value="1"> </span>
-        <span>USUARIO<input class="input-2" required type="radio" name="tipo" value="2"></span><br><br>
+      <div class="group gender">
+        <label>Rol del sistema<span>*</span></label>
+
+        <div>
+          <label>Administrador<input required type="radio" name="tipo" value="1"> </label>
+          <label>Usuario<input class="input-2" required type="radio" name="tipo" value="2"></label><br><br>
+        </div>
       </div>
 
       <p>Los campos obligatorios están marcados con un asterisco rojo *</p>
