@@ -56,7 +56,7 @@ class PDF extends FPDF
         $inscripcion=$datos['estudiantes_inscripcion'];
    }
 
-      $this->Image('logo.jpeg', 230, 10, 60); //logo de la empresa,moverDerecha,moverAbajo,tamañoIMG
+      $this->Image('logouni.jpg', 240, 5, 50); //logo de la empresa,moverDerecha,moverAbajo,tamañoIMG
       $this->SetFont('Arial', 'B', 19); //tipo fuente, negrita(B-I-U-BIU), tamañoTexto
       $this->Cell(95); // Movernos a la derecha
       $this->SetTextColor(0, 0, 0); //color
@@ -174,17 +174,18 @@ class PDF extends FPDF
       $this->Cell(80, 10, utf8_decode('EVALUACION PRACTICA'), 1, 1, 'C', 1);
    }
 
-   // Pie de página
+    // Pie de página
    function Footer()
    {
-    $this->SetY(-35); // Posición: a 1,5 cm del final
+
+      $this->SetY(-35); // Posición: a 1,5 cm del final
       $this->SetFont('Arial', 'I', 8); //tipo fuente, negrita(B-I-U-BIU), tamañoTexto
       $this->Cell(0, 10, utf8_decode('___________________'), 0, 0, 'C'); //pie de pagina(numero de pagina)
 
       $this->SetY(-30); // Posición: a 1,5 cm del final
       $this->SetFont('Arial', 'I', 8); //tipo fuente, negrita(B-I-U-BIU), tamañoTexto
       $this->Cell(0, 10, utf8_decode('FIRMA '), 0, 0, 'C'); //pie de pagina(numero de pagina)
-      
+
       $this->SetY(-15); // Posición: a 1,5 cm del final
       $this->SetFont('Arial', 'I', 8); //tipo fuente, negrita(B-I-U-BIU), tamañoTexto
       $this->Cell(0, 10, utf8_decode('8 Carr. Panamericana, Caracas 1000, Distrito Capital '), 0, 0, 'C'); //pie de pagina(numero de pagina)
@@ -229,4 +230,4 @@ $pdf->Cell(80, 10, utf8_decode($practica), 1, 1, 'C', 0);
 }
 
 
-$pdf->Output('Prueba2.pdf', 'I');//nombreDescarga, Visor(I->visualizar - D->descargar)
+$pdf->Output('Estudiantes.pdf', 'I');//nombreDescarga, Visor(I->visualizar - D->descargar)

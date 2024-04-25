@@ -27,7 +27,7 @@ class PDF extends FPDF
          $año=$datos['curso_año'];
       }
 
-      $this->Image('logo.jpeg', 210, 12, 60); //logo de la empresa,moverDerecha,moverAbajo,tamañoIMG
+      $this->Image('logouni.jpg', 240, 5, 50); //logo de la empresa,moverDerecha,moverAbajo,tamañoIMG
       $this->SetFont('Arial', 'B', 19); //tipo fuente, negrita(B-I-U-BIU), tamañoTexto
       $this->Cell(95); // Movernos a la derecha
       $this->SetTextColor(0, 0, 0); //color
@@ -129,4 +129,4 @@ $pdf->Cell(80, 10, utf8_decode($practica), 1, 1, 'C', 0);
 }
 
 
-$pdf->Output('Prueba2.pdf', 'I');//nombreDescarga, Visor(I->visualizar - D->descargar)
+$pdf->Output('cursos.pdf', 'I');//nombreDescarga, Visor(I->visualizar - D->descargar)
