@@ -18,7 +18,7 @@
 		});
 	</script>
 </head>
-<?php
+<?php 
 	require_once "./php/main.php";
 
 	$id = (isset($_GET['curso_id_up'])) ? $_GET['curso_id_up'] : 0;
@@ -37,46 +37,91 @@
         $trayecto=$datos['curso_mes'].$datos['curso_año'];
 
 ?>
-<form method="post" action="./php/matricular_estudiante.php">
-	<h1>Matricular Estudiantes</h1>
-	<table id="tabla">
-		<thead>
-			<tr>
-				<th>Estudiante</th>
-				<th>Curso</th>
-			</tr>
-		</thead>
-        <tbody>
-        	<tr>
-        		<td><select name="estudiante[]">
-					<option>Seleccionar Estudiante</option>
-					<?php
-					require_once "./php/main.php";
-					$estudiante=conexion();
-					$estudiante=$estudiante->query("SELECT * FROM estudiantes ORDER BY estudiantes_cedula");
-					while($datos=$estudiante->fetch()){
-						$ide=$datos['estudiantes_id'];
-						$nombres=$datos['estudiantes_nombres'];
-						$apellidos=$datos['estudiantes_apellidos'];
-						$cedula=$datos['estudiantes_n'].$datos['estudiantes_cedula'];
-					?>
-					<option value="<?php echo $ide;?>"><?php echo $cedula." ".$nombres." ".$apellidos;?></option>
-					<?php
-					}
-					?>
-				</select></td>
-				<td><?php echo $curso." ".$grado." ".$trayecto; ?>
-        		<input type="hidden" name="curso[]" value="<?php echo $id?>">
-				<input type="hidden" name="teorica[]" value="0" required>
-				<input type="hidden" name="practica[]" value="0" required></td>
-				<td class="eliminar"><input type="button" value="Menos -"></td>
-			</tr>
-		</tbody>
-    </table><br>
+<h1>Matricular Estudiantes</h1>
+<label>¿CUANTOS ESTUDIANTES QUIERE MATRICULAR?</label>
+<input type="radio" value="uno" name="matricula" onclick="matricula(this)"> UN ESTUDIANTE
+<input type="radio" value="mas" name="matricula" onclick="matricula(this)"> MAS DE UN ESTUDIANTE
 
-	<button id="adicional" name="adicional" type="button" class="btn btn-warning">Más +</button><br>
-	<input type="submit" name="insertar" value="Matricular" class="btn btn-matricular" />
-</form>
+<div id="uno" style="display:none">
+	<form method="post" action="./php/matricular.php">
+		<table>
+			<thead>
+				<tr>
+					<th>Estudiante</th>
+					<th>Curso</th>
+				</tr>
+			</thead>
+	        <tbody>
+	        	<tr>
+	        		<td><select name="estudiante">
+						<option>Seleccionar Estudiante</option>
+						<?php
+						require_once "./php/main.php";
+						$estudiante=conexion();
+						$estudiante=$estudiante->query("SELECT * FROM estudiantes ORDER BY estudiantes_cedula");
+						while($datos=$estudiante->fetch()){
+							$ide=$datos['estudiantes_id'];
+							$nombres=$datos['estudiantes_nombres'];
+							$apellidos=$datos['estudiantes_apellidos'];
+							$cedula=$datos['estudiantes_n'].$datos['estudiantes_cedula'];
+						?>
+						<option value="<?php echo $ide;?>"><?php echo $cedula." ".$nombres." ".$apellidos;?></option>
+						<?php
+						}
+						?>
+					</select></td>
+					<td><?php echo $curso." ".$grado." ".$trayecto; ?>
+	        		<input type="hidden" name="curso" value="<?php echo $id?>">
+					<input type="hidden" name="teorica" value="0" required>
+					<input type="hidden" name="practica" value="0" required></td>
+				</tr>
+			</tbody>
+	    </table><br>
+		<input type="submit" name="insertar" value="Matricular" class="btn btn-matricular" />
+	</form>
+</div>
+
+<div id="mas" style="display:none">
+	<form method="post" action="./php/matricular_estudiante.php">
+		<table id="tabla">
+			<thead>
+				<tr>
+					<th>Estudiante</th>
+					<th>Curso</th>
+				</tr>
+			</thead>
+	        <tbody>
+	        	<tr>
+	        		<td><select name="estudiante[]">
+						<option>Seleccionar Estudiante</option>
+						<?php
+						require_once "./php/main.php";
+						$estudiante=conexion();
+						$estudiante=$estudiante->query("SELECT * FROM estudiantes ORDER BY estudiantes_cedula");
+						while($datos=$estudiante->fetch()){
+							$ide=$datos['estudiantes_id'];
+							$nombres=$datos['estudiantes_nombres'];
+							$apellidos=$datos['estudiantes_apellidos'];
+							$cedula=$datos['estudiantes_n'].$datos['estudiantes_cedula'];
+						?>
+						<option value="<?php echo $ide;?>"><?php echo $cedula." ".$nombres." ".$apellidos;?></option>
+						<?php
+						}
+						?>
+					</select></td>
+					<td><?php echo $curso." ".$grado." ".$trayecto; ?>
+	        		<input type="hidden" name="curso[]" value="<?php echo $id?>">
+					<input type="hidden" name="teorica[]" value="0" required>
+					<input type="hidden" name="practica[]" value="0" required></td>
+					<td class="eliminar"><input type="button" value="Menos -"></td>
+				</tr>
+			</tbody>
+	    </table><br>
+
+		<button id="adicional" name="adicional" type="button" class="btn btn-warning">Más +</button><br>
+		<input type="submit" name="insertar" value="Matricular" class="btn btn-matricular" />
+	</form>
+</div>
 <?php
 	}else{
 		echo '
@@ -88,3 +133,17 @@
 	}
 	$check_curso=null;
 ?>
+
+<script>
+	function matricula(elemento) {
+		    if(elemento.value=="uno") {
+		      document.getElementById("uno").style.display = "block";
+		      document.getElementById("mas").style.display = "none";
+		    }else{
+		      if(elemento.value=="mas"){
+		        document.getElementById("uno").style.display = "none"; 
+		        document.getElementById("mas").style.display = "block";
+		      }
+		    }
+		  }
+</script>
