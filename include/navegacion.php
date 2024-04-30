@@ -5,12 +5,12 @@
     <ul class="dropdown" id="menu">
 
         <li>
-            <a href="#" class="logo">
-                <img src="./Imagenes/zyro-image (2).png">
+            <a href="index.php?vista=home" class="logo">
+                <img src="./Imagenes/Diseño sin título (2).png">
                 <span href="index.php?vista=home" class="nav__link">Escuela de Transporte</span>
             </a>
         </li>
-
+        
          <?php
             if ($_SESSION['rol']==1) {
                 ?>
@@ -108,5 +108,4 @@
     </ul>
 </div>
 </nav>
-
 <script src="./js/print_pdf.js"></script>

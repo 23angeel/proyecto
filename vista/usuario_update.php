@@ -37,7 +37,7 @@ if ($_SESSION['rol']== 1) {
 	</div>
 
 	<a>
-				SI desea actualizar la clave de este usuario por favor llene el campo. Si NO desea actualizar la clave deje el campo vacíos.
+				SI desea actualizar la clave de este usuario por favor llene el campo. Si NO desea actualizar la clave deje el campo vacio.
 			</a><br>
 			
 		<div class="group">

@@ -27,7 +27,7 @@
       <input type="radio" value="otro" name="curso" onclick="mostrarcurso(this)"> Otro
 
       <div id="grado" style="display:none">
-        <form method="post" action="./php/curso_guardar.php" autocomplete="off" enctype="multipart/form-data">
+        <form method="post" action="./php/curso_guardar.php" autocomplete="off" enctype="multipart/form-data"><br>
           <div class="btns">
             <label for="curso">NOMBRE DEL CURSO <span>*</span></label>
             <input required minlength="1" type="text" id="curso" name="name" maxlength="150">
