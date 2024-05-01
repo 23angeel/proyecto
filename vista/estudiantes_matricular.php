@@ -37,11 +37,16 @@
         $trayecto=$datos['curso_mes'].$datos['curso_año'];
 
 ?>
+
+
 <h1>Matricular Estudiantes</h1>
+<div class="opciones">
 <label>¿CUANTOS ESTUDIANTES QUIERE MATRICULAR?</label>
+<div class="op">
 <input type="radio" value="uno" name="matricula" onclick="matricula(this)"> UN ESTUDIANTE
 <input type="radio" value="mas" name="matricula" onclick="matricula(this)"> MAS DE UN ESTUDIANTE
-
+</div>
+</div>
 <div id="uno" style="display:none">
 	<form method="post" action="./php/matricular.php">
 		<table>

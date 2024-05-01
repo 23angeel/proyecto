@@ -67,6 +67,22 @@ h1 {
   font-size: 32px;
   margin-bottom: 10px;
   color: hsl(209.8, 100%, 29.61%);
+  margin-left: 500px;
+  margin-top: 30px;
+}
+
+.opciones {
+  margin-top: 25px;
+  margin-bottom: 15px;
+  margin-left: 750px;
+}
+
+.opciones label {
+  display: block;
+}
+
+.opciones input[type="radio"] {
+  margin-right: 10px;
 }
 
 .btn {
