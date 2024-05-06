@@ -37,14 +37,14 @@
             echo'
             <script>
                 alert("Los estudiantes se matricularon con exito");
-                window.location = "index.php?vista=cursos_list"
+                window.location = "../index.php?vista=cursos_list"
             </script>
             ';
         }else{
             echo'
             <script>
                 alert("No se pudo matricular a los  estudiantes");
-                window.location = "index.php?vista=cursos_list"
+                window.location = "../index.php?vista=cursos_list"
             </script>
             ';
         }

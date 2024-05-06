@@ -26,7 +26,7 @@
          echo '
                <script>
                    alert("El estudiante no existe en el sistema");
-                   window.location = "index.php?vista=home"
+                   window.location = "../index.php?vista=home"
                </script>
            ';
            exit();
