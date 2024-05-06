@@ -24,6 +24,21 @@
   position: relative;
   top: -31px;
   left: 900px;
+  display: inline-block;
+  background-color:  hsl(209.8, 100%, 29.61%);
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.button a {
+  color: white;
+  text-decoration: none;
+}
+
+.button a:hover {
+  text-decoration: underline;
 }
 
 .grado{
