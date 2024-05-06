@@ -7,7 +7,7 @@
 	// Verificar el estudiante
 	$check_estudiante=conexion();
 	$check_estudiante=$check_estudiante->query("SELECT * FROM estudiantes WHERE estudiantes_id='$id'");
-	if ($check_estudiante->rowCount()<=0) {
+	if ($check_estudiante->rowCount()<=0) { 
 		echo '
             <script>
                 alert("El estudiante no existe en el sistema");
@@ -19,7 +19,7 @@
 		$datos=$check_estudiante->fetch();
 	}
 	$check_estudiante=null;
-
+ 
 	#Almacenando datos
 	$fecha_registro = limpiar_cadena($_POST['inscripcion']);
    	$nombre = limpiar_cadena($_POST['name']);
@@ -65,7 +65,7 @@
 
     #EDITAR DATOS
     $editar_estudiante=conexion();
-    $editar_estudiante=$editar_estudiante->prepare("UPDATE estudiantes SET estudiantes_cedula=:cedula, estudiantes_n=:n, estudiantes_nombres=:nombre,estudiantes_apellidos=:apellidos, estudiantes_naciemineto=:fecha_nacimiento, estudiantes_sexo=:sexo, estudiantes_habitacion=:habitacion, estudiantes_celular=:celular, estudiantes_oficia=:oficina,estudiantes_otro=:otro, estudiantes_correo=:correo, estudiantes_correo2=:correo2, estudiantes_direccion=:direcion, estudiantes_inscripcion=:direcion WHERE estudiantes_id=:id");
+    $editar_estudiante=$editar_estudiante->prepare("UPDATE estudiantes SET estudiantes_cedula=:cedula, estudiantes_n=:n, estudiantes_nombres=:nombre,estudiantes_apellidos=:apellidos, estudiantes_naciemineto=:fecha_nacimiento, estudiantes_sexo=:sexo, estudiantes_habitacion=:habitacion, estudiantes_celular=:celular, estudiantes_oficia=:oficina,estudiantes_otro=:otro, estudiantes_correo=:correo, estudiantes_correo2=:correo2, estudiantes_direccion=:direcion, estudiantes_inscripcion=:fecha_registro WHERE estudiantes_id=:id");
     
     $marcadores=[
         ":id"=>$id, 

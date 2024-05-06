@@ -17,7 +17,7 @@
     if (!isset($_GET['page'])) {
         $pagina=1;
     }else{
-        $pagina=(int) $_GET['page'];
+        $pagina=(int) $_GET['page']; 
         if($pagina<=1){
             $pagina=1;
         }
@@ -26,7 +26,7 @@
 
     $pagina=limpiar_cadena($pagina);
     $url="index.php?vista=estudiantes_list&page=";
-    $registros=15;
+    $registros=10;
     $busqueda="";
 
     require_once './php/estudiantes_lista.php';

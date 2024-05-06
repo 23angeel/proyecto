@@ -4,7 +4,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,100&display=swap" rel="stylesheet">
-</head>
+</head> 
 <script type="text/javascript">
   function mostrarcurso(elemento) {
     if(elemento.value=="licencia") {
@@ -77,7 +77,7 @@
       </div>
 
       <div id="no" style="display:none">
-        <form method="post" action="./php/curso_guardar.php" autocomplete="off" enctype="multipart/form-data">
+        <form method="post" action="./php/curso_guardar.php" autocomplete="off" enctype="multipart/form-data"><br>
           <div class="btns">
             <label for="curso">NOMBRE DEL CURSO <span>*</span></label>
             <input required minlength="1" type="text" id="curso" name="name" maxlength="150">

@@ -36,8 +36,8 @@
     }
 
     $pagina=limpiar_cadena($pagina);
-    $url="index.php?vista=estudiantes_cursos_list&page=";
-    $registros=15;
+    $url="index.php?vista=control_studies&curso_id_up=".$id."&page=";
+    $registros=5;
     $busqueda="";
     require_once './php/estudiantes_control.php';
 ?>
