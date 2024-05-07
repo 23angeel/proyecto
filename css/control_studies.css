@@ -1,14 +1,19 @@
-.content {
-  display: flex;
-  float: right;
-  align-items: center;
-  min-height: 100vh;
-  width: calc(100% - 300px);
-  flex-direction: column;
-  margin-top: 50px;
-  gap: 30px;
-  
+*{
+  box-sizing:border-box;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
 }
+
+.content {
+ width: calc(100% - 270px);
+   min-height: 100vh;
+   margin-top: 50px;
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   float: right;
+}
+
 
 h1 {
   font-size: 32px;
@@ -22,10 +27,13 @@ input {
   border: 1px solid hsl(209.8deg 100% 29.61%);
 }
 
-body {
-  overflow: hidden;
-  
-}
+.form {
+  display: flex;
+  flex-direction: column;  
+  align-items: center;
+  gap: 30px;
+  min-width: 550px;
+} 
 
 form:has(.table) {
   min-width: calc(80%);
@@ -37,6 +45,8 @@ button {
   background-color: hsl(209.8deg 100% 29.61%);
   color: #fff;
   border-radius: 5px;
+  margin-left:400px;
+  margin-bottom: 40px;
 }
 
 .table, .tbody, th, td, tr {
@@ -90,14 +100,77 @@ button {
   width: 80%;
 }
 
-.paginator {
-  display: flex;
-  gap: 10px;
-}
-
 .actions{
   display: flex;
   justify-content: center;
   gap: 25px;
   height: 56px;
+}
+
+.paginator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.paginator a,
+.paginator span {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #e0e0e0;
+  color: #333;
+  text-decoration: none;
+  margin-right: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.paginator a:hover,
+.paginator span:hover {
+  background-color: #ccc;
+}
+
+.paginator a.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.paginator-prev,
+.paginator-next {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.paginator-prev:hover,
+.paginator-next:hover {
+  background-color: #e0e0e0;
+}
+
+.paginator-list {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.paginator-list li {
+  margin-right: 5px;
+}
+
+.paginator-list span {
+  background-color: transparent;
+  color: #333;
+  cursor: default;
+}
+
+.paginator-list a {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.paginator-list a.current {
+  background-color: #ccc;
 }

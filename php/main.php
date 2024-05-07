@@ -46,56 +46,53 @@
 	}
 
 	# Funcion paginador de tablas #
-	function paginador_tablas($pagina, $Npaginas, $url, $botonoes){
-		$tabla='<nav class="paginator">';
-
-		if($pagina<=1){
-			$tabla.='
-			<a>Anterior</a>
-			<ul>
-			';
-
-		}else{
-			$tabla.='
-			<a disabled href="'.$url.($pagina-1).'">Anterior</a>
-			<ul>
-				<li><a href="'.$url.'1">1</a></li>
-				<li><span>&hellip;</span></li>
-			';
+	function paginador_tablas($pagina, $Npaginas, $url, $botonoes, $clase = 'paginator') {
+		$tabla = '<nav class="' . $clase . '">';
+	
+		if ($pagina <= 1) {
+			$tabla .= '<a class="paginator-prev disabled">Anterior</a>';
+		} else {
+			$tabla .= '<a class="paginator-prev" href="' . $url . ($pagina - 1) . '">Anterior</a>';
 		}
-
-		$ci=0;
-		for($i=$pagina; $i<=$Npaginas; $i++){
-			if($ci>=$i){
-				break;
+	
+		$tabla .= '<ul class="paginator-list">';
+	
+		if ($pagina > 1) {
+			$tabla .= '<li><a href="' . $url . '1">1</a></li>';
+			if ($pagina > 4) {
+				$tabla .= '<li><span>&hellip;</span></li>';
 			}
-			if($pagina==$i){
-				$tabla.='<li><a href="'.$url.$i.'">'.$i.'</a></li>';
-			}else{
-				$tabla.='<li><a href="'.$url.$i.'">'.$i.'</a></li>';
+		}
+	
+		$start = max(2, $pagina - 2);
+		$end = min($Npaginas - 1, $pagina + 2);
+	
+		for ($i = $start; $i <= $end; $i++) {
+			if ($pagina == $i) {
+				$tabla .= '<li><a class="current" href="' . $url . $i . '">' . $i . '</a></li>';
+			} else {
+				$tabla .= '<li><a href="' . $url . $i . '">' . $i . '</a></li>';
 			}
-			$ci++;
 		}
-
-		if($pagina==$Npaginas){
-			$tabla.='
-			</ul>
-			<a disabled >Siguiente</a>
-			';
-		}else{
-			$tabla.='
-				<li><span>&hellip;</span></li>
-				<li><a href="'.$url.$Npaginas.'">'.$Npaginas.'</a></li>
-			</ul>
-			<a href="'.$url.($pagina+1).'" >Siguiente</a>
-			';
+	
+		if ($pagina < $Npaginas) {
+			if ($pagina < $Npaginas - 3) {
+				$tabla .= '<li><span>&hellip;</span></li>';
+			}
+			$tabla .= '<li><a href="' . $url . $Npaginas . '">' . $Npaginas . '</a></li>';
 		}
-
-		$tabla.='</nav>';
+	
+		$tabla .= '</ul>';
+	
+		if ($pagina >= $Npaginas) {
+			$tabla .= '<a class="paginator-next disabled">Siguiente</a>';
+		} else {
+			$tabla .= '<a class="paginator-next" href="' . $url . ($pagina + 1) . '">Siguiente</a>';
+		}
+	
+		$tabla .= '</nav>';
 		return $tabla;
-
 	}
-
 	# Funcion renombrar fotos #
 	function renombrar_fotos($nombre){
 		$nombre=str_ireplace(" ", "_", $nombre);
