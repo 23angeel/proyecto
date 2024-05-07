@@ -2,9 +2,9 @@
 	require_once "../include/session_start.php";
 	require_once "main.php";
 
-	$id=limpiar_cadena($_POST['usuario_id']);
+	$id=limpiar_cadena($_POST['usuario_id']); 
 
-	// Verificar el usuario 
+	// Verificar el usuario  
 	$check_usuario=conexion();
 	$check_usuario=$check_usuario->query("SELECT * FROM usuarios WHERE usuario_id='$id'");
 	if ($check_usuario->rowCount()<=0) {
@@ -20,8 +20,8 @@
 	}
 	$check_usuario=null;
 
-	$admin_usuario=limpiar_cadena($_POST['usuario']);
-	$admin_contraseña=limpiar_cadena($_POST['clave']);
+	$admin_usuario=limpiar_cadena($_POST['nombre']);
+	$admin_contraseña=limpiar_cadena($_POST['contraseña']);
 
 	//Verificar campos obligatorios
 	if ($admin_usuario=="" || $admin_contraseña=="") {
@@ -103,7 +103,7 @@
 
     //Editar datos
     $editar_usuario=conexion();
-    $editar_usuario=$editar_usuario->prepare("UPDATE usuarios SET usuario_usuario=:usuario, usuario_contrasena=:contrasena, usuario_rol=:clase WHERE usuario_id=:id");
+    $editar_usuario=$editar_usuario->prepare("UPDATE usuarios SET usuario_usuario=:usuario, usuario_contrasena=:contrasena, rol_id=:clase WHERE usuario_id=:id");
 
     $marcadores=[
     	":id"=>$id,
