@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-03-2024 a las 23:44:41
+-- Tiempo de generación: 07-05-2024 a las 06:37:42
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -41,13 +41,8 @@ CREATE TABLE `cursos` (
 --
 
 INSERT INTO `cursos` (`curso_id`, `curso_nombre`, `curso_grado`, `curso_mes`, `curso_año`, `curso_foto`) VALUES
-(2, 'Licencia', 3, 'Marzo', '2023', ''),
-(3, 'Manejo', 0, 'Enero', '2023', ''),
-(4, 'Camion', 0, 'Enero', '2025', 'Camion_65.jpg'),
-(5, 'Moto', 3, 'Marzo', '2026', ''),
-(6, 'Camionetica', 0, 'Enero', '2024', ''),
-(7, 'Licencia Moto', 3, 'Enero', '2025', ''),
-(8, 'CARRITO', 0, 'MARZO', '2024', '');
+(11, 'FACILITADORES EN TRANSPORTE TERRESTRE', 0, 'ABRIL', '2024', ''),
+(12, 'TSP CARGA PESADA', 0, 'ABRIL', '2024', '');
 
 -- --------------------------------------------------------
 
@@ -78,8 +73,18 @@ CREATE TABLE `estudiantes` (
 --
 
 INSERT INTO `estudiantes` (`estudiantes_id`, `estudiantes_cedula`, `estudiantes_n`, `estudiantes_nombres`, `estudiantes_apellidos`, `estudiantes_naciemineto`, `estudiantes_sexo`, `estudiantes_habitacion`, `estudiantes_celular`, `estudiantes_oficia`, `estudiantes_otro`, `estudiantes_correo`, `estudiantes_correo2`, `estudiantes_direccion`, `estudiantes_inscripcion`) VALUES
-(8, '45180180', 'V-', 'PEPE', 'PEREZ', '2024-03-05', 'M', '0412-1234567', '', '', '0414-1234567', 'pepe@gmail.com', '', 'CARACAS', '2024-03-15'),
-(13, '30715180', 'V-', 'ANGEL', 'PEREZ', '2024-03-06', 'M', '0412-2511131', '0424-1906240', '', '', 'angeldavid957@gmail.com', '', 'CARACAS', '2024-03-14');
+(14, '19686101', 'V-', 'RUTH', 'CRESPO', '2002-06-19', 'F', '0414-1233225', '', '', '', 'rutcrespo@gmail.com', '', 'CARACAS', '2024-01-18'),
+(15, '2309015', 'V-', 'RAMON', 'CRESPO', '1997-05-27', 'M', '0412-4845110', '0424-7654329', '', '', 'Ramoncrespo@gmail.com', '', 'LOS TEQUES', '2024-02-16'),
+(17, '10327110', 'V-', 'DAVID', 'CHAVEZ', '1990-05-15', 'M', '', '0426-3387654', '', '', 'david@gmail.com', '', 'CARACAS', '2024-01-16'),
+(18, '9230653', 'V-', 'DISBELTHER', 'RIVERA', '1989-06-15', 'M', '', '0414-2348790', '', '', 'diesbel@gmail.com', '', 'LOS TEQUES', '2024-01-21'),
+(19, '12464009', 'V-', 'KEY', 'HERNANDEZ', '1996-02-22', 'F', '0412-4657623', '0424-1926341', '', '', 'riverakey@gmail.com', '', 'CARACAS', '2023-12-15'),
+(20, '759002', 'V-', 'JOSE NAPOLEON', 'RINCONES ALCAZA', '1983-06-23', 'M', '-Seleccione-', '0412-1812714', '', '', 'napoleon@gmail.com', '', 'CARACAS', '2023-12-09'),
+(21, '14710.337', 'V-', 'CARLOS LUIS', 'FUENTES', '1996-06-15', 'M', '0412-324568', '', '', '', 'carlosfuentes@gmail.com', '', 'CARACAS', '2024-01-19'),
+(22, '3548677', 'V-', 'TERESA SOCORRO', 'CAMPOS MONTESINOS', '1970-06-16', 'F', '-Seleccione-', '0414-1675432', '', '', 'teresacampos@gmail.com', '', 'LOS TEQUES', '2023-11-16'),
+(23, '16042091', 'V-', 'JENNIFER NATALIT', 'ALFONZO ALVAREZ', '1990-02-24', 'F', '-Seleccione-', '0414-342786', '', '', 'jenniferalfonzo@gmail.com', '', 'CARACAS', '2024-02-03'),
+(24, '11401852', 'V-', 'ALEXANDER ENRIQUE', 'GARCIA QUINTERO', '2024-01-10', 'M', '0414-2453421', '', '', '', 'alexandergarcia@gmail.com', '', 'CARACAS', '2024-01-12'),
+(25, '13795019', 'V-', 'JUAN CARLOS', 'RINCONES MAROTTA', '1995-02-16', 'M', '-Seleccione-', '0424-1807230', '', '', 'carlosjuan@gmail.com', '', 'LOS TEQUES', '2024-01-19'),
+(26, '13938837', 'V-', 'VIRGINIA', 'ROA', '1992-10-14', 'F', '0414-5436789', '', '', '', 'virginiaroa@gmail.com', '', 'CARACAS', '2024-01-12');
 
 -- --------------------------------------------------------
 
@@ -94,6 +99,24 @@ CREATE TABLE `estudiantes_cursos` (
   `evaluacion_teorica` varchar(50) NOT NULL,
   `evaluacion_practica` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `estudiantes_cursos`
+--
+
+INSERT INTO `estudiantes_cursos` (`id`, `id_curso`, `id_estudiante`, `evaluacion_teorica`, `evaluacion_practica`) VALUES
+(69, 11, 17, '15', '18'),
+(70, 11, 24, '20', '19'),
+(71, 11, 19, '20', '15'),
+(72, 11, 25, '20', '20'),
+(73, 11, 26, '0', '0'),
+(74, 11, 21, '20', '18'),
+(75, 11, 23, '20', '18'),
+(76, 11, 14, '15', '18'),
+(77, 11, 15, '10', '18'),
+(78, 11, 22, '20', '20'),
+(79, 11, 20, '20', '20'),
+(80, 11, 18, '20', '18');
 
 -- --------------------------------------------------------
 
@@ -133,9 +156,9 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`usuario_id`, `usuario_usuario`, `usuario_contrasena`, `rol_id`) VALUES
 (3, 'Angel', '$2y$10$dfhg3yu82X.3oe0bvlybkeRn2RtwNkrKcVALHZOnliJor/lCFju/m', 1),
-(4, 'Angel3', '$2y$10$54sTYptYgkAyRuCwH.p1uueI6k6F18fK6ihJ0cqHinmzVe4gNB.WS', 2),
-(9, 'Angel2', '$2y$10$U7Jua5eckJfuxYQfXhBB0ej3/arqVkYeuMMdFmIME2eLq8SP6UIDa', 2),
-(10, 'Angel4', '$2y$10$mzifkfhFd0P6AqTmRaNV9.iBbjsJL4epHv9KKMoao2wgAN/q2QoiO', 1);
+(12, 'Juan', '$2y$10$vEyHAG.363OB20Zr4fwZt.JXYHeXxqwCLf8J7w6sHdpRShGgPm7Py', 1),
+(13, 'Saraid', '$2y$10$yi0Av11BW8AD6UP48k0ceO4UyumC.JptfhMSc07Zr9yR5jHk6ShoG', 1),
+(14, 'Angel3', '$2y$10$sojTSrbcjgXLl41M/kucqeALH2yJIqQHd5qNKNeh1R2bvrbpWCgae', 2);
 
 --
 -- Índices para tablas volcadas
@@ -183,19 +206,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `cursos`
 --
 ALTER TABLE `cursos`
-  MODIFY `curso_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `curso_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `estudiantes`
 --
 ALTER TABLE `estudiantes`
-  MODIFY `estudiantes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `estudiantes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `estudiantes_cursos`
 --
 ALTER TABLE `estudiantes_cursos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
@@ -207,7 +230,7 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `usuario_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `usuario_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Restricciones para tablas volcadas
