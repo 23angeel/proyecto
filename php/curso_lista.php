@@ -34,7 +34,7 @@
         </thead>
         <tbody class="tbody">
 	';
-	if($total>1 && $pagina<=$Npaginas){
+	if($total>=1 && $pagina<=$Npaginas){
 		$contador=$inicio+1;
 		$paginador_inicial=$inicio+1;
 		foreach($datos as $filas) {
